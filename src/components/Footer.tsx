@@ -7,11 +7,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="text-2xl font-bold bg-accent-gradient bg-clip-text text-transparent mb-4">
-              Alex Johnson
+              Puspal Das
             </div>
             <p className="text-background/70 mb-6 max-w-md">
-              UI/UX Designer passionate about creating exceptional digital experiences 
-              that make a difference in people's lives.
+              Backend Developer passionate about building robust, scalable applications 
+              that power amazing digital experiences.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors">
@@ -53,7 +53,7 @@ const Footer = () => {
         
         <div className="border-t border-background/20 mt-12 pt-8 text-center">
           <p className="text-background/70">
-            © 2024 Alex Johnson. All rights reserved. Designed with ❤️ for amazing experiences.
+            © 2024 Puspal Das. All rights reserved. Designed with ❤️ for amazing experiences.
           </p>
         </div>
       </div>

@@ -13,8 +13,8 @@ const Hero = () => {
         <div className="text-white space-y-6 animate-fade-in-up">
           <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
             Hello, I'm <br />
-            <span className="text-accent">Alex Johnson</span> <br />
-            A UI UX Designer
+            <span className="text-accent">Puspal Das</span> <br />
+            Backend Developer
           </h1>
           
           <p className="text-lg text-white/90 max-w-lg">
@@ -37,7 +37,7 @@ const Hero = () => {
             <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float">
               <img 
                 src={profileImage} 
-                alt="Alex Johnson - UI/UX Designer" 
+                alt="Puspal Das - Backend Developer" 
                 className="w-full h-full object-cover"
               />
             </div>
