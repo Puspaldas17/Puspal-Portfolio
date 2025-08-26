@@ -18,8 +18,8 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg text-white/90 max-w-lg">
-            I create digital experiences that combine beautiful design with seamless functionality. 
-            Let's bring your vision to life with innovative design solutions.
+            I'm a developer who loves turning ideas into interactive digital experiences. 
+            From sleek web apps to system-level solutions, I combine code, creativity, and curiosity to build projects that are both functional and fun.
           </p>
           
           <div className="flex gap-4">

@@ -1,22 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Palette, Code, Smartphone } from "lucide-react";
+import { Server, Database, Code } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: <Palette className="w-8 h-8" />,
-      title: "UI UX Design",
-      description: "Creating intuitive and engaging user interfaces that provide exceptional user experiences across all platforms."
+      icon: <Server className="w-8 h-8" />,
+      title: "Backend Development",
+      description: "Building robust server-side applications with Node.js, Express, and modern backend technologies for scalable solutions."
+    },
+    {
+      icon: <Database className="w-8 h-8" />,
+      title: "Database Design",
+      description: "Designing and optimizing databases with MongoDB, MySQL, and PostgreSQL for efficient data storage and retrieval."
     },
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Frontend Development",
-      description: "Building responsive and interactive web applications using modern technologies and best practices."
-    },
-    {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile App Design",
-      description: "Designing mobile-first experiences that work seamlessly across iOS and Android platforms."
+      title: "MERN Stack Development",
+      description: "Full-stack development using MongoDB, Express.js, React, and Node.js to create complete web applications."
     }
   ];
 
@@ -28,7 +28,7 @@ const Services = () => {
             Expertise Service! Let's check it out
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I offer comprehensive design and development services to help bring your digital ideas to life with creativity and technical excellence.
+            I offer comprehensive backend development and full-stack services to help bring your digital ideas to life with robust, scalable solutions.
           </p>
         </div>
         

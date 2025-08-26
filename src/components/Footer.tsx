@@ -43,10 +43,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><span className="text-background/70">UI/UX Design</span></li>
-              <li><span className="text-background/70">Frontend Development</span></li>
-              <li><span className="text-background/70">Mobile App Design</span></li>
-              <li><span className="text-background/70">Prototyping</span></li>
+              <li><span className="text-background/70">Backend Development</span></li>
+              <li><span className="text-background/70">Database Design</span></li>
+              <li><span className="text-background/70">MERN Stack Development</span></li>
+              <li><span className="text-background/70">API Development</span></li>
             </ul>
           </div>
         </div>

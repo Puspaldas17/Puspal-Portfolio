@@ -9,29 +9,29 @@ const About = () => {
           <div className="space-y-8 animate-fade-in-up">
             <div>
               <h2 className="text-4xl font-bold mb-6">
-                Designing Solutions, Not Just Visuals
+                Building Solutions, Not Just Code
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                With over 5 years of experience in UI/UX design and frontend development, 
-                I specialize in creating digital experiences that not only look stunning but 
-                also solve real problems for users and businesses.
+                With over 1+ years of experience in backend development and MERN stack, 
+                I specialize in building robust and scalable web applications that not only perform 
+                excellently but also solve real problems for users and businesses.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My approach combines user research, creative design thinking, and technical 
-                expertise to deliver solutions that drive engagement and achieve business goals.
+                My approach combines clean code practices, modern technologies, and creative 
+                problem-solving to deliver solutions that drive engagement and achieve business goals.
               </p>
             </div>
             
             <div className="grid grid-cols-2 gap-6">
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">150+</div>
+                  <div className="text-3xl font-bold text-primary mb-2">10+</div>
                   <div className="text-sm text-muted-foreground">Projects Completed</div>
                 </CardContent>
               </Card>
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-accent mb-2">98%</div>
+                  <div className="text-3xl font-bold text-accent mb-2">95%</div>
                   <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                 </CardContent>
               </Card>
