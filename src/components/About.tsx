@@ -9,7 +9,7 @@ const About = () => {
           <div className="space-y-8 animate-fade-in-up">
             <div>
               <h2 className="text-4xl font-bold mb-6">
-                Crafting Digital Experiences That Matter
+                Behind the Code
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Hi, I'm Puspal Das, a passionate Backend Developer and MERN stack specialist based in Bhubaneswar, India. 
