@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import profileImage from "@/assets/profile-hero.jpg";
+const profileImageUrl = "/lovable-uploads/34b283d9-1d93-4bf3-a2d1-040d22502d48.png";
 
 const Hero = () => {
   return (
@@ -36,9 +36,9 @@ const Hero = () => {
           <div className="relative">
             <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl animate-float">
               <img 
-                src={profileImage} 
+                src={profileImageUrl} 
                 alt="Puspal Das - Backend Developer" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             
