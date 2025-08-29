@@ -9,16 +9,22 @@ const About = () => {
           <div className="space-y-8 animate-fade-in-up">
             <div>
               <h2 className="text-4xl font-bold mb-6">
-                Building Solutions, Not Just Code
+                Crafting Digital Experiences That Matter
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                With over 1+ years of experience in backend development and MERN stack, 
-                I specialize in building robust and scalable web applications that not only perform 
-                excellently but also solve real problems for users and businesses.
+                Hi, I'm Puspal Das, a passionate Backend Developer and MERN stack specialist based in Bhubaneswar, India. 
+                With expertise in JavaScript, Node.js, Express.js, React, and MongoDB, I transform complex ideas into 
+                elegant, scalable web applications that users love and businesses rely on.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                My journey in development is driven by a deep fascination with how technology can solve real-world problems. 
+                I believe in writing clean, maintainable code that not only works flawlessly but also tells a story of 
+                thoughtful engineering and user-centric design.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My approach combines clean code practices, modern technologies, and creative 
-                problem-solving to deliver solutions that drive engagement and achieve business goals.
+                What sets me apart is my blend of technical precision and creative problem-solving. Whether I'm architecting 
+                a robust API, optimizing database performance, or building seamless user interfaces, I approach each project 
+                with dedication, curiosity, and an unwavering commitment to quality that delivers genuine impact.
               </p>
             </div>
             
