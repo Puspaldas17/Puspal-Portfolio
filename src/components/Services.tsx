@@ -1,22 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Rocket, Code2, Brain } from "lucide-react";
+import { Zap, Target, Lightbulb } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Learning & Growing",
-      description: "Continuously expanding my skills in modern technologies like Node.js, React, and MongoDB. Always eager to take on new challenges and learn from every project."
+      icon: <Zap className="w-8 h-8" />,
+      title: "Performance Optimization",
+      description: "Delivering 40% faster load times by implementing efficient algorithms and database optimization techniques. I focus on writing code that scales and performs under pressure."
     },
     {
-      icon: <Code2 className="w-8 h-8" />,
-      title: "Web Development",
-      description: "Building responsive web applications using MERN stack. From creating APIs to designing user interfaces, I enjoy bringing ideas to life through code."
+      icon: <Target className="w-8 h-8" />,
+      title: "Business-Driven Solutions",
+      description: "Transforming business requirements into technical solutions that drive revenue. I understand that every line of code should serve a business purpose and create measurable value."
     },
     {
-      icon: <Brain className="w-8 h-8" />,
-      title: "Problem Solving",
-      description: "Strong analytical thinking and debugging skills. I love breaking down complex problems into smaller, manageable solutions and writing clean, maintainable code."
+      icon: <Lightbulb className="w-8 h-8" />,
+      title: "Innovation & Automation",
+      description: "Building smart automation tools that reduce manual work by 60%. I identify repetitive processes and create efficient solutions that save time and reduce human error."
     }
   ];
 
@@ -25,10 +25,10 @@ const Services = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4">
-            What I Bring to the Table
+            Delivering Impact Through Technology
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            As a fresh developer, I bring enthusiasm, modern skills, and a strong willingness to learn. Here's what I can offer to your team.
+            I don't just write code - I create solutions that drive business results. Here's how I add value to every project I work on.
           </p>
         </div>
         
