@@ -1,22 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Server, Database, Code } from "lucide-react";
+import { Rocket, Code2, Brain } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: <Server className="w-8 h-8" />,
-      title: "Backend Development",
-      description: "Building robust server-side applications with Node.js, Express, and modern backend technologies for scalable solutions."
+      icon: <Rocket className="w-8 h-8" />,
+      title: "Learning & Growing",
+      description: "Continuously expanding my skills in modern technologies like Node.js, React, and MongoDB. Always eager to take on new challenges and learn from every project."
     },
     {
-      icon: <Database className="w-8 h-8" />,
-      title: "Database Design",
-      description: "Designing and optimizing databases with MongoDB, MySQL, and PostgreSQL for efficient data storage and retrieval."
+      icon: <Code2 className="w-8 h-8" />,
+      title: "Web Development",
+      description: "Building responsive web applications using MERN stack. From creating APIs to designing user interfaces, I enjoy bringing ideas to life through code."
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "MERN Stack Development",
-      description: "Full-stack development using MongoDB, Express.js, React, and Node.js to create complete web applications."
+      icon: <Brain className="w-8 h-8" />,
+      title: "Problem Solving",
+      description: "Strong analytical thinking and debugging skills. I love breaking down complex problems into smaller, manageable solutions and writing clean, maintainable code."
     }
   ];
 
@@ -25,10 +25,10 @@ const Services = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4">
-            Expertise Service! Let's check it out
+            What I Bring to the Table
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I offer comprehensive backend development and full-stack services to help bring your digital ideas to life with robust, scalable solutions.
+            As a fresh developer, I bring enthusiasm, modern skills, and a strong willingness to learn. Here's what I can offer to your team.
           </p>
         </div>
         
