@@ -5,28 +5,32 @@ import { ExternalLink } from "lucide-react";
 const Portfolio = () => {
   const projects = [
     {
-      title: "E-commerce Dashboard",
-      category: "Web Application",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-      description: "Modern dashboard design for e-commerce analytics with intuitive data visualization."
+      title: "MediVault",
+      category: "Health Portal",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop",
+      description: "Secure health portal for managing medical records, booking appointments, and accessing health info.",
+      technologies: "HTML, JS, MySQL"
     },
     {
-      title: "Mobile Banking App",
-      category: "Mobile Design", 
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop",
-      description: "Secure and user-friendly mobile banking application with seamless UX."
+      title: "Google Maps Integration",
+      category: "Web Application", 
+      image: "https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=500&h=300&fit=crop",
+      description: "Web app with Google Maps API for interactive maps, markers, and location details.",
+      technologies: "HTML, CSS, JS"
     },
     {
-      title: "SaaS Landing Page",
-      category: "Web Design",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop", 
-      description: "High-converting landing page design for B2B SaaS platform."
+      title: "Class Manager",
+      category: "Educational Platform",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop", 
+      description: "Student-teacher portal with assignment upload, notice board, messaging, and marks tracking.",
+      technologies: "Django, HTML, CSS"
     },
     {
-      title: "Food Delivery App",
-      category: "Mobile Design",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=500&h=300&fit=crop",
-      description: "Intuitive food ordering app with real-time tracking and seamless checkout."
+      title: "Login & Sign-Up System",
+      category: "Authentication System",
+      image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=500&h=300&fit=crop",
+      description: "User authentication module with login, registration, email verification, and password reset.",
+      technologies: "PHP, MySQL, jQuery"
     }
   ];
 
@@ -62,7 +66,13 @@ const Portfolio = () => {
                   <span className="text-sm text-accent font-medium">{project.category}</span>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                <p className="text-muted-foreground leading-relaxed mb-3">{project.description}</p>
+                <div className="pt-3 border-t border-border/50">
+                  <div className="text-sm">
+                    <span className="font-medium text-foreground">Tech Stack: </span>
+                    <span className="text-muted-foreground">{project.technologies}</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ))}
