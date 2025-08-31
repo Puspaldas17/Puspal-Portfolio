@@ -79,8 +79,10 @@ const Portfolio = () => {
         </div>
         
         <div className="text-center">
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-card">
-            View All Projects
+          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-card" asChild>
+            <a href="https://github.com/Puspaldas17?tab=repositories" target="_blank" rel="noopener noreferrer">
+              View All Projects
+            </a>
           </Button>
         </div>
       </div>

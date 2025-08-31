@@ -26,8 +26,10 @@ const Hero = () => {
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent">
               View My Work
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-              Download CV
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+              <a href="/lovable-uploads/2330946a-5345-4afb-8564-eb40af5f3ed8.png" download="Puspal_Das_CV.pdf">
+                Download CV
+              </a>
             </Button>
           </div>
         </div>
