@@ -12,14 +12,14 @@ const Hero = () => {
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="text-white space-y-6 animate-fade-in-up">
           <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-            Hello, I'm <br />
+            Hi, I'm <br />
             <span className="text-accent">Puspal Das</span> <br />
             Backend Developer
           </h1>
           
           <p className="text-lg text-white/90 max-w-lg">
-            I'm a developer who loves turning ideas into interactive digital experiences. 
-            From sleek web apps to system-level solutions, I combine code, creativity, and curiosity to build projects that are both functional and fun.
+            I build scalable backend systems and modern web applications using Node.js, Express, and MongoDB. 
+            Passionate about creating robust APIs and seamless user experiences that drive business growth.
           </p>
           
           <div className="flex gap-4">
