@@ -70,6 +70,80 @@ const Skills = () => {
             ))}
           </div>
           
+          {/* Professional Experience Section */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Professional Development & Experience
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Practical experience gained through hands-on project development and continuous learning
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground mb-2">
+                      Full-Stack Developer (Projects & Self-Learning)
+                    </h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Built multiple web applications including TripGenius and WeatherWiz, applying modern 
+                      full-stack development practices and industry standards.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground mb-2">
+                      Backend Development (Node.js + Express)
+                    </h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Designed RESTful APIs, implemented authentication systems, and managed 
+                      databases with MongoDB for scalable backend solutions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground mb-2">
+                      Frontend Development (React + Tailwind)
+                    </h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Developed interactive user interfaces and responsive designs using React 
+                      and Tailwind CSS to enhance user experience and accessibility.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground mb-2">
+                      Version Control & Collaboration
+                    </h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Utilized Git and GitHub for version control, project management, 
+                      code collaboration, and deployment workflows.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           {/* Professional Statement */}
           <div className="text-center mt-16">
             <div className="max-w-3xl mx-auto">
