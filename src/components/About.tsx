@@ -27,21 +27,6 @@ const About = () => {
                 with dedication, curiosity, and an unwavering commitment to quality that delivers genuine impact.
               </p>
             </div>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">10+</div>
-                  <div className="text-sm text-muted-foreground">Projects Completed</div>
-                </CardContent>
-              </Card>
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-accent mb-2">95%</div>
-                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-                </CardContent>
-              </Card>
-            </div>
           </div>
           
           <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
