@@ -68,7 +68,12 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-accent text-accent-foreground hover:bg-accent-light shadow-accent text-lg px-8 py-6"
-                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  const portfolioSection = document.getElementById('portfolio');
+                  if (portfolioSection) {
+                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 View My Work
                 <ChevronDown className="w-5 h-5 ml-2" />
