@@ -7,7 +7,7 @@ const profileImageUrl = "/lovable-uploads/34b283d9-1d93-4bf3-a2d1-040d22502d48.p
 const Hero = () => {
   const handleViewWorkClick = () => {
     console.log("View My Work button clicked");
-    const portfolioSection = document.getElementById('portfolio');
+    const portfolioSection = document.getElementById('Portfolio');
     console.log("Portfolio section found:", portfolioSection);
     
     if (portfolioSection) {
