@@ -18,7 +18,7 @@ const About = () => {
               Behind the Code
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Passionate about crafting digital solutions that make a real difference
+              Passionate about building scalable digital solutions that make a real impact
             </p>
           </div>
 
@@ -30,42 +30,44 @@ const About = () => {
               {/* Main Description */}
               <div className="prose prose-lg">
                 <p className="text-lg text-foreground leading-relaxed mb-6">
-                  I'm a dedicated backend developer who believes in the power of clean, scalable code. 
-                  My journey in software development is driven by curiosity and a commitment to continuous learning.
+                  I'm a Backend & MERN Stack Developer who thrives on creating clean, efficient, and scalable systems. 
+                  My journey in software development is driven by curiosity, problem-solving, and continuous growth.
                 </p>
                 
                 <p className="text-lg text-foreground leading-relaxed mb-6">
-                  Every project is an opportunity to push boundaries and create solutions that not only work 
-                  but excel. I approach development with a user-first mindset, ensuring that the technical 
-                  architecture serves the ultimate goal of exceptional user experiences.
+                  I approach every project with a user-first mindset, designing robust backends and modern web 
+                  applications that deliver seamless and reliable digital experiences.
                 </p>
                 
                 <p className="text-lg text-foreground leading-relaxed">
-                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
-                  projects, or mentoring fellow developers. I believe in building not just applications, 
-                  but lasting relationships within the tech community.
+                  Beyond coding, I explore emerging technologies, contribute to open-source projects, and collaborate 
+                  with developers to share knowledge and build meaningful solutions. My focus is not only on writing 
+                  code but on creating long-term value within the tech community.
                 </p>
               </div>
 
-              {/* Key Points */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <Target className="w-5 h-5 text-primary" />
+              {/* Core Principles */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Core Principles</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Target className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">🎯 Goal-Oriented</h4>
+                      <p className="text-sm text-muted-foreground">Delivering results that go beyond expectations</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Goal-Oriented</h4>
-                    <p className="text-sm text-muted-foreground">Focused on delivering results that exceed expectations</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
-                  <div className="p-2 bg-accent/10 rounded-lg">
-                    <Award className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Quality First</h4>
-                    <p className="text-sm text-muted-foreground">Committed to writing maintainable, efficient code</p>
+                  
+                  <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
+                    <div className="p-2 bg-accent/10 rounded-lg">
+                      <Award className="w-5 h-5 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">⚡ Quality First</h4>
+                      <p className="text-sm text-muted-foreground">Writing maintainable and efficient code for long-term success</p>
+                    </div>
                   </div>
                 </div>
               </div>

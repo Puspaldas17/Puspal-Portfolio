@@ -2,13 +2,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, Database, Code, Globe, Users } from "lucide-react";
+import medivaultImage from "@/assets/medivault-cover.jpg";
 
 const Portfolio = () => {
   const projects = [
     {
       title: "MediVault",
       category: "Health Portal",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop",
+      image: medivaultImage,
       description: "Secure health portal for managing medical records, booking appointments, and accessing health information with real-time data synchronization.",
       technologies: ["HTML5", "JavaScript ES6", "MySQL", "REST API"],
       features: ["Secure Authentication", "Real-time Updates", "Mobile Responsive"],

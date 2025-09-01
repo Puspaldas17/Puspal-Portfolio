@@ -29,26 +29,22 @@ const Hero = () => {
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-                Hi, I'm <br />
+                👋 Hi, I'm <br />
                 <span className="bg-gradient-accent bg-clip-text text-transparent">Puspal Das</span>
               </h1>
               <div className="flex items-center gap-4 text-2xl lg:text-3xl font-semibold text-white/90">
                 <Server className="w-8 h-8 text-accent" />
-                <span>Backend Developer</span>
+                <span>Backend & MERN Stack Developer</span>
               </div>
             </div>
             
             {/* Description */}
             <p className="text-xl text-white/80 max-w-2xl leading-relaxed">
-              I architect and build <span className="text-accent font-semibold">scalable backend systems</span> and 
-              modern web applications using <span className="font-mono text-white">Node.js</span>, 
-              <span className="font-mono text-white"> Express</span>, and 
-              <span className="font-mono text-white"> MongoDB</span>. 
-              Passionate about creating robust APIs that power exceptional digital experiences.
+              I build scalable backends and modern MERN applications, crafting robust APIs and seamless digital experiences with <span className="font-mono text-white">Node.js</span>, <span className="font-mono text-white">Express</span>, <span className="font-mono text-white">MongoDB</span>, and <span className="font-mono text-white">React</span>.
             </p>
             
             {/* Tech Stack Icons */}
-            <div className="flex items-center gap-6 py-4">
+            <div className="flex items-center gap-4 py-4 flex-wrap">
               <div className="flex items-center gap-2 px-3 py-2 bg-white/5 rounded-lg border border-white/10">
                 <Code className="w-5 h-5 text-accent" />
                 <span className="text-sm font-mono">Node.js</span>
@@ -60,6 +56,10 @@ const Hero = () => {
               <div className="flex items-center gap-2 px-3 py-2 bg-white/5 rounded-lg border border-white/10">
                 <Database className="w-5 h-5 text-accent" />
                 <span className="text-sm font-mono">MongoDB</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-2 bg-white/5 rounded-lg border border-white/10">
+                <Code className="w-5 h-5 text-accent" />
+                <span className="text-sm font-mono">React</span>
               </div>
             </div>
             
