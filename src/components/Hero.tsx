@@ -65,7 +65,11 @@ const Hero = () => {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-light shadow-accent text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                className="bg-accent text-accent-foreground hover:bg-accent-light shadow-accent text-lg px-8 py-6"
+                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 View My Work
                 <ChevronDown className="w-5 h-5 ml-2" />
               </Button>

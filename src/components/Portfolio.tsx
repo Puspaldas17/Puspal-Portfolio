@@ -82,13 +82,21 @@ const Portfolio = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="flex gap-3">
-                        <Button size="sm" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Project
-                        </Button>
-                        <Button size="sm" variant="outline" className="border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm">
-                          <Github className="w-4 h-4 mr-2" />
-                          Code
+                        <Button size="sm" className="bg-white text-primary hover:bg-white/90 shadow-lg" asChild>
+                          <a 
+                            href={
+                              project.title === "MediVault" ? "https://github.com/Puspaldas17/MediVault" :
+                              project.title === "Google Maps Integration" ? "https://github.com/Puspaldas17/Google-Maps-Integration" :
+                              project.title === "Class Manager" ? "https://github.com/Puspaldas17/Google-Maps-Integration" :
+                              project.title === "Authentication System" ? "https://github.com/Puspaldas17/Login-Sign-up-System" :
+                              "#"
+                            }
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            View Project
+                          </a>
                         </Button>
                       </div>
                     </div>

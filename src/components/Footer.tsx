@@ -51,7 +51,7 @@ const Footer = () => {
           
           <div className="border-t border-background/20 mt-16 pt-8 text-center">
             <p className="text-background/70">
-              © 2024 Puspal Das. All rights reserved. Crafted with passion for exceptional experiences.
+              © 2024 Puspal Das. Crafted with code & creativity.
             </p>
           </div>
         </div>
