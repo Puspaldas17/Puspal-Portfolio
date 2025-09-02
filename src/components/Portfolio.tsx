@@ -45,32 +45,32 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-subtle">
-      <div className="container mx-auto px-6">
+    <section id="portfolio" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-subtle">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
         <div className="max-w-7xl mx-auto">
           
           {/* Header Section */}
-          <div className="text-center mb-20 animate-fade-in-up">
-            <Badge variant="outline" className="mb-4 text-primary border-primary/20">
+          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 animate-fade-in-up">
+            <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/20 text-xs xs:text-sm">
               Portfolio
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
               Digital Product Showcases
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
               Explore a selection of my recent projects that demonstrate creativity, functionality, 
               and user-centered design principles across various technologies.
             </p>
           </div>
           
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-10 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 lg:gap-12 xl:gap-16 mb-12 xs:mb-14 sm:mb-16">
             {projects.map((project, index) => {
               const IconComponent = project.icon;
               return (
                 <Card 
                   key={index} 
-                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-card animate-fade-in-up" 
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-1 xs:hover:-translate-y-2 border-0 shadow-lg bg-card animate-fade-in-up" 
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Project Image */}
@@ -78,11 +78,11 @@ const Portfolio = () => {
                     <img 
                       src={project.image} 
                       alt={`${project.title} - ${project.category}`}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-48 xs:h-56 sm:h-64 md:h-72 lg:h-64 xl:h-80 object-cover group-hover:scale-105 xs:group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex gap-3">
-                        <Button size="sm" className="bg-white text-primary hover:bg-white/90 shadow-lg" asChild>
+                      <div className="flex gap-2 xs:gap-3">
+                        <Button size="sm" className="bg-white text-primary hover:bg-white/90 shadow-lg text-xs xs:text-sm px-3 xs:px-4" asChild>
                           <a 
                             href={
                               project.title === "MediVault" ? "https://github.com/Puspaldas17/MediVault" :
@@ -102,37 +102,37 @@ const Portfolio = () => {
                     </div>
                     
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-accent text-accent-foreground shadow-lg">
+                    <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
+                      <Badge className="bg-accent text-accent-foreground shadow-lg text-xs xs:text-sm px-2 xs:px-3 py-1">
                         {project.category}
                       </Badge>
                     </div>
                   </div>
                   
-                  <CardContent className="p-8">
+                  <CardContent className="p-4 xs:p-6 sm:p-8">
                     {/* Project Header */}
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="p-2 bg-primary/10 rounded-lg">
-                        <IconComponent className="w-5 h-5 text-primary" />
+                    <div className="flex items-start gap-3 xs:gap-4 mb-3 xs:mb-4">
+                      <div className="p-1.5 xs:p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                        <IconComponent className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg xs:text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
                           {project.title}
                         </h3>
                       </div>
                     </div>
                     
                     {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed mb-6">
+                    <p className="text-sm xs:text-base text-muted-foreground leading-relaxed mb-4 xs:mb-6">
                       {project.description}
                     </p>
                     
                     {/* Features */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-foreground mb-3">Key Features:</h4>
-                      <div className="flex flex-wrap gap-2">
+                    <div className="mb-4 xs:mb-6">
+                      <h4 className="text-xs xs:text-sm font-semibold text-foreground mb-2 xs:mb-3">Key Features:</h4>
+                      <div className="flex flex-wrap gap-1.5 xs:gap-2">
                         {project.features.map((feature, featureIndex) => (
-                          <Badge key={featureIndex} variant="secondary" className="text-xs">
+                          <Badge key={featureIndex} variant="secondary" className="text-xs px-2 py-1">
                             {feature}
                           </Badge>
                         ))}
@@ -140,16 +140,16 @@ const Portfolio = () => {
                     </div>
                     
                     {/* Tech Stack */}
-                    <div className="pt-4 border-t border-border/50">
+                    <div className="pt-3 xs:pt-4 border-t border-border/50">
                       <div className="flex items-center gap-2 mb-2">
-                        <Code className="w-4 h-4 text-accent" />
-                        <span className="text-sm font-medium text-foreground">Tech Stack:</span>
+                        <Code className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-accent flex-shrink-0" />
+                        <span className="text-xs xs:text-sm font-medium text-foreground">Tech Stack:</span>
                       </div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 xs:gap-2">
                         {project.technologies.map((tech, techIndex) => (
                           <span 
                             key={techIndex}
-                            className="px-2 py-1 bg-muted/50 text-muted-foreground text-xs rounded-md font-mono"
+                            className="px-2 py-1 bg-muted/50 text-muted-foreground text-xs rounded-md font-mono whitespace-nowrap"
                           >
                             {tech}
                           </span>
@@ -164,22 +164,22 @@ const Portfolio = () => {
           
           {/* CTA Section */}
           <div className="text-center animate-fade-in-up">
-            <Card className="max-w-2xl mx-auto border-0 shadow-lg bg-gradient-surface">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="p-3 bg-gradient-primary rounded-full">
-                    <Github className="w-6 h-6 text-white" />
+            <Card className="max-w-xl xs:max-w-2xl mx-auto border-0 shadow-lg bg-gradient-surface">
+              <CardContent className="p-6 xs:p-8">
+                <div className="flex items-center justify-center mb-3 xs:mb-4">
+                  <div className="p-2.5 xs:p-3 bg-gradient-primary rounded-full">
+                    <Github className="w-5 h-5 xs:w-6 xs:h-6 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
+                <h3 className="text-xl xs:text-2xl sm:text-3xl font-bold text-foreground mb-3 xs:mb-4">
                   Explore More Projects
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-sm xs:text-base text-muted-foreground mb-5 xs:mb-6 leading-relaxed">
                   Check out my complete collection of projects and contributions on GitHub
                 </p>
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary-dark shadow-card" asChild>
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary-dark shadow-card text-sm xs:text-base px-6 xs:px-8 py-3 xs:py-4" asChild>
                   <a href="https://github.com/Puspaldas17?tab=repositories" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-5 h-5 mr-2" />
+                    <Github className="w-4 h-4 xs:w-5 xs:h-5 mr-2" />
                     View All Projects
                   </a>
                 </Button>
