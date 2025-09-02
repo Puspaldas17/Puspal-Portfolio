@@ -1,64 +1,120 @@
-# Welcome to your Lovable project
+# Portfolio Website - Puspal Das
 
-## Project info
+A modern, responsive portfolio website built with React, TypeScript, Tailwind CSS, and Vite.
 
-**URL**: https://lovable.dev/projects/197a6516-f120-4914-9ab0-02895cfe9610
+## 🏗️ Project Structure
 
-## How can I edit this code?
+```
+src/
+├── components/
+│   ├── layout/           # Layout components (Header, Footer)
+│   ├── sections/         # Page sections (Hero, About, Skills, etc.)
+│   ├── ui/              # Reusable UI components (shadcn/ui)
+│   └── index.ts         # Barrel exports for clean imports
+├── pages/               # Application pages  
+├── assets/
+│   └── images/          # Organized image assets
+├── hooks/               # Custom React hooks
+├── lib/                 # Utility functions
+└── types/               # TypeScript type definitions
+```
 
-There are several ways of editing your application.
+## 🚀 Getting Started
 
-**Use Lovable**
+### Prerequisites
+- Node.js (v18 or higher)
+- Bun (recommended) or npm/yarn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/197a6516-f120-4914-9ab0-02895cfe9610) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+1. Clone the repository
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies
+```bash
+# With Bun (recommended)
+bun install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Or with npm
+npm install
+```
+
+3. Start development server
+```bash
+# With Bun
+bun run dev
+
+# Or with npm
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📱 Responsive Design
 
-**Use GitHub Codespaces**
+The portfolio is fully responsive across all modern devices:
+- **480px** - Small mobiles
+- **768px** - Tablets  
+- **1024px** - Small laptops
+- **1440px** - Standard desktops  
+- **1920px+** - Large screens
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Built With
 
-## What technologies are used for this project?
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Vite** - Build tool
+- **shadcn/ui** - UI components
+- **Lucide React** - Icons
+- **React Router** - Client-side routing
 
-This project is built with:
+## 📦 Available Scripts
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `bun run dev` - Start development server
+- `bun run build` - Build for production
+- `bun run preview` - Preview production build
+- `bun run lint` - Run ESLint
+
+## 🎨 Design System
+
+The project uses a comprehensive design system with:
+- Semantic color tokens
+- Consistent spacing and typography
+- Dark/light mode support
+- Professional gradients and shadows
+- Smooth animations and transitions
+
+## 📁 Import Structure
+
+Thanks to barrel exports, imports are clean and organized:
+
+```typescript
+// Layout components
+import { Header, Footer } from '@/components/layout';
+
+// Section components
+import { Hero, About, Portfolio } from '@/components/sections';
+
+// UI components
+import { Button, Card, Badge } from '@/components/ui';
+
+// Hooks
+import { useIsMobile, useToast } from '@/hooks';
+
+// Utils
+import { cn } from '@/lib';
+```
+
+## 🔧 Customization
+
+1. **Colors**: Modify design tokens in `src/index.css`
+2. **Components**: Extend or modify components in their respective folders
+3. **Types**: Add new types in `src/types/index.ts`
+4. **Assets**: Organize images in `src/assets/images/`
 
 ## How can I deploy this project?
 
