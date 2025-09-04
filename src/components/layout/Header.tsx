@@ -27,24 +27,24 @@ const Header = () => {
         ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border/50' 
         : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="flex items-center justify-between h-16 xs:h-18 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" className="group">
-              <div className="text-2xl font-bold">
+              <div className="text-xl xs:text-2xl font-bold">
                 <span className="bg-gradient-primary bg-clip-text text-transparent group-hover:scale-105 transition-transform">
                   Puspal Das
                 </span>
               </div>
-              <div className="text-xs text-muted-foreground tracking-wider uppercase">
+              <div className="text-xs text-muted-foreground tracking-wider uppercase hidden xs:block">
                 Backend Developer
               </div>
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.href}
