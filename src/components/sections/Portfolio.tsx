@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
 import medivaultCover from "@/assets/medivault-cover.jpg";
+import { useState, useEffect } from "react";
 
 const projects = [
   {
