@@ -1,192 +1,163 @@
+import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Database, Code, Globe, Users } from "lucide-react";
-import medivaultImage from "@/assets/medivault-cover.jpg";
+import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/use-scroll-animation";
+import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
+import medivaultCover from "@/assets/medivault-cover.jpg";
+import { useState, useEffect } from "react";
+
+const projects = [
+  {
+    id: 1,
+    title: "MediVault",
+    description: "A comprehensive healthcare management platform built with modern web technologies, featuring secure patient data management and appointment scheduling.",
+    image: medivaultCover,
+    technologies: ["Node.js", "Express", "MongoDB", "React", "JWT"],
+    liveUrl: "https://medivault-demo.netlify.app",
+    githubUrl: "https://github.com/Puspaldas17/MediVault"
+  },
+  {
+    id: 2,
+    title: "E-Commerce API",
+    description: "RESTful API for e-commerce platform with advanced features like payment integration, inventory management, and real-time notifications.",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
+    technologies: ["Node.js", "Express", "PostgreSQL", "Redis", "Stripe"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 3,
+    title: "Task Management System",
+    description: "Full-stack task management application with real-time collaboration features, built using the MERN stack.",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 4,
+    title: "Authentication Microservice",
+    description: "Scalable authentication and authorization service with JWT tokens, role-based access control, and OAuth integration.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+    technologies: ["Node.js", "Express", "PostgreSQL", "JWT", "OAuth"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 5,
+    title: "Real-time Chat Application",
+    description: "Modern chat application with real-time messaging, file sharing, and group chat functionality.",
+    image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=400&fit=crop",
+    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Cloudinary"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    id: 6,
+    title: "Blog CMS",
+    description: "Content Management System for blogging platform with rich text editor, SEO optimization, and analytics dashboard.",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+    technologies: ["Next.js", "Node.js", "MongoDB", "TailwindCSS", "MDX"],
+    liveUrl: "#",
+    githubUrl: "#"
+  }
+];
 
 const Portfolio = () => {
-  const projects = [
-    {
-      title: "MediVault",
-      category: "Health Portal",
-      image: medivaultImage,
-      description: "Secure health portal for managing medical records, booking appointments, and accessing health information with real-time data synchronization.",
-      technologies: ["HTML5", "JavaScript ES6", "MySQL", "REST API"],
-      features: ["Secure Authentication", "Real-time Updates", "Mobile Responsive"],
-      icon: Database
-    },
-    {
-      title: "Google Maps Integration",
-      category: "Web Application", 
-      image: "https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=500&h=300&fit=crop",
-      description: "Interactive web application with Google Maps API integration for location services, markers, and detailed geographical information.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Google Maps API"],
-      features: ["Interactive Maps", "Location Services", "Custom Markers"],
-      icon: Globe
-    },
-    {
-      title: "Class Manager",
-      category: "Educational Platform",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop", 
-      description: "Comprehensive student-teacher portal with assignment management, notice board, messaging system, and academic progress tracking.",
-      technologies: ["Django", "HTML5", "CSS3", "SQLite"],
-      features: ["Assignment Upload", "Progress Tracking", "Messaging System"],
-      icon: Users
-    },
-    {
-      title: "Authentication System",
-      category: "Security Module",
-      image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=500&h=300&fit=crop",
-      description: "Robust user authentication module with login, registration, email verification, password recovery, and session management.",
-      technologies: ["PHP", "MySQL", "jQuery", "Bootstrap"],
-      features: ["Email Verification", "Password Recovery", "Session Management"],
-      icon: Code
-    }
-  ];
+  const [isLoading, setIsLoading] = useState(true);
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: gridRef, isItemVisible } = useStaggeredAnimation(projects.length, 200);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <section id="portfolio" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-subtle">
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="max-w-7xl mx-auto">
-          
-          {/* Header Section */}
-          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 animate-fade-in-up">
-            <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/20 text-xs xs:text-sm">
-              Portfolio
-            </Badge>
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
-              Digital Product Showcases
-            </h2>
-            <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
-              Explore a selection of my recent projects that demonstrate creativity, functionality, 
-              and user-centered design principles across various technologies.
-            </p>
+    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div 
+          ref={titleRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-sans">
+            Featured Projects
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto font-sans">
+            Here are some of my recent projects that showcase my skills in backend development,
+            API design, and full-stack applications.
+          </p>
+        </div>
+
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ProjectCardSkeleton key={i} />
+            ))}
           </div>
-          
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 lg:gap-12 xl:gap-16 mb-12 xs:mb-14 sm:mb-16">
-            {projects.map((project, index) => {
-              const IconComponent = project.icon;
-              return (
-                <Card 
-                  key={index} 
-                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-1 xs:hover:-translate-y-2 border-0 shadow-lg bg-card animate-fade-in-up" 
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {/* Project Image */}
+        ) : (
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {projects.map((project, index) => (
+              <Card 
+                key={project.id}
+                className={`group overflow-hidden border hover:shadow-xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:scale-[1.02] hover:-translate-y-1 ${
+                  isItemVisible(index) ? 'animate-zoom-in' : 'opacity-0 scale-90'
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-0">
                   <div className="relative overflow-hidden">
                     <img 
                       src={project.image} 
-                      alt={`${project.title} - ${project.category}`}
-                      className="w-full h-48 xs:h-56 sm:h-64 md:h-72 lg:h-64 xl:h-80 object-cover group-hover:scale-105 xs:group-hover:scale-110 transition-transform duration-700"
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex gap-2 xs:gap-3">
-                        <Button size="sm" className="bg-white text-primary hover:bg-white/90 shadow-lg text-xs xs:text-sm px-3 xs:px-4" asChild>
-                          <a 
-                            href={
-                              project.title === "MediVault" ? "https://github.com/Puspaldas17/MediVault" :
-                              project.title === "Google Maps Integration" ? "https://github.com/Puspaldas17/Google-Maps-Integration" :
-                              project.title === "Class Manager" ? "https://github.com/Puspaldas17/Google-Maps-Integration" :
-                              project.title === "Authentication System" ? "https://github.com/Puspaldas17/Login-Sign-up-System" :
-                              "#"
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            View Project
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
-                      <Badge className="bg-accent text-accent-foreground shadow-lg text-xs xs:text-sm px-2 xs:px-3 py-1">
-                        {project.category}
-                      </Badge>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   
-                  <CardContent className="p-4 xs:p-6 sm:p-8">
-                    {/* Project Header */}
-                    <div className="flex items-start gap-3 xs:gap-4 mb-3 xs:mb-4">
-                      <div className="p-1.5 xs:p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                        <IconComponent className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg xs:text-xl sm:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
-                          {project.title}
-                        </h3>
-                      </div>
-                    </div>
-                    
-                    {/* Description */}
-                    <p className="text-sm xs:text-base text-muted-foreground leading-relaxed mb-4 xs:mb-6">
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors font-sans">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-2 font-sans">
                       {project.description}
                     </p>
                     
-                    {/* Features */}
-                    <div className="mb-4 xs:mb-6">
-                      <h4 className="text-xs xs:text-sm font-semibold text-foreground mb-2 xs:mb-3">Key Features:</h4>
-                      <div className="flex flex-wrap gap-1.5 xs:gap-2">
-                        {project.features.map((feature, featureIndex) => (
-                          <Badge key={featureIndex} variant="secondary" className="text-xs px-2 py-1">
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech) => (
+                        <Badge 
+                          key={tech} 
+                          variant="secondary" 
+                          className="text-xs font-medium font-mono hover:bg-primary/10 transition-colors"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
                     </div>
                     
-                    {/* Tech Stack */}
-                    <div className="pt-3 xs:pt-4 border-t border-border/50">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Code className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-accent flex-shrink-0" />
-                        <span className="text-xs xs:text-sm font-medium text-foreground">Tech Stack:</span>
-                      </div>
-                      <div className="flex flex-wrap gap-1.5 xs:gap-2">
-                        {project.technologies.map((tech, techIndex) => (
-                          <span 
-                            key={techIndex}
-                            className="px-2 py-1 bg-muted/50 text-muted-foreground text-xs rounded-md font-mono whitespace-nowrap"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex gap-3 pt-2">
+                      <Button size="sm" className="flex-1 font-sans" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </a>
+                      </Button>
+                      <Button size="sm" variant="outline" className="flex-1 font-sans" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
                     </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-          
-          {/* CTA Section */}
-          <div className="text-center animate-fade-in-up">
-            <Card className="max-w-xl xs:max-w-2xl mx-auto border-0 shadow-lg bg-gradient-surface">
-              <CardContent className="p-6 xs:p-8">
-                <div className="flex items-center justify-center mb-3 xs:mb-4">
-                  <div className="p-2.5 xs:p-3 bg-gradient-primary rounded-full">
-                    <Github className="w-5 h-5 xs:w-6 xs:h-6 text-white" />
                   </div>
-                </div>
-                <h3 className="text-xl xs:text-2xl sm:text-3xl font-bold text-foreground mb-3 xs:mb-4">
-                  Explore More Projects
-                </h3>
-                <p className="text-sm xs:text-base text-muted-foreground mb-5 xs:mb-6 leading-relaxed">
-                  Check out my complete collection of projects and contributions on GitHub
-                </p>
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary-dark shadow-card text-sm xs:text-base px-6 xs:px-8 py-3 xs:py-4" asChild>
-                  <a href="https://github.com/Puspaldas17?tab=repositories" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-4 h-4 xs:w-5 xs:h-5 mr-2" />
-                    View All Projects
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

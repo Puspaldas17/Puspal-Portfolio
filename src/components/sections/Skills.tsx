@@ -1,8 +1,20 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Server, Database, GitBranch, Layers, Zap } from "lucide-react";
+import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/use-scroll-animation";
+import { SkillCardSkeleton } from "@/components/ui/loading-skeleton";
+import { useState, useEffect } from "react";
 
 const Skills = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: skillsGridRef, isItemVisible: isSkillVisible } = useStaggeredAnimation(4, 200);
+  const { elementRef: expGridRef, isItemVisible: isExpVisible } = useStaggeredAnimation(4, 150);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
   const skillCategories = [
     {
       category: "Frontend Development",
@@ -67,63 +79,78 @@ const Skills = () => {
         <div className="max-w-7xl mx-auto">
           
           {/* Header Section */}
-          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 animate-fade-in-up">
+          <div 
+            ref={titleRef}
+            className={`text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 transition-all duration-1000 ${
+              titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/20 text-xs xs:text-sm">
               Skills & Expertise
             </Badge>
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight font-sans">
               Technical Skills & Expertise
             </h2>
-            <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
+            <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0 font-sans">
               Comprehensive technical proficiency across modern web development technologies 
               and industry-standard tools for delivering high-quality solutions.
             </p>
           </div>
           
           {/* Skills Grid */}
-          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 mb-16 xs:mb-20 sm:mb-24">
-            {skillCategories.map((category, index) => {
-              const IconComponent = category.icon;
-              return (
-                <Card 
-                  key={index} 
-                  className="group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 xs:hover:-translate-y-2 bg-gradient-surface animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardContent className="p-4 xs:p-6 sm:p-8">
-                    {/* Icon & Category */}
-                    <div className="flex items-center gap-3 xs:gap-4 mb-4 xs:mb-6">
-                      <div className={`p-2 xs:p-3 rounded-xl ${category.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'} flex-shrink-0`}>
-                        <IconComponent className={`w-5 h-5 xs:w-6 xs:h-6 ${category.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="text-base xs:text-lg font-semibold text-foreground leading-tight">
-                          {category.category}
-                        </h3>
-                      </div>
-                    </div>
-                    
-                    <p className="text-xs xs:text-sm text-muted-foreground mb-4 xs:mb-6 leading-relaxed">
-                      {category.description}
-                    </p>
-                    
-                    {/* Skills List */}
-                    <div className="space-y-2 xs:space-y-3">
-                      {category.skills.map((skill, skillIndex) => (
-                        <div
-                          key={skillIndex}
-                          className="flex items-center gap-2 xs:gap-3 p-2 xs:p-3 bg-background/50 border border-border/50 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
-                        >
-                          <Zap className="w-3 h-3 xs:w-4 xs:h-4 text-accent flex-shrink-0" />
-                          <span className="text-xs xs:text-sm font-medium text-foreground">{skill}</span>
+          {isLoading ? (
+            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 mb-16 xs:mb-20 sm:mb-24">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <SkillCardSkeleton key={i} />
+              ))}
+            </div>
+          ) : (
+            <div ref={skillsGridRef} className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 mb-16 xs:mb-20 sm:mb-24">
+              {skillCategories.map((category, index) => {
+                const IconComponent = category.icon;
+                return (
+                  <Card 
+                    key={index} 
+                    className={`group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 xs:hover:-translate-y-2 bg-gradient-surface hover:scale-[1.02] ${
+                      isSkillVisible(index) ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <CardContent className="p-4 xs:p-6 sm:p-8">
+                      {/* Icon & Category */}
+                      <div className="flex items-center gap-3 xs:gap-4 mb-4 xs:mb-6">
+                        <div className={`p-2 xs:p-3 rounded-xl ${category.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'} flex-shrink-0`}>
+                          <IconComponent className={`w-5 h-5 xs:w-6 xs:h-6 ${category.color === 'primary' ? 'text-primary' : 'text-accent'}`} />
                         </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-base xs:text-lg font-semibold text-foreground leading-tight font-sans">
+                            {category.category}
+                          </h3>
+                        </div>
+                      </div>
+                      
+                      <p className="text-xs xs:text-sm text-muted-foreground mb-4 xs:mb-6 leading-relaxed font-sans">
+                        {category.description}
+                      </p>
+                      
+                      {/* Skills List */}
+                      <div className="space-y-2 xs:space-y-3">
+                        {category.skills.map((skill, skillIndex) => (
+                          <div
+                            key={skillIndex}
+                            className="flex items-center gap-2 xs:gap-3 p-2 xs:p-3 bg-background/50 border border-border/50 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 hover:scale-[1.02]"
+                          >
+                            <Zap className="w-3 h-3 xs:w-4 xs:h-4 text-accent flex-shrink-0" />
+                            <span className="text-xs xs:text-sm font-medium text-foreground font-mono">{skill}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
           
           {/* Professional Experience Section */}
           <div className="mb-12 xs:mb-16 sm:mb-20">
@@ -139,14 +166,16 @@ const Skills = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 max-w-6xl mx-auto">
+            <div ref={expGridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 max-w-6xl mx-auto">
               {experiences.map((exp, index) => {
                 const IconComponent = exp.icon;
                 return (
                   <Card 
                     key={index} 
-                    className="group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className={`group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card hover:scale-[1.02] ${
+                      isExpVisible(index) ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'
+                    }`}
+                    style={{ animationDelay: `${index * 150}ms` }}
                   >
                     <CardContent className="p-4 xs:p-6 sm:p-8">
                       <div className="flex items-start gap-3 xs:gap-4">
