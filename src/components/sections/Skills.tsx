@@ -12,7 +12,7 @@ const Skills = () => {
   const { elementRef: expGridRef, isItemVisible: isExpVisible } = useStaggeredAnimation(4, 150);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1200);
+    const timer = setTimeout(() => setIsLoading(false), 500); // Reduced from 1200ms to 500ms
     return () => clearTimeout(timer);
   }, []);
   const skillCategories = [
