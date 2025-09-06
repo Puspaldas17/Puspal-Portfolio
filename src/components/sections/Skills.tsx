@@ -1,20 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Server, Database, GitBranch, Layers, Zap } from "lucide-react";
-import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/use-scroll-animation";
-import { SkillCardSkeleton } from "@/components/ui/loading-skeleton";
-import { useState, useEffect } from "react";
 
 const Skills = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { elementRef: skillsGridRef, isItemVisible: isSkillVisible } = useStaggeredAnimation(4, 200);
-  const { elementRef: expGridRef, isItemVisible: isExpVisible } = useStaggeredAnimation(4, 150);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 500); // Reduced from 1200ms to 500ms
-    return () => clearTimeout(timer);
-  }, []);
   const skillCategories = [
     {
       category: "Frontend Development",
@@ -97,12 +85,7 @@ const Skills = () => {
         <div className="max-w-7xl mx-auto">
           
           {/* Header Section */}
-          <div 
-            ref={titleRef}
-            className={`text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 transition-all duration-1000 ${
-              titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
-            }`}
-          >
+          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24">
             <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/20 text-xs xs:text-sm">
               Skills & Expertise
             </Badge>
@@ -116,23 +99,13 @@ const Skills = () => {
           </div>
           
           {/* Skills Grid */}
-          {isLoading ? (
-            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 mb-16 xs:mb-20 sm:mb-24">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <SkillCardSkeleton key={i} />
-              ))}
-            </div>
-          ) : (
-            <div ref={skillsGridRef} className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 mb-16 xs:mb-20 sm:mb-24">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 mb-16 xs:mb-20 sm:mb-24">
               {skillCategories.map((category, index) => {
                 const IconComponent = category.icon;
                 return (
                   <Card 
                     key={index} 
-                    className={`group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 xs:hover:-translate-y-2 bg-gradient-surface hover:scale-[1.02] ${
-                      isSkillVisible(index) ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-8'
-                    }`}
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    className="group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 xs:hover:-translate-y-2 bg-gradient-surface hover:scale-[1.02]"
                   >
                     <CardContent className="p-4 xs:p-6 sm:p-8">
                       {/* Icon & Category */}
@@ -167,12 +140,11 @@ const Skills = () => {
                   </Card>
                 );
               })}
-            </div>
-          )}
+          </div>
           
           {/* Professional Experience Section */}
           <div className="mb-12 xs:mb-16 sm:mb-20">
-            <div className="text-center mb-12 xs:mb-14 sm:mb-16 animate-fade-in-up">
+            <div className="text-center mb-12 xs:mb-14 sm:mb-16">
               <Badge variant="outline" className="mb-3 xs:mb-4 text-accent border-accent/20 text-xs xs:text-sm">
                 Professional Experience
               </Badge>
@@ -184,16 +156,13 @@ const Skills = () => {
               </p>
             </div>
             
-            <div ref={expGridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 max-w-6xl mx-auto">
               {experiences.map((exp, index) => {
                 const IconComponent = exp.icon;
                 return (
                   <Card 
                     key={index} 
-                    className={`group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card hover:scale-[1.02] ${
-                      isExpVisible(index) ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'
-                    }`}
-                    style={{ animationDelay: `${index * 150}ms` }}
+                    className="group border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card hover:scale-[1.02]"
                   >
                     <CardContent className="p-4 xs:p-6 sm:p-8">
                       <div className="flex items-start gap-3 xs:gap-4">
@@ -220,7 +189,7 @@ const Skills = () => {
           </div>
           
           {/* Professional Statement */}
-          <div className="text-center animate-fade-in-up">
+          <div className="text-center">
             <Card className="max-w-2xl xs:max-w-3xl sm:max-w-4xl mx-auto border-0 shadow-lg bg-gradient-surface">
               <CardContent className="p-6 xs:p-8 sm:p-12">
                 <div className="flex items-center justify-center mb-4 xs:mb-6">
