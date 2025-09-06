@@ -19,56 +19,92 @@ const Skills = () => {
     {
       category: "Frontend Development",
       icon: Layers,
-      skills: ["HTML5", "CSS3", "JavaScript ES6+", "React", "Tailwind CSS", "Bootstrap"],
-      description: "Creating responsive and intuitive user interfaces",
+      skills: [
+        "React 18+", 
+        "TypeScript", 
+        "Next.js", 
+        "Tailwind CSS", 
+        "JavaScript ES6+", 
+        "HTML5 & CSS3",
+        "Responsive Design",
+        "Redux Toolkit"
+      ],
+      description: "Modern frontend development with React ecosystem and responsive design principles",
       color: "primary"
     },
     {
       category: "Backend Development", 
       icon: Server,
-      skills: ["Node.js", "Express.js", "RESTful APIs"],
-      description: "Building robust server-side applications",
+      skills: [
+        "Node.js", 
+        "Express.js", 
+        "RESTful APIs", 
+        "GraphQL", 
+        "JWT Authentication", 
+        "Middleware Design",
+        "API Security",
+        "Microservices"
+      ],
+      description: "Scalable backend architecture and API development",
       color: "accent"
     },
     {
-      category: "Database Management",
+      category: "Database & Cloud",
       icon: Database,
-      skills: ["MongoDB", "Database Design", "Data Modeling"],
-      description: "Designing efficient data storage solutions",
+      skills: [
+        "MongoDB", 
+        "PostgreSQL", 
+        "Supabase", 
+        "Firebase", 
+        "Redis", 
+        "Database Design",
+        "Query Optimization",
+        "Cloud Storage"
+      ],
+      description: "Database design and cloud infrastructure management",
       color: "primary"
     },
     {
       category: "Development Tools",
       icon: GitBranch,
-      skills: ["Git", "GitHub", "Postman", "VS Code", "npm"],
-      description: "Streamlining development workflows",
+      skills: [
+        "Git & GitHub", 
+        "Docker", 
+        "VS Code", 
+        "Postman", 
+        "npm/yarn", 
+        "Webpack/Vite",
+        "ESLint/Prettier",
+        "CI/CD Pipelines"
+      ],
+      description: "Professional development workflow and DevOps practices",
       color: "accent"
     }
   ];
 
   const experiences = [
     {
-      title: "Full-Stack Developer",
-      subtitle: "Projects & Self-Learning",
-      description: "Built multiple web applications including TripGenius and WeatherWiz, applying modern full-stack development practices and industry standards.",
+      title: "Full-Stack Web Developer",
+      subtitle: "Modern Web Applications",
+      description: "Developed end-to-end web applications using React, Node.js, and MongoDB. Built projects like TripGenius (travel planning app) and WeatherWiz (weather dashboard) with features including user authentication, real-time data, and responsive design.",
       icon: Code
     },
     {
-      title: "Backend Development",
-      subtitle: "Node.js + Express",
-      description: "Designed RESTful APIs, implemented authentication systems, and managed databases with MongoDB for scalable backend solutions.",
+      title: "API Development & Integration",
+      subtitle: "Backend Architecture",
+      description: "Designed and implemented RESTful APIs with Express.js, integrated third-party services, implemented JWT authentication, and optimized database queries for improved performance and scalability.",
       icon: Server
     },
     {
-      title: "Frontend Development", 
-      subtitle: "React + Tailwind",
-      description: "Developed interactive user interfaces and responsive designs using React and Tailwind CSS to enhance user experience and accessibility.",
+      title: "UI/UX Implementation", 
+      subtitle: "Frontend Expertise",
+      description: "Created intuitive user interfaces using React, TypeScript, and Tailwind CSS. Focused on accessibility, mobile-first design, and modern UI patterns to deliver exceptional user experiences.",
       icon: Layers
     },
     {
-      title: "Version Control & Collaboration",
-      subtitle: "Git & GitHub",
-      description: "Utilized Git and GitHub for version control, project management, code collaboration, and deployment workflows.",
+      title: "DevOps & Deployment",
+      subtitle: "Production Workflows",
+      description: "Managed Git workflows, automated deployments, configured CI/CD pipelines, and deployed applications using modern cloud platforms with Docker containerization.",
       icon: GitBranch
     }
   ];
