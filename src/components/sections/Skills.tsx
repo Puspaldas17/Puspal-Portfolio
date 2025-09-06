@@ -20,16 +20,14 @@ const Skills = () => {
       category: "Frontend Development",
       icon: Layers,
       skills: [
-        "React 18+", 
-        "TypeScript", 
-        "Next.js", 
+        "HTML", 
+        "CSS", 
+        "JavaScript", 
+        "React", 
         "Tailwind CSS", 
-        "JavaScript ES6+", 
-        "HTML5 & CSS3",
-        "Responsive Design",
-        "Redux Toolkit"
+        "Bootstrap"
       ],
-      description: "Modern frontend development with React ecosystem and responsive design principles",
+      description: "Creating responsive and interactive user interfaces",
       color: "primary"
     },
     {
@@ -37,47 +35,31 @@ const Skills = () => {
       icon: Server,
       skills: [
         "Node.js", 
-        "Express.js", 
-        "RESTful APIs", 
-        "GraphQL", 
-        "JWT Authentication", 
-        "Middleware Design",
-        "API Security",
-        "Microservices"
+        "Express.js"
       ],
-      description: "Scalable backend architecture and API development",
+      description: "Building robust server-side applications",
       color: "accent"
     },
     {
-      category: "Database & Cloud",
+      category: "Database",
       icon: Database,
       skills: [
-        "MongoDB", 
-        "PostgreSQL", 
-        "Supabase", 
-        "Firebase", 
-        "Redis", 
-        "Database Design",
-        "Query Optimization",
-        "Cloud Storage"
+        "MongoDB"
       ],
-      description: "Database design and cloud infrastructure management",
+      description: "NoSQL database management and data modeling",
       color: "primary"
     },
     {
-      category: "Development Tools",
+      category: "Tools & Others",
       icon: GitBranch,
       skills: [
-        "Git & GitHub", 
-        "Docker", 
-        "VS Code", 
+        "Git", 
+        "GitHub", 
         "Postman", 
-        "npm/yarn", 
-        "Webpack/Vite",
-        "ESLint/Prettier",
-        "CI/CD Pipelines"
+        "VS Code", 
+        "npm"
       ],
-      description: "Professional development workflow and DevOps practices",
+      description: "Development tools and version control",
       color: "accent"
     }
   ];
