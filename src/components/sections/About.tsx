@@ -5,19 +5,21 @@ import aboutImage from "@/assets/about-workspace.jpg";
 
 const About = () => {
   return (
-    <section id="about" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-subtle">
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
+    <section id="about" className="py-20 md:py-28 lg:py-32 bg-gradient-to-b from-bg-subtle to-background relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         <div className="max-w-7xl mx-auto">
           
           {/* Section Header */}
-          <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 xl:mb-24 animate-fade-in-up">
-            <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/20 text-xs xs:text-sm">
+          <div className="text-center mb-16 md:mb-20 animate-fade-in-up">
+            <Badge variant="outline" className="mb-5 text-primary border-primary/30 text-sm px-4 py-1.5 font-semibold">
               About Me
             </Badge>
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight tracking-tight">
               Behind the Code
             </h2>
-            <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Passionate about building scalable digital solutions that make a real impact
             </p>
           </div>
@@ -50,23 +52,23 @@ const About = () => {
               <div className="space-y-3 xs:space-y-4">
                 <h3 className="text-lg xs:text-xl font-semibold text-foreground mb-3 xs:mb-4">Core Principles</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
-                  <div className="flex items-start gap-3 xs:gap-4 p-3 xs:p-4 bg-card rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
-                    <div className="p-1.5 xs:p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                      <Target className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
+                  <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
+                    <div className="p-2.5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Target className="w-5 h-5 text-primary" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-foreground mb-1 text-sm xs:text-base">🎯 Goal-Oriented</h4>
-                      <p className="text-xs xs:text-sm text-muted-foreground leading-relaxed">Delivering results that go beyond expectations</p>
+                      <h4 className="font-bold text-foreground mb-1.5 text-base">🎯 Goal-Oriented</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">Delivering results that go beyond expectations</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 xs:gap-4 p-3 xs:p-4 bg-card rounded-xl border border-border/50 hover:shadow-md transition-all duration-300">
-                    <div className="p-1.5 xs:p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                      <Award className="w-4 h-4 xs:w-5 xs:h-5 text-accent" />
+                  <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-accent/30 hover:shadow-accent transition-all duration-300 group">
+                    <div className="p-2.5 bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Award className="w-5 h-5 text-accent" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-semibold text-foreground mb-1 text-sm xs:text-base">⚡ Quality First</h4>
-                      <p className="text-xs xs:text-sm text-muted-foreground leading-relaxed">Writing maintainable and efficient code for long-term success</p>
+                      <h4 className="font-bold text-foreground mb-1.5 text-base">⚡ Quality First</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">Writing maintainable and efficient code for long-term success</p>
                     </div>
                   </div>
                 </div>

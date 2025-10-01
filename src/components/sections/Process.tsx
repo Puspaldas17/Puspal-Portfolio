@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Globe, Shield, BookOpen } from "lucide-react";
 
 const Process = () => {
@@ -27,31 +28,37 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="text-center mb-12 xs:mb-14 sm:mb-16">
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 xs:mb-4">Current Working Projects</h2>
-          <p className="text-base xs:text-lg sm:text-xl text-muted-foreground max-w-xl xs:max-w-2xl mx-auto px-4 xs:px-0">
+    <section className="py-20 md:py-28 lg:py-32 bg-muted/20 relative">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-10"></div>
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+        <div className="text-center mb-16">
+          <Badge variant="outline" className="mb-5 text-primary border-primary/30 text-sm px-4 py-1.5 font-semibold">
+            Current Projects
+          </Badge>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
+            Working On
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Actively developing innovative solutions across different domains, 
             from AI-powered applications to enterprise management systems.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {currentProjects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 xs:hover:-translate-y-2 bg-card">
-              <CardContent className="p-4 xs:p-5 sm:p-6">
-                <div className="flex items-start space-x-3 xs:space-x-4 mb-3 xs:mb-4">
-                  <div className="w-10 h-10 xs:w-12 xs:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <div className="text-primary [&>svg]:w-5 [&>svg]:h-5 xs:[&>svg]:w-6 xs:[&>svg]:h-6">
+            <Card key={index} className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 bg-card border-border/50 hover:border-primary/30">
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                    <div className="text-primary [&>svg]:w-7 [&>svg]:h-7">
                       {project.icon}
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg xs:text-xl font-semibold mb-2 group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors leading-tight">
                       {project.title}
                     </h3>
-                    <div className="inline-block px-2 py-1 bg-accent/20 text-accent-foreground rounded-md text-xs font-medium mb-2 xs:mb-3">
+                    <div className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-lg text-xs font-bold mb-3">
                       {project.status}
                     </div>
                   </div>

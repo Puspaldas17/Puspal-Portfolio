@@ -21,18 +21,24 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-accent relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden">
+      {/* Modern background effects */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNGgydjJoLTJ2LTJ6bS0yIDJ2LTJoLTJ2Mmgyem0wIDBoLTJ2Mmgydi0yem0yIDJoLTJ2Mmgydi0yem0wIDBodjJoMnYtMmgtMnptMi0yaDJ2LTJoLTJ2MnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40"></div>
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
       
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 py-12 xs:py-16 sm:py-20">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 py-16 xs:py-20 sm:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 xs:gap-12 sm:gap-16 xl:gap-20 items-center max-w-7xl mx-auto">
           
           {/* Content */}
           <div className="space-y-6 xs:space-y-8 animate-fade-in-up text-white order-2 lg:order-1">
             
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-              <span className="text-sm font-medium">Available for opportunities</span>
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/15 transition-all duration-300 group">
+              <div className="relative flex items-center justify-center">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <div className="absolute w-2 h-2 bg-green-400 rounded-full animate-ping opacity-75"></div>
+              </div>
+              <span className="text-sm font-semibold">Available for opportunities</span>
             </div>
             
             {/* Main Heading */}
@@ -73,16 +79,21 @@ const Hero = () => {
             </div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Button 
                 size="lg" 
-                className="bg-yellow-400 text-black hover:bg-yellow-500 font-semibold text-lg px-8 py-6"
+                className="bg-white text-primary hover:bg-white/90 font-bold text-base px-8 py-7 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300"
                 onClick={handleViewWorkClick}
               >
                 View My Work
                 <ChevronDown className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm text-lg px-8 py-6" asChild>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-primary backdrop-blur-md font-bold text-base px-8 py-7 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300" 
+                asChild
+              >
                 <a href="/lovable-uploads/2330946a-5345-4afb-8564-eb40af5f3ed8.png" download="Puspal_Das_CV.pdf">
                   Download CV
                 </a>
@@ -95,12 +106,13 @@ const Hero = () => {
             <div className="relative">
               
               {/* Main Image */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-80 h-80 lg:w-[28rem] lg:h-[28rem] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/10">
                 <img 
                   src={profileImageUrl} 
                   alt="Puspal Das - Backend Developer Portfolio" 
-                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
               
               {/* Floating Status Card */}

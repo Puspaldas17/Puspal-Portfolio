@@ -2,15 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32" style={{ backgroundColor: 'hsl(var(--section-bg))' }}>
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="text-center mb-12 xs:mb-14 sm:mb-16 animate-fade-in-up">
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 xs:mb-4">Let's Work Together</h2>
-          <p className="text-base xs:text-lg sm:text-xl text-muted-foreground max-w-xl xs:max-w-2xl mx-auto px-4 xs:px-0">
+    <section id="contact" className="py-20 md:py-28 lg:py-32 bg-gradient-to-b from-background to-bg-subtle relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-10"></div>
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+        <div className="text-center mb-16 animate-fade-in-up">
+          <Badge variant="outline" className="mb-5 text-primary border-primary/30 text-sm px-4 py-1.5 font-semibold">
+            Get in Touch
+          </Badge>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
+            Let's Work Together
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ready to bring your ideas to life? Get in touch and let's create something amazing together.
           </p>
         </div>
@@ -25,42 +32,42 @@ const Contact = () => {
               </p>
             </div>
             
-            <div className="space-y-4 xs:space-y-6">
-              <div className="flex items-center gap-3 xs:gap-4">
-                <div className="w-10 h-10 xs:w-12 xs:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 xs:w-6 xs:h-6 text-primary" />
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="font-medium text-sm xs:text-base">Email</div>
-                  <div className="text-muted-foreground text-sm xs:text-base break-all">puspal1703@gmail.com</div>
+                  <div className="font-bold text-base mb-1">Email</div>
+                  <div className="text-muted-foreground text-sm break-all">puspal1703@gmail.com</div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 xs:gap-4">
-                <div className="w-10 h-10 xs:w-12 xs:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 xs:w-6 xs:h-6 text-primary" />
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="font-medium text-sm xs:text-base">Phone</div>
-                  <div className="text-muted-foreground text-sm xs:text-base">+91-8051166098</div>
+                  <div className="font-bold text-base mb-1">Phone</div>
+                  <div className="text-muted-foreground text-sm">+91-8051166098</div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3 xs:gap-4">
-                <div className="w-10 h-10 xs:w-12 xs:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 xs:w-6 xs:h-6 text-primary" />
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="font-medium text-sm xs:text-base">Location</div>
-                  <div className="text-muted-foreground text-sm xs:text-base">Bhubaneswar, India</div>
+                  <div className="font-bold text-base mb-1">Location</div>
+                  <div className="text-muted-foreground text-sm">Bhubaneswar, India</div>
                 </div>
               </div>
             </div>
           </div>
           
-          <Card className="shadow-card border-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <CardContent className="p-4 xs:p-6 sm:p-8">
-              <form className="space-y-4 xs:space-y-6">
+          <Card className="shadow-xl border-border/50 animate-fade-in-up hover:shadow-2xl transition-shadow duration-500" style={{ animationDelay: '0.2s' }}>
+            <CardContent className="p-8">
+              <form className="space-y-6">
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4">
                   <div>
                     <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block">First Name</label>
