@@ -90,11 +90,10 @@ const Skills = () => {
               Skills & Expertise
             </Badge>
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight font-sans">
-              Technical Skills & Expertise
+              🚀 Tech Stack & Tools
             </h2>
             <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0 font-sans">
-              Comprehensive technical proficiency across modern web development technologies 
-              and industry-standard tools for delivering high-quality solutions.
+              Building efficient, scalable, and high-quality web solutions.
             </p>
           </div>
           
@@ -149,10 +148,10 @@ const Skills = () => {
                 Professional Experience
               </Badge>
               <h3 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
-                Professional Development & Experience
+                Experience & Growth
               </h3>
               <p className="text-base xs:text-lg sm:text-lg text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4 xs:px-0">
-                Practical experience gained through hands-on project development and continuous learning
+                Practical expertise shaped by building and learning every day.
               </p>
             </div>
             

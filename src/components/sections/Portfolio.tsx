@@ -84,11 +84,10 @@ const Portfolio = () => {
           }`}
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-sans">
-            Featured Projects
+            Impactful Builds
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto font-sans">
-            Here are some of my recent projects that showcase my skills in backend development,
-            API design, and full-stack applications.
+            Turning complex ideas into scalable, real-world applications.
           </p>
         </div>
 
