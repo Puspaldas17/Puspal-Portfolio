@@ -28,48 +28,48 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-muted/20 relative">
+    <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-muted/20 relative">
       <div className="absolute inset-0 bg-gradient-mesh opacity-10"></div>
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-5 text-primary border-primary/30 text-sm px-4 py-1.5 font-semibold">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
+        <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20">
+          <Badge variant="outline" className="mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold">
             Current Projects
           </Badge>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
             Working On
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
             Actively developing innovative solutions across different domains, 
             from AI-powered applications to enterprise management systems.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-7 md:gap-8 max-w-7xl 2xl:max-w-[1600px] mx-auto">
           {currentProjects.map((project, index) => (
             <Card key={index} className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 bg-card border-border/50 hover:border-primary/30">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
-                    <div className="text-primary [&>svg]:w-7 [&>svg]:h-7">
+              <CardContent className="p-4 xs:p-5 sm:p-6 md:p-7">
+                <div className="flex items-start space-x-3 xs:space-x-4 mb-3 xs:mb-4">
+                  <div className="w-12 h-12 xs:w-14 xs:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl xs:rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                    <div className="text-primary [&>svg]:w-5 [&>svg]:h-5 xs:[&>svg]:w-6 xs:[&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7">
                       {project.icon}
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-bold mb-1.5 xs:mb-2 group-hover:text-primary transition-colors leading-tight">
                       {project.title}
                     </h3>
-                    <div className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-lg text-xs font-bold mb-3">
+                    <div className="inline-block px-2 xs:px-3 py-0.5 xs:py-1 bg-accent/10 text-accent rounded-lg text-[10px] xs:text-xs font-bold mb-2 xs:mb-3">
                       {project.status}
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground leading-relaxed mb-3 xs:mb-4 text-sm xs:text-base">
+                <p className="text-muted-foreground leading-relaxed mb-3 xs:mb-4 text-xs xs:text-sm md:text-base">
                   {project.description}
                 </p>
                 
-                <div className="pt-3 xs:pt-4 border-t border-border/50">
-                  <div className="text-xs xs:text-sm">
+                <div className="pt-2 xs:pt-3 md:pt-4 border-t border-border/50">
+                  <div className="text-[10px] xs:text-xs md:text-sm">
                     <span className="font-medium text-foreground">Tech Stack: </span>
                     <span className="text-muted-foreground">{project.technologies}</span>
                   </div>

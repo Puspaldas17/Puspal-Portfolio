@@ -27,19 +27,19 @@ const Header = () => {
         ? 'bg-background/80 backdrop-blur-xl shadow-md border-b border-border/40' 
         : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="flex items-center justify-between h-16 xs:h-18 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" className="group">
-              <div className="text-2xl font-bold tracking-tight">
+              <div className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-tight">
                 <span className={`bg-gradient-primary bg-clip-text text-transparent transition-all ${
                   isScrolled ? '' : 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
                 }`}>
                   Puspal Das
                 </span>
               </div>
-              <div className={`text-xs font-medium tracking-wide uppercase hidden xs:block transition-colors ${
+              <div className={`text-[10px] xs:text-xs font-medium tracking-wide uppercase hidden xs:block transition-colors ${
                 isScrolled ? 'text-muted-foreground' : 'text-white/80'
               }`}>
                 Backend Developer
@@ -48,12 +48,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-5 lg:space-x-6 xl:space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm font-semibold transition-all duration-300 group ${
+                className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 group ${
                   isScrolled 
                     ? 'text-foreground/70 hover:text-foreground' 
                     : 'text-white/90 hover:text-white'
