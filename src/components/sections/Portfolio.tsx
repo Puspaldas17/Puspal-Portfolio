@@ -10,57 +10,30 @@ import medivaultCover from "@/assets/medivault-cover.jpg";
 const projects = [
   {
     id: 1,
-    title: "MediVault",
-    description: "A comprehensive healthcare management platform built with modern web technologies, featuring secure patient data management and appointment scheduling.",
-    image: medivaultCover,
-    technologies: ["Node.js", "Express", "MongoDB", "React", "JWT"],
-    liveUrl: "https://medivault-demo.netlify.app",
-    githubUrl: "https://github.com/Puspaldas17/MediVault"
+    title: "HospEase",
+    description: "A streamlined Hospital Administration Management System designed to simplify patient record management, staff scheduling, and medical resource tracking — all within one intuitive platform.",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop",
+    technologies: ["Node.js", "Express", "MongoDB", "React"],
+    liveUrl: "https://github.com/Puspaldas17/HospEase",
+    githubUrl: "https://github.com/Puspaldas17/HospEase"
   },
   {
     id: 2,
-    title: "E-Commerce API",
-    description: "RESTful API for e-commerce platform with advanced features like payment integration, inventory management, and real-time notifications.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-    technologies: ["Node.js", "Express", "PostgreSQL", "Redis", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "LibraSync",
+    description: "An online library management system built with Handlebars for templating and SQL for database management. It integrates the Google Books API to enable dynamic book search and seamless information retrieval.",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+    technologies: ["Node.js", "Express", "Handlebars", "SQL", "Google Books API"],
+    liveUrl: "https://github.com/Puspaldas17/LibraSync",
+    githubUrl: "https://github.com/Puspaldas17/LibraSync"
   },
   {
     id: 3,
-    title: "Task Management System",
-    description: "Full-stack task management application with real-time collaboration features, built using the MERN stack.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    id: 4,
-    title: "Authentication Microservice",
-    description: "Scalable authentication and authorization service with JWT tokens, role-based access control, and OAuth integration.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
-    technologies: ["Node.js", "Express", "PostgreSQL", "JWT", "OAuth"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    id: 5,
-    title: "Real-time Chat Application",
-    description: "Modern chat application with real-time messaging, file sharing, and group chat functionality.",
-    image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=400&fit=crop",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Cloudinary"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    id: 6,
-    title: "Blog CMS",
-    description: "Content Management System for blogging platform with rich text editor, SEO optimization, and analytics dashboard.",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
-    technologies: ["Next.js", "Node.js", "MongoDB", "TailwindCSS", "MDX"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "MediVault",
+    description: "A secure and user-friendly health portal enabling patients to manage medical records, book appointments, and access vital health information online.",
+    image: medivaultCover,
+    technologies: ["HTML", "JavaScript", "MySQL"],
+    liveUrl: "https://github.com/Puspaldas17/MediVault",
+    githubUrl: "https://github.com/Puspaldas17/MediVault"
   }
 ];
 
@@ -93,7 +66,7 @@ const Portfolio = () => {
 
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
-            {Array.from({ length: 6 }).map((_, i) => (
+            {Array.from({ length: 3 }).map((_, i) => (
               <ProjectCardSkeleton key={i} />
             ))}
           </div>
