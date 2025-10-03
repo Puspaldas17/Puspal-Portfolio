@@ -3,7 +3,6 @@ import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
 import medivaultCover from "@/assets/medivault-cover.jpg";
 
@@ -39,23 +38,16 @@ const projects = [
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { elementRef: gridRef, isItemVisible } = useStaggeredAnimation(projects.length, 200);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <section id="portfolio" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 px-4 xs:px-6 sm:px-8 lg:px-10 xl:px-12">
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
-        <div 
-          ref={titleRef}
-          className={`text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 transition-all duration-1000 ${
-            titleVisible ? 'animate-fade-in-up' : ''
-          }`}
-        >
+        <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20">
           <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 xs:mb-5 sm:mb-6 font-sans">
             Impactful Builds
           </h2>
@@ -71,13 +63,11 @@ const Portfolio = () => {
             ))}
           </div>
         ) : (
-          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
-            {projects.map((project, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
+            {projects.map((project) => (
               <Card 
                 key={project.id}
-                className={`group overflow-hidden border hover:shadow-xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:scale-[1.02] hover:-translate-y-1 ${
-                  isItemVisible(index) ? 'animate-zoom-in' : ''
-                }`}
+                className="group overflow-hidden border hover:shadow-xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:scale-[1.02] hover:-translate-y-1"
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
