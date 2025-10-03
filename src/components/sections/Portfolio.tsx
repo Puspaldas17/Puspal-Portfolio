@@ -53,7 +53,7 @@ const Portfolio = () => {
         <div 
           ref={titleRef}
           className={`text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 transition-all duration-1000 ${
-            titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+            titleVisible ? 'animate-fade-in-up' : ''
           }`}
         >
           <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 xs:mb-5 sm:mb-6 font-sans">
@@ -76,9 +76,8 @@ const Portfolio = () => {
               <Card 
                 key={project.id}
                 className={`group overflow-hidden border hover:shadow-xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:scale-[1.02] hover:-translate-y-1 ${
-                  isItemVisible(index) ? 'animate-zoom-in' : 'opacity-0 scale-90'
+                  isItemVisible(index) ? 'animate-zoom-in' : ''
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
