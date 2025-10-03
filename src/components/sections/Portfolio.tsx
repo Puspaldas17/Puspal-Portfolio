@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
+import hospeaseCover from "@/assets/hospease-cover.jpg";
+import librasyncCover from "@/assets/librasync-cover.jpg";
 import medivaultCover from "@/assets/medivault-cover.jpg";
 
 const projects = [
@@ -11,7 +13,7 @@ const projects = [
     id: 1,
     title: "HospEase",
     description: "A streamlined Hospital Administration Management System designed to simplify patient record management, staff scheduling, and medical resource tracking — all within one intuitive platform.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop",
+    image: hospeaseCover,
     technologies: ["Node.js", "Express", "MongoDB", "React"],
     liveUrl: "https://github.com/Puspaldas17/HospEase",
     githubUrl: "https://github.com/Puspaldas17/HospEase"
@@ -20,7 +22,7 @@ const projects = [
     id: 2,
     title: "LibraSync",
     description: "An online library management system built with Handlebars for templating and SQL for database management. It integrates the Google Books API to enable dynamic book search and seamless information retrieval.",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+    image: librasyncCover,
     technologies: ["Node.js", "Express", "Handlebars", "SQL", "Google Books API"],
     liveUrl: "https://github.com/Puspaldas17/LibraSync",
     githubUrl: "https://github.com/Puspaldas17/LibraSync"
