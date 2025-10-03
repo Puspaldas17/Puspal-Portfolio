@@ -4,9 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
-import hospeaseCover from "@/assets/hospease-cover.jpg";
-import librasyncCover from "@/assets/librasync-cover.jpg";
-import medivaultCover from "@/assets/medivault-cover.jpg";
+import { hospeaseCover, librasyncCover, medivaultCover } from "@/assets/images";
 
 const projects = [
   {
@@ -42,7 +40,7 @@ const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 800);
+    const timer = setTimeout(() => setIsLoading(false), 300);
     return () => clearTimeout(timer);
   }, []);
 
