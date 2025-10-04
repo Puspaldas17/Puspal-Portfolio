@@ -110,6 +110,8 @@ const Hero = () => {
                 <img 
                   src={profileImageUrl} 
                   alt="Puspal Das - Backend Developer Portfolio" 
+                  loading="eager"
+                  fetchPriority="high"
                   className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>

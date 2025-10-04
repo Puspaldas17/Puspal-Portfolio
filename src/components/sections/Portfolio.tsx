@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, AlertCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -38,11 +38,16 @@ const projects = [
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 300);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleImageError = (projectId: number) => {
+    setImageErrors(prev => ({ ...prev, [projectId]: true }));
+  };
 
   return (
     <section id="portfolio" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 px-4 xs:px-6 sm:px-8 lg:px-10 xl:px-12">
@@ -70,12 +75,20 @@ const Portfolio = () => {
                 className="group overflow-hidden border hover:shadow-xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:scale-[1.02] hover:-translate-y-1"
               >
                 <CardContent className="p-0">
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-40 xs:h-44 sm:h-48 md:h-52 lg:h-56 xl:h-60 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                  <div className="relative overflow-hidden bg-muted">
+                    {imageErrors[project.id] ? (
+                      <div className="w-full h-40 xs:h-44 sm:h-48 md:h-52 lg:h-56 xl:h-60 flex items-center justify-center">
+                        <AlertCircle className="w-12 h-12 text-muted-foreground/50" />
+                      </div>
+                    ) : (
+                      <img 
+                        src={project.image} 
+                        alt={`${project.title} - Project showcase`}
+                        loading="lazy"
+                        onError={() => handleImageError(project.id)}
+                        className="w-full h-40 xs:h-44 sm:h-48 md:h-52 lg:h-56 xl:h-60 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   

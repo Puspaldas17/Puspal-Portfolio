@@ -82,6 +82,7 @@ const About = () => {
                   <img 
                     src={aboutImage} 
                     alt="Developer workspace showcasing modern development environment" 
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-primary/10"></div>
