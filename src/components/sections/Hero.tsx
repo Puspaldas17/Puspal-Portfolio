@@ -94,8 +94,8 @@ const Hero = () => {
                 className="border-2 border-white text-white hover:bg-white hover:text-primary backdrop-blur-md font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300" 
                 asChild
               >
-                <a href="/lovable-uploads/2330946a-5345-4afb-8564-eb40af5f3ed8.png" download="Puspal_Das_CV.pdf">
-                  Download CV
+                <a href="/resume" target="_blank">
+                  View Resume
                 </a>
               </Button>
             </div>

@@ -172,4 +172,71 @@
     background-size: 200% 100%;
     animation: shimmer 2s infinite linear;
   }
+
+  /* Print Styles */
+  @media print {
+    @page {
+      margin: 0.5in;
+      size: letter;
+    }
+
+    body {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .print\:hidden {
+      display: none !important;
+    }
+
+    .print\:block {
+      display: block !important;
+    }
+
+    .print\:break-inside-avoid {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .print\:p-0 {
+      padding: 0 !important;
+    }
+
+    .print\:bg-white {
+      background-color: white !important;
+    }
+
+    .print\:text-black {
+      color: black !important;
+    }
+
+    .print\:bg-gray-900 {
+      background-color: #111827 !important;
+    }
+
+    .print\:border {
+      border-width: 1px !important;
+    }
+
+    .print\:border-gray-400 {
+      border-color: #9ca3af !important;
+    }
+
+    a[href]:after {
+      content: none;
+    }
+
+    button, .no-print {
+      display: none !important;
+    }
+
+    .resume-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-header {
+      background-color: #1e3a8a !important;
+      color: white !important;
+    }
+  }
 }
