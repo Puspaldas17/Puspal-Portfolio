@@ -75,9 +75,9 @@ const Portfolio = () => {
               <Card 
                 key={project.id}
                 className={`group overflow-hidden border hover:shadow-xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:scale-[1.02] hover:-translate-y-1 ${
-                  isItemVisible(index) ? 'animate-fade-in opacity-100' : 'opacity-0'
+                  isItemVisible(index) ? 'animate-fade-in' : ''
                 }`}
-                style={{ animationDelay: `${index * 150}ms` }}
+                style={isItemVisible(index) ? { animationDelay: `${index * 150}ms` } : {}}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden bg-muted">
