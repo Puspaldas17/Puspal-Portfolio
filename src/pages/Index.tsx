@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       <Header />
       <Hero />
       <About />
