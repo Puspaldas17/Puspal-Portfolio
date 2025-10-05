@@ -10,7 +10,7 @@ import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 const projects = [
   {
     id: 1,
-    title: "HospEase",
+    title: "🏥 HospEase",
     description: "A streamlined Hospital Administration Management System designed to simplify patient record management, staff scheduling, and medical resource tracking — all within one intuitive platform.",
     image: hospeaseCover,
     technologies: ["Node.js", "Express", "MongoDB", "React"],
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "LibraSync",
+    title: "📚 LibraSync",
     description: "An online library management system built with Handlebars for templating and SQL for database management. It integrates the Google Books API to enable dynamic book search and seamless information retrieval.",
     image: librasyncCover,
     technologies: ["Node.js", "Express", "Handlebars", "SQL", "Google Books API"],
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "MediVault",
+    title: "🩺 MediVault",
     description: "A secure and user-friendly health portal enabling patients to manage medical records, book appointments, and access vital health information online.",
     image: medivaultCover,
     technologies: ["HTML", "JavaScript", "MySQL"],
