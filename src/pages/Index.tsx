@@ -1,5 +1,5 @@
 import { Header } from "@/components/layout";
-import { Hero, About, Skills, Process, Portfolio, Contact } from "@/components/sections";
+import { Hero, About, Skills, WorkProcess, Process, Portfolio, Contact } from "@/components/sections";
 import { Footer } from "@/components/layout";
 
 const Index = () => {
@@ -9,6 +9,7 @@ const Index = () => {
       <Hero />
       <About />
       <Skills />
+      <WorkProcess />
       <Process />
       <Portfolio />
       <Contact />
