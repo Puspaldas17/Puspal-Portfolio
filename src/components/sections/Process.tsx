@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Globe, Sprout, BookOpen } from "lucide-react";
-import { librasyncCover } from "@/assets/images";
+import { Globe, Sprout } from "lucide-react";
 
 const Process = () => {
   const currentProjects = [
@@ -20,14 +19,6 @@ const Process = () => {
       technologies: "Node.js, Express, MongoDB, REST API",
       status: "In Development",
       image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
-    },
-    {
-      icon: <BookOpen className="w-6 h-6" />,
-      title: "LibraSync", 
-      description: "Online library management system with Google Books API integration for dynamic book search.",
-      technologies: "Handlebars, SQL",
-      status: "In Development",
-      image: librasyncCover
     }
   ];
 
