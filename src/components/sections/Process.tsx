@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Globe, Shield, BookOpen } from "lucide-react";
-import { hospeaseCover, librasyncCover } from "@/assets/images";
+import { Globe, Sprout, BookOpen } from "lucide-react";
+import { librasyncCover } from "@/assets/images";
 
 const Process = () => {
   const currentProjects = [
@@ -14,12 +14,12 @@ const Process = () => {
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop"
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "HospEase",
-      description: "Hospital management system for patient records, staff scheduling, and resource tracking.",
-      technologies: "Full-stack app",
+      icon: <Sprout className="w-6 h-6" />,
+      title: "Smart-Crop-Tools",
+      description: "Smart-Crop-Tools is a responsive full-stack web app that combines multilingual voice chatbot, weather & alerts, market pricing, crop advisory, and image-based pest detection — all in one seamless dashboard.",
+      technologies: "Node.js, Express, MongoDB, REST API",
       status: "In Development",
-      image: hospeaseCover
+      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
