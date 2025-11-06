@@ -1,5 +1,5 @@
 import { Header } from "@/components/layout";
-import { Hero, About, Skills, Services, WorkProcess, Process, Portfolio, Testimonials, Contact } from "@/components/sections";
+import { Hero, Stats, About, Skills, Services, WorkProcess, Process, Portfolio, Testimonials, Contact } from "@/components/sections";
 import { Footer } from "@/components/layout";
 
 const Index = () => {
@@ -7,6 +7,7 @@ const Index = () => {
     <div className="min-h-screen animate-fade-in">
       <Header />
       <Hero />
+      <Stats />
       <About />
       <Skills />
       <Services />
