@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,25 +49,29 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-5 lg:space-x-6 xl:space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 group ${
-                  isScrolled 
-                    ? 'text-foreground/70 hover:text-foreground' 
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300 rounded-full"></span>
-              </a>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-5">
+            <nav className="flex items-center space-x-5 lg:space-x-6 xl:space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 group ${
+                    isScrolled 
+                      ? 'text-foreground/70 hover:text-foreground' 
+                      : 'text-white/90 hover:text-white'
+                  }`}
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300 rounded-full"></span>
+                </a>
+              ))}
+            </nav>
+            <ThemeToggle />
+          </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button and theme toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2.5 rounded-xl transition-all duration-300 ${
