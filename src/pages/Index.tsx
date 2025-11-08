@@ -3,6 +3,7 @@ import { Header } from "@/components/layout";
 import { Hero, Stats, About, Skills, Services, WorkProcess, Process, Portfolio, Testimonials, Contact } from "@/components/sections";
 import { Footer } from "@/components/layout";
 import LoadingScreen from "@/components/LoadingScreen";
+import { CursorEffects } from "@/components/CursorEffects";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,20 +32,23 @@ const Index = () => {
     <>
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       {showContent && (
-        <div className="min-h-screen animate-fade-in">
-          <Header />
-          <Hero />
-          <Stats />
-          <About />
-          <Skills />
-          <Services />
-          <WorkProcess />
-          <Process />
-          <Portfolio />
-          <Testimonials />
-          <Contact />
-          <Footer />
-        </div>
+        <>
+          <CursorEffects />
+          <div className="min-h-screen animate-fade-in">
+            <Header />
+            <Hero />
+            <Stats />
+            <About />
+            <Skills />
+            <Services />
+            <WorkProcess />
+            <Process />
+            <Portfolio />
+            <Testimonials />
+            <Contact />
+            <Footer />
+          </div>
+        </>
       )}
     </>
   );
