@@ -4,6 +4,7 @@ import { Hero, Stats, About, Skills, Services, WorkProcess, Process, Portfolio, 
 import { Footer } from "@/components/layout";
 import LoadingScreen from "@/components/LoadingScreen";
 import { CursorEffects } from "@/components/CursorEffects";
+import { BackgroundEffects } from "@/components/BackgroundEffects";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,8 +34,9 @@ const Index = () => {
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       {showContent && (
         <>
+          <BackgroundEffects />
           <CursorEffects />
-          <div className="min-h-screen animate-fade-in">
+          <div className="min-h-screen animate-fade-in relative z-10">
             <Header />
             <Hero />
             <Stats />
