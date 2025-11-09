@@ -1,13 +1,22 @@
+import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Award, Target } from "lucide-react";
 import aboutImage from "@/assets/about-workspace.jpg";
+import { useParallaxTransform } from "@/hooks/use-parallax";
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageTransform = useParallaxTransform(sectionRef, { speed: 0.2 });
+  const bgTransform = useParallaxTransform(sectionRef, { speed: 0.4 });
+
   return (
-    <section id="about" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-b from-bg-subtle to-background relative overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+    <section ref={sectionRef} id="about" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-b from-bg-subtle to-background relative overflow-hidden">
+      {/* Subtle background decoration with parallax */}
+      <div 
+        className="absolute inset-0 bg-gradient-mesh opacity-20 will-change-transform"
+        style={{ transform: bgTransform }}
+      ></div>
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           
@@ -77,7 +86,7 @@ const About = () => {
             
             {/* Image Side */}
             <div className="relative animate-fade-in-right order-1 lg:order-2">
-              <div className="relative">
+              <div className="relative will-change-transform" style={{ transform: imageTransform }}>
                 <div className="aspect-[4/5] xs:aspect-[3/4] sm:aspect-[4/5] rounded-xl xs:rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl bg-gradient-surface">
                   <img 
                     src={aboutImage} 

@@ -1,10 +1,15 @@
-
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Code, Database, Server } from "lucide-react";
+import { useParallaxTransform } from "@/hooks/use-parallax";
 
 const profileImageUrl = "/lovable-uploads/34b283d9-1d93-4bf3-a2d1-040d22502d48.png";
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const bgPatternTransform = useParallaxTransform(sectionRef, { speed: 0.3 });
+  const bgMeshTransform = useParallaxTransform(sectionRef, { speed: 0.5 });
+
   const handleViewWorkClick = () => {
     console.log("View My Work button clicked");
     const portfolioSection = document.getElementById('portfolio');
@@ -21,10 +26,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden">
-      {/* Modern background effects */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNGgydjJoLTJ2LTJ6bS0yIDJ2LTJoLTJ2Mmgyem0wIDBoLTJ2Mmgydi0yem0yIDJoLTJ2Mmgydi0yem0wIDBodjJoMnYtMmgtMnptMi0yaDJ2LTJoLTJ2MnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40"></div>
-      <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <section ref={sectionRef} id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden">
+      {/* Modern background effects with parallax */}
+      <div 
+        className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNGgydjJoLTJ2LTJ6bS0yIDJ2LTJoLTJ2Mmgyem0wIDBoLTJ2Mmgydi0yem0yIDJoLTJ2Mmgydi0yem0wIDBodjJoMnYtMmgtMnptMi0yaDJ2LTJoLTJ2MnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40 will-change-transform"
+        style={{ transform: bgPatternTransform }}
+      ></div>
+      <div 
+        className="absolute inset-0 bg-gradient-mesh opacity-30 will-change-transform"
+        style={{ transform: bgMeshTransform }}
+      ></div>
       
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20 2xl:gap-24 items-center max-w-7xl 2xl:max-w-[1600px] mx-auto">
