@@ -3,7 +3,6 @@ import { Header } from "@/components/layout";
 import { Hero, Stats, About, Skills, Services, WorkProcess, Process, Portfolio, Testimonials, Contact } from "@/components/sections";
 import { Footer } from "@/components/layout";
 import LoadingScreen from "@/components/LoadingScreen";
-import { CursorEffects } from "@/components/CursorEffects";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 
 const Index = () => {
@@ -35,7 +34,6 @@ const Index = () => {
       {showContent && (
         <>
           <BackgroundEffects />
-          <CursorEffects />
           <div className="min-h-screen animate-fade-in relative z-10">
             <Header />
             <Hero />
