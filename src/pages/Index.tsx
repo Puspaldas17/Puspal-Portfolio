@@ -4,6 +4,7 @@ import { Hero, Stats, About, Skills, Services, WorkProcess, Process, Portfolio, 
 import { Footer } from "@/components/layout";
 import LoadingScreen from "@/components/LoadingScreen";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
+import { ChatWidget } from "@/components/ChatWidget";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,7 @@ const Index = () => {
             <Contact />
             <Footer />
           </div>
+          <ChatWidget />
         </>
       )}
     </>
