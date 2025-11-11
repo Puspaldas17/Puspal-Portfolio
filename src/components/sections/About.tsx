@@ -4,8 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Award, Target } from "lucide-react";
 import aboutImage from "@/assets/about-workspace.jpg";
 import { useParallaxTransform } from "@/hooks/use-parallax";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
   const imageTransform = useParallaxTransform(sectionRef, { speed: 0.2 });
   const bgTransform = useParallaxTransform(sectionRef, { speed: 0.4 });
@@ -23,13 +25,13 @@ const About = () => {
           {/* Section Header */}
           <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 animate-fade-in-up">
             <Badge variant="outline" className="mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold">
-              About Me
+              {t('about.badge')}
             </Badge>
             <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight tracking-tight">
-              Behind the Code
+              {t('about.title')}
             </h2>
             <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
-              Passionate about building scalable digital solutions that make a real impact
+              {t('about.subtitle')}
             </p>
           </div>
 
@@ -41,33 +43,29 @@ const About = () => {
               {/* Main Description */}
               <div className="prose prose-sm xs:prose-base sm:prose-lg">
                 <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed mb-3 xs:mb-4 sm:mb-5 md:mb-6">
-                  I'm a Backend & MERN Stack Developer who thrives on creating clean, efficient, and scalable systems. 
-                  My journey in software development is driven by curiosity, problem-solving, and continuous growth.
+                  {t('about.description1')}
                 </p>
                 
                 <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed mb-3 xs:mb-4 sm:mb-5 md:mb-6">
-                  I approach every project with a user-first mindset, designing robust backends and modern web 
-                  applications that deliver seamless and reliable digital experiences.
+                  {t('about.description2')}
                 </p>
                 
                 <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-foreground leading-relaxed">
-                  Beyond coding, I explore emerging technologies, contribute to open-source projects, and collaborate 
-                  with developers to share knowledge and build meaningful solutions. My focus is not only on writing 
-                  code but on creating long-term value within the tech community.
+                  {t('about.description3')}
                 </p>
               </div>
 
               {/* Core Principles */}
               <div className="space-y-3 xs:space-y-4">
-                <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 xs:mb-4">Core Principles</h3>
+                <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 xs:mb-4">{t('about.corePrinciples')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-5 md:gap-6">
                   <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 bg-card rounded-xl xs:rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
                     <div className="p-2 xs:p-2.5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg xs:rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                       <Target className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-bold text-foreground mb-1 xs:mb-1.5 text-sm xs:text-base">🎯 Goal-Oriented</h4>
-                      <p className="text-xs xs:text-sm text-muted-foreground leading-relaxed">Delivering results that go beyond expectations</p>
+                      <h4 className="font-bold text-foreground mb-1 xs:mb-1.5 text-sm xs:text-base">🎯 {t('about.goalOriented')}</h4>
+                      <p className="text-xs xs:text-sm text-muted-foreground leading-relaxed">{t('about.goalOrientedDesc')}</p>
                     </div>
                   </div>
                   
@@ -76,8 +74,8 @@ const About = () => {
                       <Award className="w-4 h-4 xs:w-5 xs:h-5 text-accent" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-bold text-foreground mb-1 xs:mb-1.5 text-sm xs:text-base">⚡ Quality First</h4>
-                      <p className="text-xs xs:text-sm text-muted-foreground leading-relaxed">Writing maintainable and efficient code for long-term success</p>
+                      <h4 className="font-bold text-foreground mb-1 xs:mb-1.5 text-sm xs:text-base">⚡ {t('about.qualityFirst')}</h4>
+                      <p className="text-xs xs:text-sm text-muted-foreground leading-relaxed">{t('about.qualityFirstDesc')}</p>
                     </div>
                   </div>
                 </div>
@@ -103,8 +101,8 @@ const About = () => {
                     <div className="flex items-center gap-2 xs:gap-3">
                       <MapPin className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                       <div className="min-w-0">
-                        <div className="font-semibold text-[10px] xs:text-xs sm:text-sm whitespace-nowrap">Based in</div>
-                        <div className="text-muted-foreground text-[10px] xs:text-xs whitespace-nowrap">Howrah, India</div>
+                        <div className="font-semibold text-[10px] xs:text-xs sm:text-sm whitespace-nowrap">{t('about.basedIn')}</div>
+                        <div className="text-muted-foreground text-[10px] xs:text-xs whitespace-nowrap">{t('about.location')}</div>
                       </div>
                     </div>
                   </CardContent>
@@ -115,8 +113,8 @@ const About = () => {
                     <div className="flex items-center gap-2 xs:gap-3">
                       <Calendar className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                       <div className="min-w-0">
-                        <div className="font-semibold text-[10px] xs:text-xs sm:text-sm whitespace-nowrap">Experience</div>
-                        <div className="text-muted-foreground text-[10px] xs:text-xs whitespace-nowrap">2+ Years Learning</div>
+                        <div className="font-semibold text-[10px] xs:text-xs sm:text-sm whitespace-nowrap">{t('about.experience')}</div>
+                        <div className="text-muted-foreground text-[10px] xs:text-xs whitespace-nowrap">{t('about.experienceYears')}</div>
                       </div>
                     </div>
                   </CardContent>

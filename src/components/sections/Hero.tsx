@@ -2,10 +2,12 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Code, Database, Server } from "lucide-react";
 import { useParallaxTransform } from "@/hooks/use-parallax";
+import { useTranslation } from "react-i18next";
 
 const profileImageUrl = "/lovable-uploads/34b283d9-1d93-4bf3-a2d1-040d22502d48.png";
 
 const Hero = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
   const bgPatternTransform = useParallaxTransform(sectionRef, { speed: 0.3 });
   const bgMeshTransform = useParallaxTransform(sectionRef, { speed: 0.5 });
@@ -49,24 +51,29 @@ const Hero = () => {
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <div className="absolute w-2 h-2 bg-green-400 rounded-full animate-ping opacity-75"></div>
               </div>
-              <span className="text-xs xs:text-sm md:text-base font-semibold">Available for opportunities</span>
+              <span className="text-xs xs:text-sm md:text-base font-semibold">{t('hero.badge')}</span>
             </div>
             
             {/* Main Heading */}
             <div className="space-y-3 xs:space-y-4">
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-tight">
-                👋 Hi, I'm <br />
-                <span className="text-yellow-400">Puspal Das</span>
+                👋 {t('hero.greeting')} <br />
+                <span className="text-yellow-400">{t('hero.name')}</span>
               </h1>
               <div className="flex items-center gap-2 xs:gap-3 text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold">
                 <Server className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-yellow-400 flex-shrink-0" />
-                <span>Backend & MERN Stack Developer</span>
+                <span>{t('hero.title')}</span>
               </div>
             </div>
             
             {/* Description */}
             <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-white/90 max-w-2xl xl:max-w-3xl leading-relaxed">
-              I build scalable backends and modern MERN applications, crafting robust APIs and seamless digital experiences with <span className="font-mono text-white">Node.js</span>, <span className="font-mono text-white">Express</span>, <span className="font-mono text-white">MongoDB</span>, and <span className="font-mono text-white">React</span>.
+              {t('hero.description', { 
+                node: 'Node.js', 
+                express: 'Express', 
+                mongo: 'MongoDB', 
+                react: 'React' 
+              })}
             </p>
             
             {/* Tech Stack Icons */}
@@ -96,7 +103,7 @@ const Hero = () => {
                 className="bg-white text-primary hover:bg-white/90 font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300"
                 onClick={handleViewWorkClick}
               >
-                View My Work
+                {t('hero.viewWork')}
                 <ChevronDown className="w-4 h-4 xs:w-5 xs:h-5 ml-2" />
               </Button>
               <Button 
@@ -106,7 +113,7 @@ const Hero = () => {
                 asChild
               >
                 <a href="/resume" target="_blank">
-                  View Resume
+                  {t('hero.viewResume')}
                 </a>
               </Button>
             </div>
@@ -135,8 +142,8 @@ const Hero = () => {
                     <div className="absolute inset-0 w-3 h-3 xs:w-4 xs:h-4 bg-yellow-400 rounded-full animate-ping opacity-75"></div>
                   </div>
                   <div>
-                    <div className="text-xs xs:text-sm md:text-base font-semibold text-gray-900 whitespace-nowrap">Open to Work</div>
-                    <div className="text-[10px] xs:text-xs md:text-sm text-gray-600 whitespace-nowrap">Backend & Full-Stack</div>
+                    <div className="text-xs xs:text-sm md:text-base font-semibold text-gray-900 whitespace-nowrap">{t('hero.openToWork')}</div>
+                    <div className="text-[10px] xs:text-xs md:text-sm text-gray-600 whitespace-nowrap">{t('hero.openToWorkSub')}</div>
                   </div>
                 </div>
               </div>
@@ -146,8 +153,8 @@ const Hero = () => {
                 <div className="flex items-center gap-1.5 xs:gap-2">
                   <Code className="w-4 h-4 xs:w-5 xs:h-5 md:w-6 md:h-6 flex-shrink-0" />
                   <div>
-                    <div className="text-xs xs:text-sm md:text-base font-semibold whitespace-nowrap">MERN Stack</div>
-                    <div className="text-[10px] xs:text-xs md:text-sm opacity-90 whitespace-nowrap">Developer</div>
+                    <div className="text-xs xs:text-sm md:text-base font-semibold whitespace-nowrap">{t('hero.mernStack')}</div>
+                    <div className="text-[10px] xs:text-xs md:text-sm opacity-90 whitespace-nowrap">{t('hero.developer')}</div>
                   </div>
                 </div>
               </div>

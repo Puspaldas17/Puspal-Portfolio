@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,11 +67,13 @@ const Header = () => {
                 </a>
               ))}
             </nav>
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center space-x-2">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}

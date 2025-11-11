@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Index, NotFound, ResumePage } from "./pages";
 import ErrorBoundary from "./components/ErrorBoundary";
+import "./i18n/config";
 
 const queryClient = new QueryClient();
 

@@ -1,8 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Server, Database, GitBranch, Layers, Zap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Skills = () => {
+  const { t } = useTranslation();
   const skillCategories = [
     {
       category: "Frontend Development",
@@ -87,13 +89,13 @@ const Skills = () => {
           {/* Header Section */}
           <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24">
             <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/20 text-xs xs:text-sm">
-              Skills & Expertise
+              {t('skills.badge')}
             </Badge>
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight font-sans">
-              🚀 Tech Stack & Tools
+              🚀 {t('skills.title')}
             </h2>
             <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0 font-sans">
-              Building efficient, scalable, and high-quality web solutions.
+              {t('skills.subtitle')}
             </p>
           </div>
           
@@ -145,13 +147,13 @@ const Skills = () => {
           <div className="mb-12 xs:mb-16 sm:mb-20">
             <div className="text-center mb-12 xs:mb-14 sm:mb-16">
               <Badge variant="outline" className="mb-3 xs:mb-4 text-accent border-accent/20 text-xs xs:text-sm">
-                Professional Experience
+                {t('skills.experienceBadge')}
               </Badge>
               <h3 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
-                Experience & Growth
+                {t('skills.experienceTitle')}
               </h3>
               <p className="text-base xs:text-lg sm:text-lg text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4 xs:px-0">
-                Practical expertise shaped by building and learning every day.
+                {t('skills.experienceSubtitle')}
               </p>
             </div>
             
@@ -197,14 +199,13 @@ const Skills = () => {
                   </div>
                 </div>
                 <h4 className="text-xl xs:text-2xl sm:text-3xl font-bold text-foreground mb-3 xs:mb-4">
-                  Committed to Excellence
+                  {t('skills.excellenceTitle')}
                 </h4>
                 <p className="text-base xs:text-lg text-muted-foreground mb-4 xs:mb-6 leading-relaxed px-4 xs:px-0">
-                  Committed to continuous learning and staying current with emerging technologies 
-                  to deliver innovative and efficient solutions.
+                  {t('skills.excellenceDesc')}
                 </p>
                 <Badge variant="secondary" className="px-4 xs:px-6 py-2 text-sm xs:text-base">
-                  Always expanding expertise through hands-on experience and best practices
+                  {t('skills.excellenceBadge')}
                 </Badge>
               </CardContent>
             </Card>
