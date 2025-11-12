@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ThemeCustomizer } from "@/components/ui/theme-customizer";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const Header = () => {
@@ -67,14 +68,16 @@ const Header = () => {
                 </a>
               ))}
             </nav>
-            <LanguageSwitcher />
+            <ThemeCustomizer />
             <ThemeToggle />
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center space-x-2">
-            <LanguageSwitcher />
+            <ThemeCustomizer />
             <ThemeToggle />
+            <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2.5 rounded-xl transition-all duration-300 ${

@@ -49,3 +49,5 @@ export * from './tooltip';
 export { Toaster } from './toaster';
 export { Toaster as Sonner } from './sonner';
 export { useToast } from './use-toast';
+export { ThemeToggle } from './theme-toggle';
+export { ThemeCustomizer } from './theme-customizer';

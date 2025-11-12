@@ -146,19 +146,122 @@
     --sidebar-border: 215 25% 27%;
     --sidebar-ring: 221 83% 53%;
   }
+
+  /* Ocean Theme - Light */
+  [data-color-scheme="ocean"] {
+    --primary: 199 89% 48%;
+    --primary-light: 199 89% 58%;
+    --primary-dark: 199 89% 38%;
+    --accent: 177 70% 41%;
+    --accent-light: 177 70% 51%;
+    --accent-dark: 177 70% 31%;
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(177 70% 41%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(177 70% 41%) 0%, hsl(190 70% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(177 70% 41%) 100%);
+    --ring: 199 89% 48%;
+  }
+
+  /* Ocean Theme - Dark */
+  .dark[data-color-scheme="ocean"] {
+    --primary: 199 89% 55%;
+    --accent: 177 70% 48%;
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 55%) 0%, hsl(177 70% 48%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(177 70% 48%) 0%, hsl(190 70% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 55%) 0%, hsl(177 70% 48%) 100%);
+  }
+
+  /* Sunset Theme - Light */
+  [data-color-scheme="sunset"] {
+    --primary: 14 91% 58%;
+    --primary-light: 14 91% 68%;
+    --primary-dark: 14 91% 48%;
+    --accent: 333 71% 51%;
+    --accent-light: 333 71% 61%;
+    --accent-dark: 333 71% 41%;
+    --gradient-primary: linear-gradient(135deg, hsl(14 91% 58%) 0%, hsl(333 71% 51%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(333 71% 51%) 0%, hsl(350 71% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(14 91% 58%) 0%, hsl(333 71% 51%) 100%);
+    --ring: 14 91% 58%;
+  }
+
+  /* Sunset Theme - Dark */
+  .dark[data-color-scheme="sunset"] {
+    --primary: 14 91% 65%;
+    --accent: 333 71% 58%;
+    --gradient-primary: linear-gradient(135deg, hsl(14 91% 65%) 0%, hsl(333 71% 58%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(333 71% 58%) 0%, hsl(350 71% 65%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(14 91% 65%) 0%, hsl(333 71% 58%) 100%);
+  }
+
+  /* Forest Theme - Light */
+  [data-color-scheme="forest"] {
+    --primary: 142 76% 36%;
+    --primary-light: 142 76% 46%;
+    --primary-dark: 142 76% 26%;
+    --accent: 171 77% 37%;
+    --accent-light: 171 77% 47%;
+    --accent-dark: 171 77% 27%;
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(171 77% 37%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(171 77% 37%) 0%, hsl(160 77% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(171 77% 37%) 100%);
+    --ring: 142 76% 36%;
+  }
+
+  /* Forest Theme - Dark */
+  .dark[data-color-scheme="forest"] {
+    --primary: 142 76% 45%;
+    --accent: 171 77% 45%;
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 45%) 0%, hsl(171 77% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(171 77% 45%) 0%, hsl(160 77% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 45%) 0%, hsl(171 77% 45%) 100%);
+  }
+
+  /* Monochrome Theme - Light */
+  [data-color-scheme="monochrome"] {
+    --primary: 0 0% 20%;
+    --primary-light: 0 0% 30%;
+    --primary-dark: 0 0% 10%;
+    --accent: 0 0% 40%;
+    --accent-light: 0 0% 50%;
+    --accent-dark: 0 0% 30%;
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 40%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0 0% 40%) 0%, hsl(0 0% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 40%) 100%);
+    --ring: 0 0% 20%;
+  }
+
+  /* Monochrome Theme - Dark */
+  .dark[data-color-scheme="monochrome"] {
+    --primary: 0 0% 80%;
+    --accent: 0 0% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 80%) 0%, hsl(0 0% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0 0% 60%) 0%, hsl(0 0% 70%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 80%) 0%, hsl(0 0% 60%) 100%);
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
+    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight font-sans;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth transitions for theme changes */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Custom animations and utilities */
