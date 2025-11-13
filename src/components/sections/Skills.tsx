@@ -25,7 +25,15 @@ const Skills = () => {
       icon: Server,
       skills: [
         "Node.js", 
-        "Express.js"
+        "Express.js",
+        "Python",
+        "Java",
+        "JavaScript",
+        "PHP",
+        "Go",
+        "Kotlin",
+        "C++",
+        "C#"
       ],
       description: "Building robust server-side applications",
       color: "accent"
