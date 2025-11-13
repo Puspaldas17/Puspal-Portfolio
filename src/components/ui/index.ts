@@ -44,6 +44,7 @@ export * from './textarea';
 export * from './toggle';
 export * from './toggle-group';
 export * from './tooltip';
+export * from './timeline';
 
 // Specific named exports to avoid conflicts
 export { Toaster } from './toaster';
