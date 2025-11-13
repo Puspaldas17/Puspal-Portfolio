@@ -42,7 +42,8 @@ const Skills = () => {
       category: "Database",
       icon: Database,
       skills: [
-        "MongoDB"
+        "MongoDB",
+        "SQL"
       ],
       description: "NoSQL database management and data modeling",
       color: "primary"
