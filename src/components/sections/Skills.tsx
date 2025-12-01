@@ -65,7 +65,7 @@ const Skills = () => {
         "MongoDB",
         "SQL"
       ],
-      description: "NoSQL database management and data modeling",
+      description: "Database management and data modeling (SQL & NoSQL)",
       color: "primary"
     },
     {
@@ -83,7 +83,7 @@ const Skills = () => {
         "Azure",
         "CI/CD"
       ],
-      description: "Development tools and version control",
+      description: "Development tools, cloud platforms, and DevOps",
       color: "accent"
     }
   ];
