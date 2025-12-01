@@ -12,10 +12,21 @@ const Skills = () => {
       skills: [
         "HTML", 
         "CSS", 
-        "JavaScript", 
-        "React", 
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Vue.js",
+        "Angular",
+        "Svelte",
         "Tailwind CSS", 
-        "Bootstrap"
+        "Bootstrap",
+        "Redux",
+        "Zustand",
+        "Recoil",
+        "Webpack",
+        "Vite",
+        "Turbopack"
       ],
       description: "Creating responsive and interactive user interfaces",
       color: "primary"
@@ -27,13 +38,22 @@ const Skills = () => {
         "Node.js", 
         "Express.js",
         "Python",
+        "Django",
+        "Flask",
+        "FastAPI",
         "Java",
+        "Spring Boot",
         "JavaScript",
         "PHP",
+        "Laravel",
         "Go",
         "Kotlin",
         "C++",
-        "C#"
+        "C#",
+        "GraphQL",
+        "WebSockets",
+        "gRPC",
+        "REST"
       ],
       description: "Building robust server-side applications",
       color: "accent"
