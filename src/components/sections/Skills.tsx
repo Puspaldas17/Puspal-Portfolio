@@ -56,7 +56,12 @@ const Skills = () => {
         "GitHub", 
         "Postman", 
         "VS Code", 
-        "npm"
+        "npm",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "Azure",
+        "CI/CD"
       ],
       description: "Development tools and version control",
       color: "accent"
