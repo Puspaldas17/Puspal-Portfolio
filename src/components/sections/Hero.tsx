@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Code, Database, Server } from "lucide-react";
+import { ChevronDown, Code, Database, Server, Download } from "lucide-react";
 import { useParallaxTransform } from "@/hooks/use-parallax";
 import { useTranslation } from "react-i18next";
 
@@ -105,6 +105,16 @@ const Hero = () => {
               >
                 {t('hero.viewWork')}
                 <ChevronDown className="w-4 h-4 xs:w-5 xs:h-5 ml-2" />
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 group" 
+                asChild
+              >
+                <a href="/resume.pdf" download="Puspal_Das_Resume.pdf">
+                  <Download className="w-4 h-4 xs:w-5 xs:h-5 mr-2 group-hover:animate-bounce" />
+                  {t('hero.downloadCV')}
+                </a>
               </Button>
               <Button 
                 size="lg" 
