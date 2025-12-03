@@ -88,5 +88,29 @@
     "businessDesc": "Delivering solutions aligned with your goals—reliable, maintainable, and designed to grow.",
     "innovation": "Innovation & Automation",
     "innovationDesc": "Exploring emerging tech, automating workflows, and finding smarter ways to solve problems."
+  },
+  "blog": {
+    "badge": "Blog & Articles",
+    "title": "Technical Insights",
+    "subtitle": "Sharing knowledge, experiences, and lessons learned from building real-world applications",
+    "readMore": "Read Article",
+    "viewAll": "View All Articles",
+    "posts": {
+      "post1": {
+        "title": "Optimizing React Performance: A Deep Dive",
+        "excerpt": "Learn advanced techniques for improving React application performance, including memoization, lazy loading, and efficient state management strategies.",
+        "category": "Frontend"
+      },
+      "post2": {
+        "title": "Building Scalable REST APIs with Node.js",
+        "excerpt": "A comprehensive guide to designing and implementing production-ready REST APIs with proper error handling, authentication, and database optimization.",
+        "category": "Backend"
+      },
+      "post3": {
+        "title": "Docker & CI/CD: Streamlining Your Workflow",
+        "excerpt": "Discover how to containerize your applications and set up automated deployment pipelines for faster, more reliable releases.",
+        "category": "DevOps"
+      }
+    }
   }
 }

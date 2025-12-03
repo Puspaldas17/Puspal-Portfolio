@@ -8,3 +8,4 @@ export { default as Contact } from './Contact';
 export { default as Services } from './Services';
 export { default as Testimonials } from './Testimonials';
 export { default as Stats } from './Stats';
+export { default as Blog } from './Blog';
