@@ -88,5 +88,29 @@
     "businessDesc": "Entregando soluciones alineadas con tus objetivos: confiables, mantenibles y diseñadas para crecer.",
     "innovation": "Innovación y Automatización",
     "innovationDesc": "Explorando tecnologías emergentes, automatizando flujos de trabajo y encontrando formas más inteligentes de resolver problemas."
+  },
+  "blog": {
+    "badge": "Blog y Artículos",
+    "title": "Perspectivas Técnicas",
+    "subtitle": "Compartiendo conocimiento, experiencias y lecciones aprendidas construyendo aplicaciones del mundo real",
+    "readMore": "Leer Artículo",
+    "viewAll": "Ver Todos los Artículos",
+    "posts": {
+      "post1": {
+        "title": "Optimizando el Rendimiento de React: Una Inmersión Profunda",
+        "excerpt": "Aprende técnicas avanzadas para mejorar el rendimiento de aplicaciones React, incluyendo memoización, carga diferida y estrategias eficientes de gestión de estado.",
+        "category": "Frontend"
+      },
+      "post2": {
+        "title": "Construyendo APIs REST Escalables con Node.js",
+        "excerpt": "Una guía completa para diseñar e implementar APIs REST listas para producción con manejo adecuado de errores, autenticación y optimización de base de datos.",
+        "category": "Backend"
+      },
+      "post3": {
+        "title": "Docker y CI/CD: Optimizando Tu Flujo de Trabajo",
+        "excerpt": "Descubre cómo containerizar tus aplicaciones y configurar pipelines de despliegue automatizado para lanzamientos más rápidos y confiables.",
+        "category": "DevOps"
+      }
+    }
   }
 }
