@@ -25,7 +25,7 @@ interface GitHubUser {
 }
 
 // Replace with your GitHub username
-const GITHUB_USERNAME = "pusparaj-sahu";
+const GITHUB_USERNAME = "Puspaldas17";
 
 const languageColors: Record<string, string> = {
   TypeScript: "bg-blue-500",
