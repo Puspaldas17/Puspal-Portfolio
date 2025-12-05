@@ -4,38 +4,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
-import { hospeaseCover, librasyncCover, medivaultCover } from "@/assets/images";
+
 import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
-const projects = [
-  {
-    id: 1,
-    title: "🏥 HospEase",
-    description: "A streamlined Hospital Administration Management System designed to simplify patient record management, staff scheduling, and medical resource tracking — all within one intuitive platform.",
-    image: hospeaseCover,
-    technologies: ["Node.js", "Express", "MongoDB", "React"],
-    liveUrl: "https://github.com/Puspaldas17/HospEase",
-    githubUrl: "https://github.com/Puspaldas17/HospEase"
-  },
-  {
-    id: 2,
-    title: "📚 LibraSync",
-    description: "An online library management system built with Handlebars for templating and SQL for database management. It integrates the Google Books API to enable dynamic book search and seamless information retrieval.",
-    image: librasyncCover,
-    technologies: ["Node.js", "Express", "Handlebars", "SQL", "Google Books API"],
-    liveUrl: "https://github.com/Puspaldas17/LibraSync",
-    githubUrl: "https://github.com/Puspaldas17/LibraSync"
-  },
-  {
-    id: 3,
-    title: "🩺 MediVault",
-    description: "A secure and user-friendly health portal enabling patients to manage medical records, book appointments, and access vital health information online.",
-    image: medivaultCover,
-    technologies: ["HTML", "JavaScript", "MySQL"],
-    liveUrl: "https://github.com/Puspaldas17/MediVault",
-    githubUrl: "https://github.com/Puspaldas17/MediVault"
-  }
-];
+const projects: Array<{
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  liveUrl: string;
+  githubUrl: string;
+}> = [];
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
