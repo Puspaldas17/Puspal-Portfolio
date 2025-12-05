@@ -133,26 +133,6 @@ const GitHubActivity = () => {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                <a
-                  href={user.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 group"
-                >
-                  <img
-                    src={user.avatar_url}
-                    alt={user.login}
-                    className="w-12 h-12 rounded-full ring-2 ring-primary/20 group-hover:ring-primary/50 transition-all"
-                  />
-                  <div>
-                    <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      @{user.login}
-                    </p>
-                    <p className="text-sm text-muted-foreground">View Profile</p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                </a>
-
                 <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50">
                   <BookOpen className="w-5 h-5 text-primary" />
                   <div>
