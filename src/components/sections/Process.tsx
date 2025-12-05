@@ -1,26 +1,18 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Globe, Sprout } from "lucide-react";
+import { ReactNode } from "react";
+
+interface Project {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  technologies: string;
+  status: string;
+  image: string;
+}
 
 const Process = () => {
-  const currentProjects = [
-    {
-      icon: <Globe className="w-6 h-6" />,
-      title: "TripGenius-AI",
-      description: "AI-powered travel planner with real-time weather, flight & hotel search, budget tracking, and group collaboration.",
-      technologies: "React, Node.js, MongoDB",
-      status: "In Development",
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop"
-    },
-    {
-      icon: <Sprout className="w-6 h-6" />,
-      title: "Smart-Crop-Tools",
-      description: "Smart-Crop-Tools is a responsive full-stack web app that combines multilingual voice chatbot, weather & alerts, market pricing, crop advisory, and image-based pest detection — all in one seamless dashboard.",
-      technologies: "Node.js, Express, MongoDB, REST API",
-      status: "In Development",
-      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
-    }
-  ];
+  const currentProjects: Project[] = [];
 
   return (
     <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-muted/20 relative">
