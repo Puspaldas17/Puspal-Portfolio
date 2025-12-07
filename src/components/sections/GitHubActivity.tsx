@@ -27,6 +27,79 @@ interface GitHubUser {
 // Replace with your GitHub username
 const GITHUB_USERNAME = "Puspaldas17";
 
+// Fallback data when API is rate limited
+const fallbackUser: GitHubUser = {
+  login: "Puspaldas17",
+  avatar_url: "https://avatars.githubusercontent.com/u/147488708?v=4",
+  public_repos: 10,
+  followers: 6,
+  following: 27,
+  html_url: "https://github.com/Puspaldas17"
+};
+
+const fallbackRepos: GitHubRepo[] = [
+  {
+    id: 1,
+    name: "Redis-Server",
+    description: "Custom Redis server implementation built from scratch with in-memory key-value storage and RESP protocol support.",
+    html_url: "https://github.com/Puspaldas17/Redis-Server",
+    stargazers_count: 0,
+    forks_count: 0,
+    language: "C++",
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 2,
+    name: "TripGenius",
+    description: "AI-powered trip planner with weather updates, maps, drag-and-drop calendar, budget tracking, and group collaboration.",
+    html_url: "https://github.com/Puspaldas17/TripGenius",
+    stargazers_count: 1,
+    forks_count: 0,
+    language: "TypeScript",
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 3,
+    name: "Buy-and-Sell-project",
+    description: "Secure open marketplace for second-hand goods with item listings, seller contact, and transaction history.",
+    html_url: "https://github.com/Puspaldas17/Buy-and-Sell-project",
+    stargazers_count: 1,
+    forks_count: 0,
+    language: "TypeScript",
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 4,
+    name: "Smart-Crop-Tools",
+    description: "Responsive full-stack web app with multilingual voice chatbot, weather alerts, market pricing, and pest detection.",
+    html_url: "https://github.com/Puspaldas17/Smart-Crop-Tools",
+    stargazers_count: 1,
+    forks_count: 0,
+    language: "TypeScript",
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 5,
+    name: "Puspal-Portfolio",
+    description: "Modern responsive portfolio website built with React, TypeScript, Tailwind CSS, and Vite.",
+    html_url: "https://github.com/Puspaldas17/Puspal-Portfolio",
+    stargazers_count: 1,
+    forks_count: 0,
+    language: "TypeScript",
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 6,
+    name: "RPS-Challenge",
+    description: "Stone Paper Scissors game implemented as a web application using HTML, CSS, and JavaScript.",
+    html_url: "https://github.com/Puspaldas17/RPS-Challenge",
+    stargazers_count: 0,
+    forks_count: 0,
+    language: "JavaScript",
+    updated_at: new Date().toISOString()
+  }
+];
+
 const languageColors: Record<string, string> = {
   TypeScript: "bg-blue-500",
   JavaScript: "bg-yellow-400",
@@ -50,7 +123,6 @@ const GitHubActivity = () => {
   const [user, setUser] = useState<GitHubUser | null>(null);
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchGitHubData = async () => {
@@ -62,7 +134,10 @@ const GitHubActivity = () => {
         ]);
 
         if (!userRes.ok || !reposRes.ok) {
-          throw new Error("Failed to fetch GitHub data");
+          // Use fallback data when rate limited
+          setUser(fallbackUser);
+          setRepos(fallbackRepos);
+          return;
         }
 
         const userData = await userRes.json();
@@ -71,7 +146,9 @@ const GitHubActivity = () => {
         setUser(userData);
         setRepos(reposData);
       } catch (err) {
-        setError("Unable to load GitHub data");
+        // Use fallback data on error
+        setUser(fallbackUser);
+        setRepos(fallbackRepos);
         console.error(err);
       } finally {
         setLoading(false);
@@ -122,8 +199,6 @@ const GitHubActivity = () => {
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
           </div>
-        ) : error ? (
-          <div className="text-center py-20 text-muted-foreground">{error}</div>
         ) : (
           <>
             {/* User Stats */}
