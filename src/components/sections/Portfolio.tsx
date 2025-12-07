@@ -15,7 +15,35 @@ const projects: Array<{
   technologies: string[];
   liveUrl: string;
   githubUrl: string;
-}> = [];
+}> = [
+  {
+    id: 1,
+    title: "TripGenius",
+    description: "AI-powered trip planner with weather forecasts, interactive maps, drag-and-drop calendar, budget tracking, group collaboration, transport & hotel search, and currency conversion.",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop",
+    technologies: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS", "Vite"],
+    liveUrl: "https://trip-genius-liard.vercel.app",
+    githubUrl: "https://github.com/Puspaldas17/TripGenius"
+  },
+  {
+    id: 2,
+    title: "Redis Server",
+    description: "Custom Redis server implementation built from scratch with in-memory key-value storage, support for core data structures (Strings, Lists, Sets, Hashes), TCP server, and RESP protocol.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+    technologies: ["C++", "CMake", "TCP/IP", "RESP Protocol"],
+    liveUrl: "https://redis-server.vercel.app",
+    githubUrl: "https://github.com/Puspaldas17/Redis-Server"
+  },
+  {
+    id: 3,
+    title: "Buy & Sell",
+    description: "Secure open marketplace for second-hand goods with item listings, seller contact, search functionality, transaction history, buyer notifications, and request management.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "Recoil"],
+    liveUrl: "https://github.com/Puspaldas17/Buy-and-Sell-project",
+    githubUrl: "https://github.com/Puspaldas17/Buy-and-Sell-project"
+  }
+];
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
