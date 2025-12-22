@@ -8,9 +8,13 @@ import { Mail, Phone, MapPin } from "lucide-react";
 const Contact = () => {
   return (
     <section id="contact" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-b from-background to-bg-subtle relative overflow-hidden">
+      {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-mesh opacity-10"></div>
+      <div className="absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float-slow pointer-events-none" />
+      <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-float-slower pointer-events-none" />
+      
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
-        <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 animate-fade-in-up">
+        <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           <Badge variant="outline" className="mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold">
             Get in Touch
           </Badge>
@@ -23,7 +27,7 @@ const Contact = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12">
-          <div className="space-y-6 xs:space-y-8 animate-fade-in-up">
+          <div className="space-y-6 xs:space-y-8 opacity-0 animate-fade-in-left" style={{ animationDelay: '0.2s' }}>
             <div>
               <h3 className="text-xl xs:text-2xl font-semibold mb-4 xs:mb-6">Get In Touch</h3>
               <p className="text-muted-foreground mb-6 xs:mb-8 leading-relaxed text-sm xs:text-base">
@@ -33,8 +37,8 @@ const Contact = () => {
             </div>
             
             <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 opacity-0 animate-slide-in-left" style={{ animationDelay: '0.3s' }}>
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -43,8 +47,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 opacity-0 animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -53,8 +57,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 opacity-0 animate-slide-in-left" style={{ animationDelay: '0.5s' }}>
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -65,37 +69,37 @@ const Contact = () => {
             </div>
           </div>
           
-          <Card className="shadow-xl border-border/50 animate-fade-in-up hover:shadow-2xl transition-shadow duration-500" style={{ animationDelay: '0.2s' }}>
+          <Card className="shadow-xl border-border/50 hover:shadow-2xl transition-all duration-500 opacity-0 animate-fade-in-right group" style={{ animationDelay: '0.3s' }}>
             <CardContent className="p-8">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4">
-                  <div>
-                    <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block">First Name</label>
-                    <Input placeholder="John" className="text-sm xs:text-base" />
+                  <div className="group/input">
+                    <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">First Name</label>
+                    <Input placeholder="John" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
                   </div>
-                  <div>
-                    <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block">Last Name</label>
-                    <Input placeholder="Doe" className="text-sm xs:text-base" />
+                  <div className="group/input">
+                    <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Last Name</label>
+                    <Input placeholder="Doe" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
                   </div>
                 </div>
                 
-                <div>
-                  <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block">Email</label>
-                  <Input type="email" placeholder="john@example.com" className="text-sm xs:text-base" />
+                <div className="group/input">
+                  <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Email</label>
+                  <Input type="email" placeholder="john@example.com" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
                 </div>
                 
-                <div>
-                  <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block">Subject</label>
-                  <Input placeholder="Project Inquiry" className="text-sm xs:text-base" />
+                <div className="group/input">
+                  <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Subject</label>
+                  <Input placeholder="Project Inquiry" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
                 </div>
                 
-                <div>
-                  <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block">Message</label>
-                  <Textarea placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none" />
+                <div className="group/input">
+                  <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Message</label>
+                  <Textarea placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none transition-all duration-300 focus:scale-[1.01] focus:shadow-md" />
                 </div>
                 
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent text-sm xs:text-base py-2.5 xs:py-3">
-                  Send Message
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent text-sm xs:text-base py-2.5 xs:py-3 group/btn hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
+                  <span className="group-hover/btn:animate-bounce-gentle">Send Message</span>
                 </Button>
               </form>
             </CardContent>

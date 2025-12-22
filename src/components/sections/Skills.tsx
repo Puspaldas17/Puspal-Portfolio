@@ -128,16 +128,18 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-background relative overflow-hidden">
-      {/* Subtle background pattern */}
+      {/* Animated background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-20 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-float-slow pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float-slower pointer-events-none" />
       
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         <div className="max-w-7xl mx-auto">
           
           {/* Header Section */}
-          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24">
+          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/30 text-xs xs:text-sm backdrop-blur-sm">
-              <Sparkles className="w-3 h-3 mr-1" />
+              <Sparkles className="w-3 h-3 mr-1 animate-pulse" />
               {t('skills.badge')}
             </Badge>
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight font-sans">
@@ -155,7 +157,8 @@ const Skills = () => {
               return (
                 <Card 
                   key={index} 
-                  className={`group border ${category.borderColor} shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-card/50 backdrop-blur-sm overflow-hidden`}
+                  className={`group border ${category.borderColor} shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm overflow-hidden opacity-0 animate-fade-in-up`}
+                  style={{ animationDelay: `${0.1 + index * 0.15}s` }}
                 >
                   {/* Gradient overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -163,11 +166,11 @@ const Skills = () => {
                   <CardContent className="p-5 xs:p-6 sm:p-8 relative z-10">
                     {/* Header */}
                     <div className="flex items-center gap-3 xs:gap-4 mb-5 xs:mb-6">
-                      <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} border ${category.borderColor}`}>
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} border ${category.borderColor} group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                         <IconComponent className={`w-5 h-5 xs:w-6 xs:h-6 ${category.iconColor}`} />
                       </div>
                       <div>
-                        <h3 className="text-lg xs:text-xl font-bold text-foreground leading-tight font-sans">
+                        <h3 className="text-lg xs:text-xl font-bold text-foreground leading-tight font-sans group-hover:text-primary transition-colors duration-300">
                           {category.category}
                         </h3>
                         <p className="text-xs xs:text-sm text-muted-foreground mt-1">
@@ -176,21 +179,22 @@ const Skills = () => {
                       </div>
                     </div>
                     
-                    {/* Skills Tags */}
+                    {/* Skills Tags with staggered animation on hover */}
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
                           className={`
                             inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium
-                            transition-all duration-300 hover:scale-105 cursor-default
+                            transition-all duration-300 hover:scale-110 hover:-translate-y-1 cursor-default
                             ${skill.highlight 
                               ? `bg-gradient-to-r ${category.gradient} ${category.borderColor} border text-foreground shadow-sm` 
                               : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent hover:border-border'
                             }
                           `}
+                          style={{ transitionDelay: `${skillIndex * 20}ms` }}
                         >
-                          {skill.highlight && <Zap className="w-3 h-3" />}
+                          {skill.highlight && <Zap className="w-3 h-3 animate-pulse" />}
                           {skill.name}
                         </span>
                       ))}
