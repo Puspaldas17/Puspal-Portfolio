@@ -34,18 +34,28 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 xs:h-18 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="group">
-              <div className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-tight">
-                <span className={`bg-gradient-primary bg-clip-text text-transparent transition-all ${
-                  isScrolled ? '' : 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
-                }`}>
-                  Puspal Das
-                </span>
+            <a href="#home" className="group flex items-center gap-2">
+              {/* India Flag Logo */}
+              <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300 flex flex-col">
+                <div className="h-1/3 bg-[#FF9933]"></div>
+                <div className="h-1/3 bg-white flex items-center justify-center">
+                  <div className="w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 rounded-full border border-[#000080]"></div>
+                </div>
+                <div className="h-1/3 bg-[#138808]"></div>
               </div>
-              <div className={`text-[10px] xs:text-xs font-medium tracking-wide uppercase hidden xs:block transition-colors ${
-                isScrolled ? 'text-muted-foreground' : 'text-white/80'
-              }`}>
-                Backend Developer
+              <div>
+                <div className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-tight">
+                  <span className={`bg-gradient-primary bg-clip-text text-transparent transition-all ${
+                    isScrolled ? '' : 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
+                  }`}>
+                    Puspal Das
+                  </span>
+                </div>
+                <div className={`text-[10px] xs:text-xs font-medium tracking-wide uppercase hidden xs:block transition-colors ${
+                  isScrolled ? 'text-muted-foreground' : 'text-white/80'
+                }`}>
+                  Backend Developer
+                </div>
               </div>
             </a>
           </div>
