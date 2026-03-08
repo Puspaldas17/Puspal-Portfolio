@@ -167,30 +167,30 @@ const GitHubActivity = () => {
     <section
       id="github"
       ref={elementRef}
-      className="py-20 md:py-32 relative overflow-hidden"
+      className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 xs:mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-medium border-primary/30 bg-primary/5">
-            <Github className="w-4 h-4 mr-2" />
+          <Badge variant="outline" className="mb-3 xs:mb-4 px-3 xs:px-4 py-1 xs:py-1.5 text-xs xs:text-sm font-medium border-primary/30 bg-primary/5">
+            <Github className="w-3 h-3 xs:w-4 xs:h-4 mr-1.5 xs:mr-2" />
             {t("github.badge", "Open Source")}
           </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 xs:mb-4">
             <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
               {t("github.title", "GitHub Activity")}
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-sm xs:text-base sm:text-lg max-w-2xl mx-auto px-4 xs:px-0">
             {t("github.subtitle", "My open source contributions and recent projects")}
           </p>
         </div>
@@ -204,81 +204,81 @@ const GitHubActivity = () => {
             {/* User Stats */}
             {user && (
               <div
-                className={`flex flex-wrap justify-center gap-6 mb-12 transition-all duration-700 delay-200 ${
+                className={`flex flex-wrap justify-center gap-3 xs:gap-4 sm:gap-6 mb-8 xs:mb-10 sm:mb-12 transition-all duration-700 delay-200 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50">
-                  <BookOpen className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-2 xs:gap-3 px-4 xs:px-5 sm:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50">
+                  <BookOpen className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                   <div>
-                    <p className="font-bold text-xl text-foreground">{user.public_repos}</p>
-                    <p className="text-sm text-muted-foreground">{t("github.repos", "Repositories")}</p>
+                    <p className="font-bold text-base xs:text-lg sm:text-xl text-foreground">{user.public_repos}</p>
+                    <p className="text-xs xs:text-sm text-muted-foreground">{t("github.repos", "Repositories")}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50">
-                  <Users className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-2 xs:gap-3 px-4 xs:px-5 sm:px-6 py-3 xs:py-4 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50">
+                  <Users className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                   <div>
-                    <p className="font-bold text-xl text-foreground">{user.followers}</p>
-                    <p className="text-sm text-muted-foreground">{t("github.followers", "Followers")}</p>
+                    <p className="font-bold text-base xs:text-lg sm:text-xl text-foreground">{user.followers}</p>
+                    <p className="text-xs xs:text-sm text-muted-foreground">{t("github.followers", "Followers")}</p>
                   </div>
                 </div>
               </div>
             )}
 
             {/* Recent Repositories */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6">
               {repos.map((repo, index) => (
                 <a
                   key={repo.id}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5 ${
+                  className={`group p-4 xs:p-5 sm:p-6 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5 ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
                   }`}
                   style={{ transitionDelay: `${300 + index * 100}ms` }}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate max-w-[180px]">
+                  <div className="flex items-start justify-between mb-2 xs:mb-3">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                      <Github className="w-4 h-4 xs:w-5 xs:h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                      <h3 className="font-semibold text-sm xs:text-base text-foreground group-hover:text-primary transition-colors truncate">
                         {repo.name}
                       </h3>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 ml-2" />
                   </div>
 
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2 min-h-[40px]">
+                  <p className="text-xs xs:text-sm text-muted-foreground mb-3 xs:mb-4 line-clamp-2 min-h-[32px] xs:min-h-[40px]">
                     {repo.description || "No description available"}
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 xs:gap-4 flex-wrap">
                       {repo.language && (
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1 xs:gap-1.5">
                           <span
-                            className={`w-3 h-3 rounded-full ${
+                            className={`w-2.5 h-2.5 xs:w-3 xs:h-3 rounded-full ${
                               languageColors[repo.language] || "bg-gray-400"
                             }`}
                           />
-                          <span className="text-xs text-muted-foreground">{repo.language}</span>
+                          <span className="text-[10px] xs:text-xs text-muted-foreground">{repo.language}</span>
                         </div>
                       )}
                       <div className="flex items-center gap-1 text-muted-foreground">
-                        <Star className="w-3.5 h-3.5" />
-                        <span className="text-xs">{repo.stargazers_count}</span>
+                        <Star className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
+                        <span className="text-[10px] xs:text-xs">{repo.stargazers_count}</span>
                       </div>
                       <div className="flex items-center gap-1 text-muted-foreground">
-                        <GitFork className="w-3.5 h-3.5" />
-                        <span className="text-xs">{repo.forks_count}</span>
+                        <GitFork className="w-3 h-3 xs:w-3.5 xs:h-3.5" />
+                        <span className="text-[10px] xs:text-xs">{repo.forks_count}</span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-xs text-muted-foreground mt-3 pt-3 border-t border-border/50">
+                  <p className="text-[10px] xs:text-xs text-muted-foreground mt-2 xs:mt-3 pt-2 xs:pt-3 border-t border-border/50">
                     Updated {formatDate(repo.updated_at)}
                   </p>
                 </a>
