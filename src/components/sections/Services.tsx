@@ -58,14 +58,14 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-card/50 backdrop-blur-sm card-hover"
+              className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-[transform,box-shadow] duration-300 hover:-translate-y-3 bg-card/50 backdrop-blur-sm card-hover"
               style={getItemStyle(index)}
             >
               {/* Hover gradient overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               
               <CardContent className="p-5 xs:p-6 sm:p-7 md:p-8 text-center relative z-10">
-                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 ${service.iconBg} rounded-xl xs:rounded-2xl flex items-center justify-center mx-auto mb-4 xs:mb-5 md:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 ${service.iconBg} rounded-xl xs:rounded-2xl flex items-center justify-center mx-auto mb-4 xs:mb-5 md:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-lg`}>
                   <div className={`${service.iconColor} group-hover:animate-bounce-gentle`}>
                     {service.icon}
                   </div>
@@ -74,7 +74,7 @@ const Services = () => {
                 <p className="text-sm xs:text-base text-muted-foreground leading-relaxed">{service.description}</p>
                 
                 {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-primary group-hover:w-1/2 transition-all duration-500 rounded-full" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-primary group-hover:w-1/2 transition-[width] duration-300 rounded-full" />
               </CardContent>
             </Card>
           ))}

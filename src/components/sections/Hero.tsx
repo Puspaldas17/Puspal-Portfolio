@@ -83,7 +83,7 @@ const Hero = () => {
           <div className="space-y-5 xs:space-y-6 sm:space-y-7 md:space-y-8 text-white order-2 lg:order-1">
             
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 xs:gap-2.5 px-4 xs:px-5 py-2 xs:py-2.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/15 transition-all duration-300 group opacity-0 animate-slide-up-fade" style={{ animationDelay: '0.2s' }}>
+            <div className="inline-flex items-center gap-2 xs:gap-2.5 px-4 xs:px-5 py-2 xs:py-2.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-md hover:bg-white/15 transition-colors duration-200 group opacity-0 animate-slide-up-fade" style={{ animationDelay: '0.2s' }}>
               <div className="relative flex items-center justify-center">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <div className="absolute w-2 h-2 bg-green-400 rounded-full animate-ping opacity-75"></div>
@@ -128,7 +128,7 @@ const Hero = () => {
               ].map((tech, i) => (
                 <div 
                   key={tech.label}
-                  className="flex items-center gap-1.5 xs:gap-2 px-2.5 xs:px-3 py-1.5 xs:py-2 glass rounded-lg hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="flex items-center gap-1.5 xs:gap-2 px-2.5 xs:px-3 py-1.5 xs:py-2 glass rounded-lg hover:bg-white/15 transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg"
                 >
                   <tech.icon className="w-4 h-4 xs:w-5 xs:h-5 text-yellow-300 flex-shrink-0" />
                   <span className="text-xs xs:text-sm md:text-base font-mono">{tech.label}</span>
@@ -140,7 +140,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 xs:gap-4 pt-4 xs:pt-6 opacity-0 animate-slide-up-fade" style={{ animationDelay: '1s' }}>
               <Button 
                 size="lg" 
-                className="bg-white text-primary hover:bg-white/90 font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group/btn"
+                className="bg-white text-primary hover:bg-white/90 font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-[transform,box-shadow,background-color] duration-200 group/btn"
                 onClick={handleViewWorkClick}
               >
                 {t('hero.viewWork')}
@@ -148,7 +148,7 @@ const Hero = () => {
               </Button>
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 hover:from-yellow-300 hover:to-orange-300 font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group/btn" 
+                className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 hover:from-yellow-300 hover:to-orange-300 font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-[transform,box-shadow] duration-200 group/btn" 
                 asChild
               >
                 <a href="/resume.pdf" download="Puspal_Das_Resume.pdf">
@@ -159,7 +159,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white/40 text-white hover:bg-white hover:text-primary backdrop-blur-md font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300" 
+                className="border-2 border-white/40 text-white hover:bg-white hover:text-primary backdrop-blur-md font-bold text-sm xs:text-base md:text-lg px-6 xs:px-8 md:px-10 py-5 xs:py-6 md:py-7 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-[transform,box-shadow,background-color,color] duration-200" 
                 asChild
               >
                 <a href="/resume" target="_blank">

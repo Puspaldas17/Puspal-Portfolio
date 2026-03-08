@@ -42,7 +42,7 @@ const About = () => {
             {/* Content Side */}
             <div 
               ref={contentRef}
-              className={`space-y-5 xs:space-y-6 sm:space-y-7 md:space-y-8 order-2 lg:order-1 transition-all duration-700 ${
+              className={`space-y-5 xs:space-y-6 sm:space-y-7 md:space-y-8 order-2 lg:order-1 transition-[transform,opacity] duration-500 ${
                 contentRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}
             >
@@ -66,7 +66,7 @@ const About = () => {
               <div className="space-y-3 xs:space-y-4">
                 <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 xs:mb-4">{t('about.corePrinciples')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-5 md:gap-6">
-                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 glass-card rounded-xl xs:rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-300 group card-hover">
+                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 glass-card rounded-xl xs:rounded-2xl hover:border-primary/30 hover:shadow-card transition-[border-color,box-shadow] duration-200 group card-hover">
                     <div className="p-2 xs:p-2.5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg xs:rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                       <Target className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                     </div>
@@ -76,7 +76,7 @@ const About = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 glass-card rounded-xl xs:rounded-2xl hover:border-accent/30 hover:shadow-accent transition-all duration-300 group card-hover">
+                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 glass-card rounded-xl xs:rounded-2xl hover:border-accent/30 hover:shadow-accent transition-[border-color,box-shadow] duration-200 group card-hover">
                     <div className="p-2 xs:p-2.5 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg xs:rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                       <Award className="w-4 h-4 xs:w-5 xs:h-5 text-accent" />
                     </div>
@@ -92,7 +92,7 @@ const About = () => {
             {/* Image Side - Fixed Professional Layout */}
             <div 
               ref={imageRef}
-              className={`relative order-1 lg:order-2 transition-all duration-700 delay-200 ${
+              className={`relative order-1 lg:order-2 transition-[transform,opacity] duration-500 delay-200 ${
                 imageRevealed ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-12 scale-95'
               }`}
             >

@@ -243,7 +243,6 @@
 @layer base {
   * {
     @apply border-border;
-    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   html {
@@ -259,13 +258,6 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight font-sans;
     transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Smooth transitions for theme changes */
-  * {
-    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Custom animations and utilities */

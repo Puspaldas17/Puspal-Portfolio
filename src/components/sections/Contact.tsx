@@ -29,7 +29,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12">
           <div 
             ref={leftRef}
-            className={`space-y-6 xs:space-y-8 transition-all duration-700 ${
+            className={`space-y-6 xs:space-y-8 transition-[transform,opacity] duration-500 ${
               leftRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
             }`}
           >
@@ -42,8 +42,8 @@ const Contact = () => {
             </div>
             
             <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 card-hover">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-[transform,border-color,box-shadow] duration-300 group hover:-translate-x-2 card-hover">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -52,8 +52,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 card-hover">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-[transform,border-color,box-shadow] duration-300 group hover:-translate-x-2 card-hover">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -62,8 +62,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 card-hover">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-[transform,border-color,box-shadow] duration-300 group hover:-translate-x-2 card-hover">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -76,7 +76,7 @@ const Contact = () => {
           
           <Card 
             ref={rightRef}
-            className={`shadow-xl border-border/50 hover:shadow-2xl transition-all duration-700 group gradient-border ${
+            className={`shadow-xl border-border/50 hover:shadow-2xl transition-[transform,opacity,box-shadow] duration-500 group gradient-border ${
               rightRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
           >
@@ -85,30 +85,30 @@ const Contact = () => {
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4">
                   <div className="group/input">
                     <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">First Name</label>
-                    <Input placeholder="John" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
+                    <Input placeholder="John" className="text-sm xs:text-base transition-[border-color,box-shadow] duration-200" />
                   </div>
                   <div className="group/input">
                     <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Last Name</label>
-                    <Input placeholder="Doe" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
+                    <Input placeholder="Doe" className="text-sm xs:text-base transition-[border-color,box-shadow] duration-200" />
                   </div>
                 </div>
                 
                 <div className="group/input">
                   <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Email</label>
-                  <Input type="email" placeholder="john@example.com" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
+                  <Input type="email" placeholder="john@example.com" className="text-sm xs:text-base transition-[border-color,box-shadow] duration-200" />
                 </div>
                 
                 <div className="group/input">
                   <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Subject</label>
-                    <Input name="subject" placeholder="Project Inquiry" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
+                    <Input name="subject" placeholder="Project Inquiry" className="text-sm xs:text-base transition-[border-color,box-shadow] duration-200" />
                 </div>
                 
                 <div className="group/input">
                   <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Message</label>
-                  <Textarea name="message" placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none transition-all duration-300 focus:scale-[1.01] focus:shadow-md" />
+                  <Textarea name="message" placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none transition-[border-color,box-shadow] duration-200" />
                 </div>
                 
-                <Button className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 shadow-lg text-sm xs:text-base py-2.5 xs:py-3 group/btn hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
+                <Button className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 shadow-lg text-sm xs:text-base py-2.5 xs:py-3 group/btn hover:shadow-xl transition-[opacity,box-shadow] duration-200">
                   <Send className="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform" />
                   Send Message
                 </Button>

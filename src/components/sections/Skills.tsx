@@ -156,7 +156,7 @@ const Skills = () => {
               return (
                 <Card 
                   key={index} 
-                  className={`group border ${category.borderColor} shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm overflow-hidden card-hover`}
+                  className={`group border ${category.borderColor} shadow-lg hover:shadow-2xl transition-[transform,box-shadow] duration-300 hover:-translate-y-2 bg-card/50 backdrop-blur-sm overflow-hidden card-hover`}
                   style={getItemStyle(index)}
                 >
                   {/* Gradient overlay */}
@@ -165,7 +165,7 @@ const Skills = () => {
                   <CardContent className="p-5 xs:p-6 sm:p-8 relative z-10">
                     {/* Header */}
                     <div className="flex items-center gap-3 xs:gap-4 mb-5 xs:mb-6">
-                      <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} border ${category.borderColor} group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${category.gradient} border ${category.borderColor} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
                         <IconComponent className={`w-5 h-5 xs:w-6 xs:h-6 ${category.iconColor}`} />
                       </div>
                       <div>
@@ -185,7 +185,7 @@ const Skills = () => {
                           key={skillIndex}
                           className={`
                             inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs xs:text-sm font-medium
-                            transition-all duration-300 hover:scale-110 hover:-translate-y-1 cursor-default
+                            transition-[transform,background-color,border-color,color] duration-200 hover:scale-110 hover:-translate-y-1 cursor-default
                             ${skill.highlight 
                               ? `bg-gradient-to-r ${category.gradient} ${category.borderColor} border text-foreground shadow-sm` 
                               : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent hover:border-border'
@@ -216,7 +216,7 @@ const Skills = () => {
           </div>
           
           {/* Professional Experience Section */}
-          <div ref={expRef} className={`mb-12 xs:mb-16 sm:mb-20 transition-all duration-700 ${expRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div ref={expRef} className={`mb-12 xs:mb-16 sm:mb-20 transition-[transform,opacity] duration-500 ${expRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <SectionHeader
               badge={t('skills.experienceBadge')}
               title={t('skills.experienceTitle')}
@@ -230,7 +230,7 @@ const Skills = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="group border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card/50 backdrop-blur-sm hover:border-primary/30 card-hover"
+                    className="group border border-border/50 shadow-lg hover:shadow-xl transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm hover:border-primary/30 card-hover"
                     style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     <CardContent className="p-5 xs:p-6 sm:p-8">

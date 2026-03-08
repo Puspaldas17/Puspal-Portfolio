@@ -177,7 +177,7 @@ const GitHubActivity = () => {
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-10 xs:mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 xs:mb-12 sm:mb-14 md:mb-16 transition-[transform,opacity] duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -204,7 +204,7 @@ const GitHubActivity = () => {
             {/* User Stats */}
             {user && (
               <div
-                className={`flex flex-wrap justify-center gap-3 xs:gap-4 sm:gap-6 mb-8 xs:mb-10 sm:mb-12 transition-all duration-700 delay-200 ${
+                className={`flex flex-wrap justify-center gap-3 xs:gap-4 sm:gap-6 mb-8 xs:mb-10 sm:mb-12 transition-[transform,opacity] duration-500 delay-200 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
@@ -234,7 +234,7 @@ const GitHubActivity = () => {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group p-4 xs:p-5 sm:p-6 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5 ${
+                  className={`group p-4 xs:p-5 sm:p-6 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-[transform,box-shadow,border-color] duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5 ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"

@@ -61,7 +61,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 will-change-[background-color] ${
       isScrolled 
         ? 'bg-background/80 backdrop-blur-xl shadow-md border-b border-border/40' 
         : 'bg-transparent'
@@ -72,7 +72,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="group">
               <div className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-tight">
-                <span className={`bg-gradient-primary bg-clip-text text-transparent transition-all ${
+                <span className={`bg-gradient-primary bg-clip-text text-transparent transition-[filter] duration-200 ${
                   isScrolled ? '' : 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
                 }`}>
                   Puspal Das
@@ -94,7 +94,7 @@ const Header = () => {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 px-3 py-1.5 rounded-full ${
+                  className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-colors duration-200 px-3 py-1.5 rounded-full ${
                     activeSection === item.id
                       ? isScrolled
                         ? 'bg-primary/10 text-primary'
@@ -123,7 +123,7 @@ const Header = () => {
             <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2.5 rounded-xl transition-all duration-300 ${
+              className={`p-2.5 rounded-xl transition-colors duration-200 ${
                 isScrolled 
                   ? 'bg-muted hover:bg-muted/80' 
                   : 'bg-white/20 hover:bg-white/30 backdrop-blur-sm'
@@ -131,22 +131,22 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               <div className="relative w-5 h-5">
-                <Menu className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${isOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'} ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-                <X className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'} ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+                <Menu className={`absolute inset-0 w-5 h-5 transition-[transform,opacity] duration-200 ${isOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'} ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+                <X className={`absolute inset-0 w-5 h-5 transition-[transform,opacity] duration-200 ${isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'} ${isScrolled ? 'text-foreground' : 'text-white'}`} />
               </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
           <nav className="flex flex-col space-y-1 py-4 border-t border-border/20">
             {navItems.map((item, index) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`font-medium transition-all duration-300 py-2.5 px-4 rounded-xl ${
+                className={`font-medium transition-colors duration-200 py-2.5 px-4 rounded-xl ${
                   activeSection === item.id
                     ? 'bg-primary/10 text-primary'
                     : 'text-foreground/80 hover:text-foreground hover:bg-muted/50'
