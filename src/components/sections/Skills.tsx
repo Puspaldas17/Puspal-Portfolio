@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Code, Server, Database, GitBranch, Layers, Zap, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SectionHeader } from "@/components/SectionHeader";
