@@ -38,14 +38,14 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-background relative overflow-hidden">
+    <section id="services" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-background relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float-slow" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float-slower" />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         <SectionHeader
           badge={t('services.badge', 'What I Offer')}
           badgeIcon={Sparkles}
@@ -54,7 +54,7 @@ const Services = () => {
           gradient
         />
         
-        <div ref={containerRef} className="grid md:grid-cols-3 gap-8">
+        <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 md:gap-7 lg:gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
@@ -64,14 +64,14 @@ const Services = () => {
               {/* Hover gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               
-              <CardContent className="p-8 text-center relative z-10">
-                <div className={`w-20 h-20 ${service.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+              <CardContent className="p-5 xs:p-6 sm:p-7 md:p-8 text-center relative z-10">
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 ${service.iconBg} rounded-xl xs:rounded-2xl flex items-center justify-center mx-auto mb-4 xs:mb-5 md:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
                   <div className={`${service.iconColor} group-hover:animate-bounce-gentle`}>
                     {service.icon}
                   </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                <h3 className="text-lg xs:text-xl md:text-2xl font-bold mb-2 xs:mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">{service.title}</h3>
+                <p className="text-sm xs:text-base text-muted-foreground leading-relaxed">{service.description}</p>
                 
                 {/* Bottom accent line */}
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-primary group-hover:w-1/2 transition-all duration-500 rounded-full" />

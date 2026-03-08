@@ -80,7 +80,7 @@ const Contact = () => {
               rightRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
           >
-            <CardContent className="p-8">
+            <CardContent className="p-5 xs:p-6 sm:p-8">
               <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const subject = formData.get('subject') || 'Portfolio Contact'; const body = formData.get('message') || ''; window.location.href = `mailto:puspal1703@gmail.com?subject=${encodeURIComponent(String(subject))}&body=${encodeURIComponent(String(body))}`; }}>
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4">
                   <div className="group/input">
