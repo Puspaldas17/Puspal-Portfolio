@@ -456,21 +456,20 @@
 
   /* ===== Card Hover Lift ===== */
   .card-hover {
-    @apply transition-[transform,box-shadow] duration-300;
+    @apply transition-transform duration-300;
   }
   .card-hover:hover {
-    @apply -translate-y-1 shadow-lg;
+    @apply -translate-y-1;
   }
 
   /* ===== Professional Card Glow ===== */
   .card-glow {
-    @apply transition-[transform,box-shadow,border-color] duration-500;
+    @apply transition-[transform,border-color] duration-500;
   }
   .card-glow:hover {
     @apply -translate-y-1.5;
-    box-shadow: 0 10px 40px -12px hsl(var(--primary) / 0.2),
-                0 6px 16px -4px hsl(var(--primary) / 0.08);
     border-color: hsl(var(--primary) / 0.25);
+    filter: drop-shadow(0 10px 20px hsl(var(--primary) / 0.12));
   }
 
   /* ===== Gradient Text Flow ===== */
@@ -518,11 +517,10 @@
 
   /* ===== Icon Lift on Card Hover ===== */
   .icon-lift {
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .group:hover .icon-lift {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 16px -4px hsl(var(--primary) / 0.2);
   }
 
   /* ===== Button Gradient Shift ===== */
@@ -534,7 +532,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 50%;
     height: 100%;
     background: linear-gradient(
@@ -543,14 +541,15 @@
       hsla(0, 0%, 100%, 0.15),
       transparent
     );
-    transition: none;
+    transform: translateX(-200%);
+    will-change: transform;
   }
   .btn-shine:hover::after {
     animation: btn-shine-sweep 0.5s ease forwards;
   }
   @keyframes btn-shine-sweep {
-    0% { left: -100%; }
-    100% { left: 150%; }
+    0% { transform: translateX(-200%); }
+    100% { transform: translateX(300%); }
   }
 
   /* ===== Animated Section Divider ===== */
@@ -609,7 +608,7 @@
 
   /* ===== Social Icon Glow ===== */
   .social-glow:hover {
-    box-shadow: 0 0 20px -4px hsl(var(--primary) / 0.4);
+    filter: drop-shadow(0 0 10px hsl(var(--primary) / 0.35));
   }
 
   /* ===== Image Color Grade ===== */

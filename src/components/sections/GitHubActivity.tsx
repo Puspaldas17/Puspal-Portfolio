@@ -234,7 +234,7 @@ const GitHubActivity = () => {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group p-4 xs:p-5 sm:p-6 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-[transform,box-shadow,border-color] duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/5 ${
+                  className={`group p-4 xs:p-5 sm:p-6 rounded-xl xs:rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-[transform,border-color] duration-300 hover:scale-[1.02] ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"

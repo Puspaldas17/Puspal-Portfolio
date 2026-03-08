@@ -176,12 +176,14 @@ const Skills = () => {
                           key={skillIndex}
                           className={`
                             inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium cursor-default
-                            transition-colors duration-150
+                            transition-[transform,background-color,color] duration-200 ease-out
+                            group-hover:translate-y-[-1px]
                             ${skill.highlight 
                               ? `${category.accentColor} text-foreground` 
                               : 'bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground'
                             }
                           `}
+                          style={{ transitionDelay: `${skillIndex * 20}ms` }}
                         >
                           {skill.name}
                         </span>

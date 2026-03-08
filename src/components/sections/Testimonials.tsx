@@ -55,7 +55,11 @@ const Testimonials = () => {
               <CardContent className="p-5 xs:p-6 relative z-10">
                 <div className="flex mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                    <Star
+                      key={i}
+                      className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400 animate-[scale-in_0.3s_ease-out_both]"
+                      style={{ animationDelay: `${index * 150 + i * 80}ms` }}
+                    />
                   ))}
                 </div>
                 

@@ -62,7 +62,7 @@ const About = () => {
               <div className="space-y-4">
                 <h3 className="text-base xs:text-lg sm:text-xl font-semibold text-foreground">{t('about.corePrinciples')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4">
-                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-lg transition-[border-color,box-shadow,transform] duration-300 group hover:-translate-y-0.5">
+                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-[border-color,transform] duration-300 group hover:-translate-y-0.5">
                     <div className="p-2 xs:p-2.5 bg-primary/10 rounded-xl flex-shrink-0 icon-lift">
                       <Target className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                     </div>
@@ -72,7 +72,7 @@ const About = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-accent/30 hover:shadow-accent transition-[border-color,box-shadow,transform] duration-300 group hover:-translate-y-0.5">
+                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-accent/30 transition-[border-color,transform] duration-300 group hover:-translate-y-0.5">
                     <div className="p-2 xs:p-2.5 bg-accent/10 rounded-xl flex-shrink-0 icon-lift">
                       <Award className="w-4 h-4 xs:w-5 xs:h-5 text-accent" />
                     </div>
