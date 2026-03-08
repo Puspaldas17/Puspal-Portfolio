@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Github, Linkedin, Globe } from "lucide-react";
+import { Mail, MapPin, Github } from "lucide-react";
 
 export const Resume = () => {
   const contactInfo = {
