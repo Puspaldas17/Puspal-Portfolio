@@ -48,7 +48,7 @@ const projects: Array<{
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
-  const { elementRef, isItemVisible } = useStaggeredAnimation(projects.length, 200);
+  const { elementRef } = useStaggeredAnimation(projects.length, 200);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 300);
@@ -69,7 +69,7 @@ const Portfolio = () => {
       
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto relative z-10" ref={elementRef}>
         <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 xs:mb-5 sm:mb-6 font-sans bg-gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 font-sans bg-gradient-primary bg-clip-text text-transparent">
             Impactful Builds
           </h2>
           <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto font-sans px-4 xs:px-0">

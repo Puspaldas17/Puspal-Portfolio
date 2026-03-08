@@ -71,7 +71,7 @@ const Contact = () => {
           
           <Card className="shadow-xl border-border/50 hover:shadow-2xl transition-all duration-500 opacity-0 animate-fade-in-right group" style={{ animationDelay: '0.3s' }}>
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const subject = formData.get('subject') || 'Portfolio Contact'; const body = formData.get('message') || ''; window.location.href = `mailto:puspal1703@gmail.com?subject=${encodeURIComponent(String(subject))}&body=${encodeURIComponent(String(body))}`; }}>
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4">
                   <div className="group/input">
                     <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">First Name</label>
@@ -90,12 +90,12 @@ const Contact = () => {
                 
                 <div className="group/input">
                   <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Subject</label>
-                  <Input placeholder="Project Inquiry" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
+                    <Input name="subject" placeholder="Project Inquiry" className="text-sm xs:text-base transition-all duration-300 focus:scale-[1.02] focus:shadow-md" />
                 </div>
                 
                 <div className="group/input">
                   <label className="text-xs xs:text-sm font-medium mb-1.5 xs:mb-2 block group-focus-within/input:text-primary transition-colors">Message</label>
-                  <Textarea placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none transition-all duration-300 focus:scale-[1.01] focus:shadow-md" />
+                  <Textarea name="message" placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none transition-all duration-300 focus:scale-[1.01] focus:shadow-md" />
                 </div>
                 
                 <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent text-sm xs:text-base py-2.5 xs:py-3 group/btn hover:scale-[1.02] hover:shadow-xl transition-all duration-300">

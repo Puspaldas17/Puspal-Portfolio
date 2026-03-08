@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
 interface Particle {
   x: number;
@@ -12,11 +12,21 @@ interface Particle {
 export function BackgroundEffects() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const [scrollY, setScrollY] = useState(0);
+  const scrollYRef = useRef(0);
+  const parallaxDivsRef = useRef<HTMLDivElement[]>([]);
+
+  const setParallaxRef = useCallback((index: number) => (el: HTMLDivElement | null) => {
+    if (el) parallaxDivsRef.current[index] = el;
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const y = window.scrollY;
+      scrollYRef.current = y;
+      // Update parallax transforms directly via DOM to avoid re-renders
+      if (parallaxDivsRef.current[0]) parallaxDivsRef.current[0].style.transform = `translateY(${y * 0.1}px)`;
+      if (parallaxDivsRef.current[1]) parallaxDivsRef.current[1].style.transform = `translateY(${y * 0.15}px)`;
+      if (parallaxDivsRef.current[2]) parallaxDivsRef.current[2].style.transform = `translateY(${y * 0.25}px)`;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -121,34 +131,34 @@ export function BackgroundEffects() {
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Primary gradient orb - slowest movement */}
         <div 
+          ref={setParallaxRef(0)}
           className="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-3xl animate-float-slow will-change-transform"
           style={{
             background: 'radial-gradient(circle, hsl(222 89% 55%) 0%, transparent 70%)',
             top: '10%',
             left: '20%',
-            transform: `translateY(${scrollY * 0.1}px)`,
           }}
         />
         
         {/* Accent gradient orb - medium movement */}
         <div 
+          ref={setParallaxRef(1)}
           className="absolute w-[500px] h-[500px] rounded-full opacity-15 blur-3xl animate-float-slower will-change-transform"
           style={{
             background: 'radial-gradient(circle, hsl(262 83% 58%) 0%, transparent 70%)',
             top: '50%',
             right: '15%',
-            transform: `translateY(${scrollY * 0.15}px)`,
           }}
         />
         
         {/* Secondary gradient orb - faster movement */}
         <div 
+          ref={setParallaxRef(2)}
           className="absolute w-[700px] h-[700px] rounded-full opacity-10 blur-3xl animate-float will-change-transform"
           style={{
             background: 'radial-gradient(circle, hsl(222 89% 65%) 0%, transparent 70%)',
             bottom: '10%',
             left: '30%',
-            transform: `translateY(${scrollY * 0.25}px)`,
           }}
         />
       </div>
