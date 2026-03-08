@@ -5,6 +5,8 @@ import { Footer } from "@/components/layout";
 import LoadingScreen from "@/components/LoadingScreen";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { ChatWidget } from "@/components/ChatWidget";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +36,7 @@ const Index = () => {
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       {showContent && (
         <>
+          <ScrollProgress />
           <BackgroundEffects />
           <div className="min-h-screen animate-fade-in relative z-10">
             <Header />
@@ -58,6 +61,7 @@ const Index = () => {
             <Footer />
           </div>
           <ChatWidget />
+          <BackToTop />
         </>
       )}
     </>

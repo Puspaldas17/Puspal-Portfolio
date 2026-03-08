@@ -91,7 +91,7 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 xs:gap-2.5 px-4 xs:px-5 py-2 xs:py-2.5 bg-white/[0.08] rounded-full border border-white/[0.12] backdrop-blur-md hover:bg-white/[0.12] transition-colors duration-200 group opacity-0 animate-slide-up-fade" style={{ animationDelay: '0.2s' }}>
               <div className="relative flex items-center justify-center">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                <div className="absolute w-2 h-2 bg-emerald-400 rounded-full animate-ping opacity-75"></div>
+                <div className="absolute w-2 h-2 bg-emerald-400 rounded-full animate-pulse opacity-75"></div>
               </div>
               <span className="text-xs xs:text-sm font-medium tracking-wide">{t('hero.badge')}</span>
             </div>
@@ -103,7 +103,7 @@ const Hero = () => {
               </p>
               <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-[1.05] tracking-tight">
                 <span className="text-white">I'm </span>
-                <span className="bg-gradient-to-r from-white via-blue-200 to-white/80 bg-clip-text text-transparent bg-[length:200%_auto] animate-[text-flow_4s_ease-in-out_infinite]">
+                <span className="bg-gradient-to-r from-white via-blue-200 to-white/80 bg-clip-text text-transparent bg-[length:200%_auto] animate-[text-flow_4s_ease-in-out_infinite] will-change-[background-position]">
                   {t('hero.name')}
                 </span>
               </h1>
@@ -150,7 +150,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 xs:gap-4 pt-2 xs:pt-4 opacity-0 animate-slide-up-fade" style={{ animationDelay: '1s' }}>
               <Button 
                 size="lg" 
-                className="btn-shine bg-white text-gray-900 hover:bg-white/90 font-semibold text-sm xs:text-base px-6 xs:px-8 py-5 xs:py-6 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-200 group/btn rounded-xl"
+                className="btn-shine bg-white text-gray-900 hover:bg-white/90 font-semibold text-sm xs:text-base px-6 xs:px-8 py-5 xs:py-6 shadow-xl hover:-translate-y-0.5 transition-[transform,background-color] duration-200 group/btn rounded-xl"
                 onClick={handleViewWorkClick}
               >
                 {t('hero.viewWork')}
@@ -158,7 +158,7 @@ const Hero = () => {
               </Button>
               <Button 
                 size="lg" 
-                className="btn-shine bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 font-semibold text-sm xs:text-base px-6 xs:px-8 py-5 xs:py-6 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 group/btn rounded-xl" 
+                className="btn-shine bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 font-semibold text-sm xs:text-base px-6 xs:px-8 py-5 xs:py-6 shadow-xl hover:-translate-y-0.5 transition-transform duration-200 group/btn rounded-xl" 
                 asChild
               >
                 <a href="/resume.pdf" download="Puspal_Das_Resume.pdf">
@@ -201,7 +201,7 @@ const Hero = () => {
                 <div className="flex items-center gap-2 xs:gap-2.5">
                   <div className="relative">
                     <div className="w-2.5 h-2.5 xs:w-3 xs:h-3 bg-emerald-500 rounded-full" />
-                    <div className="absolute inset-0 w-2.5 h-2.5 xs:w-3 xs:h-3 bg-emerald-500 rounded-full animate-ping opacity-75" />
+                    <div className="absolute inset-0 w-2.5 h-2.5 xs:w-3 xs:h-3 bg-emerald-500 rounded-full animate-pulse opacity-75" />
                   </div>
                   <div>
                     <div className="text-[10px] xs:text-xs sm:text-sm font-semibold text-gray-900 whitespace-nowrap">{t('hero.openToWork')}</div>

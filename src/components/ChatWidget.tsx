@@ -27,7 +27,7 @@ export const ChatWidget = () => {
       {/* Chat Button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 xs:bottom-6 xs:right-6 z-50 h-12 w-12 xs:h-14 xs:w-14 rounded-full shadow-lg hover:scale-110 transition-[transform,box-shadow] duration-200 bg-gradient-to-r from-primary to-accent hover:shadow-xl"
+        className="fixed bottom-4 right-4 xs:bottom-6 xs:right-6 z-50 h-12 w-12 xs:h-14 xs:w-14 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 bg-gradient-to-r from-primary to-accent"
         size="icon"
       >
         <div className="relative w-5 h-5 xs:w-6 xs:h-6">
