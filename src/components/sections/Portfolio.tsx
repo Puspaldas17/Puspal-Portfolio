@@ -63,14 +63,8 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 px-4 xs:px-6 sm:px-8 lg:px-10 xl:px-12 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-float-slow" />
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float-slower" />
-      </div>
-      
-      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto relative z-10" ref={elementRef}>
+    <section id="portfolio" className="py-14 xs:py-18 sm:py-22 md:py-26 lg:py-30 xl:py-34 px-4 xs:px-6 sm:px-8 lg:px-10 xl:px-12 bg-background relative overflow-hidden color-grade">
+      <div className="max-w-6xl mx-auto relative z-10" ref={elementRef}>
         <SectionHeader
           badge="Featured Projects"
           badgeIcon={FolderGit2}
@@ -80,24 +74,24 @@ const Portfolio = () => {
         />
 
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6">
             {Array.from({ length: 3 }).map((_, i) => (
               <ProjectCardSkeleton key={i} />
             ))}
           </div>
         ) : (
-          <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
+          <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6">
             {projects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group overflow-hidden border hover:shadow-2xl transition-[transform,box-shadow] duration-300 bg-card/50 backdrop-blur-sm hover:-translate-y-3 hover:scale-[1.02] card-hover"
+                className="group overflow-hidden border border-border/50 hover:border-primary/20 bg-card/60 backdrop-blur-sm card-glow"
                 style={getItemStyle(index)}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden bg-muted">
                     {imageErrors[project.id] ? (
-                      <div className="w-full h-40 xs:h-44 sm:h-48 md:h-52 lg:h-56 xl:h-60 flex items-center justify-center">
-                        <AlertCircle className="w-12 h-12 text-muted-foreground/50" />
+                      <div className="w-full h-40 xs:h-44 sm:h-48 flex items-center justify-center">
+                        <AlertCircle className="w-10 h-10 text-muted-foreground/40" />
                       </div>
                     ) : (
                       <img 
@@ -105,63 +99,61 @@ const Portfolio = () => {
                         alt={`${project.title} - Project showcase`}
                         loading="lazy"
                         onError={() => handleImageError(project.id)}
-                        className="w-full h-40 xs:h-44 sm:h-48 md:h-52 lg:h-56 xl:h-60 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-40 xs:h-44 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-500 img-color-grade"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    {/* Floating action buttons on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-[transform,opacity] duration-300 translate-y-4 group-hover:translate-y-0">
+                    <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <a 
                         href={project.liveUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="p-3 bg-primary text-primary-foreground rounded-full hover:scale-110 transition-transform shadow-lg"
+                        className="p-2.5 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors shadow-lg"
                       >
-                        <ExternalLink className="w-5 h-5" />
+                        <ExternalLink className="w-4 h-4" />
                       </a>
                       <a 
                         href={project.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="p-3 bg-card text-foreground rounded-full hover:scale-110 transition-transform shadow-lg"
+                        className="p-2.5 bg-card text-foreground rounded-full hover:bg-muted transition-colors shadow-lg"
                       >
-                        <Github className="w-5 h-5" />
+                        <Github className="w-4 h-4" />
                       </a>
                     </div>
                   </div>
                   
-                  <div className="p-4 xs:p-5 sm:p-6">
-                    <h3 className="text-lg xs:text-xl md:text-2xl font-bold text-foreground mb-2 xs:mb-3 group-hover:text-primary transition-colors duration-300 font-sans">
+                  <div className="p-4 xs:p-5">
+                    <h3 className="text-base xs:text-lg font-semibold text-foreground mb-1.5">
                       {project.title}
                     </h3>
-                    <p className="text-sm xs:text-base text-muted-foreground mb-3 xs:mb-4 line-clamp-2 font-sans">
+                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-1.5 xs:gap-2 mb-3 xs:mb-4">
-                      {project.technologies.map((tech, techIndex) => (
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.technologies.map((tech) => (
                         <Badge 
                           key={tech} 
                           variant="secondary" 
-                          className="text-[10px] xs:text-xs font-medium font-mono hover:bg-primary/10 transition-colors duration-200"
-                          style={{ transitionDelay: `${techIndex * 30}ms` }}
+                          className="text-[10px] xs:text-xs font-medium font-mono"
                         >
                           {tech}
                         </Badge>
                       ))}
                     </div>
                     
-                    <div className="flex gap-2 xs:gap-3 pt-2">
-                      <Button size="sm" className="flex-1 text-xs xs:text-sm font-sans group/btn" asChild>
+                    <div className="flex gap-2 pt-2 border-t border-border/30">
+                      <Button size="sm" className="flex-1 text-xs h-8" asChild>
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2 group-hover/btn:rotate-12 transition-transform" />
+                          <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
                           Live Demo
                         </a>
                       </Button>
-                      <Button size="sm" variant="outline" className="flex-1 text-xs xs:text-sm font-sans group/btn" asChild>
+                      <Button size="sm" variant="outline" className="flex-1 text-xs h-8" asChild>
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2 group-hover/btn:rotate-12 transition-transform" />
+                          <Github className="w-3.5 h-3.5 mr-1.5" />
                           Code
                         </a>
                       </Button>

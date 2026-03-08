@@ -39,21 +39,21 @@ const Index = () => {
             <Header />
             <Hero />
             <Stats />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <About />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <Skills />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <Services />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <WorkProcess />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <Portfolio />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <GitHubActivity />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <Testimonials />
-            <div className="section-divider" />
+            <div className="section-divider-animated" />
             <Contact />
             <Footer />
           </div>
