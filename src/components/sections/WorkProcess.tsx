@@ -106,7 +106,7 @@ const WorkProcess = () => {
               return (
                 <Card 
                   key={index} 
-                  className="group relative border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 card-hover"
+                  className="group relative border-border/50 hover:border-primary/30 hover:shadow-card transition-[border-color,box-shadow] duration-200 card-hover"
                   style={getItemStyle(index)}
                 >
                   <CardContent className="p-6 xs:p-7 sm:p-8">
@@ -138,7 +138,7 @@ const WorkProcess = () => {
           {/* Methodology Section */}
           <div 
             ref={methodRef}
-            className={`bg-gradient-to-br from-bg-subtle to-background rounded-2xl xs:rounded-3xl p-8 xs:p-10 sm:p-12 md:p-14 lg:p-16 border border-border/50 glass transition-all duration-700 ${
+            className={`bg-gradient-to-br from-bg-subtle to-background rounded-2xl xs:rounded-3xl p-8 xs:p-10 sm:p-12 md:p-14 lg:p-16 border border-border/50 glass transition-[transform,opacity] duration-500 ${
               methodRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
@@ -160,7 +160,7 @@ const WorkProcess = () => {
                     className="text-center group"
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
-                    <div className="inline-flex p-4 xs:p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl xs:rounded-3xl mb-4 xs:mb-5 group-hover:scale-110 group-hover:shadow-card transition-all duration-300">
+                    <div className="inline-flex p-4 xs:p-5 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl xs:rounded-3xl mb-4 xs:mb-5 group-hover:scale-110 group-hover:shadow-card transition-[transform,box-shadow] duration-200">
                       <IconComponent className="w-8 h-8 xs:w-10 xs:h-10 text-primary" />
                     </div>
                     <h4 className="text-lg xs:text-xl font-bold text-foreground mb-2 xs:mb-3">

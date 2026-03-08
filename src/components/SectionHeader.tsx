@@ -29,7 +29,7 @@ const SectionHeader = ({
       {badge && (
         <Badge 
           variant="outline" 
-          className={`mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold backdrop-blur-sm transition-all duration-700 ${
+          className={`mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold backdrop-blur-sm transition-[transform,opacity] duration-500 ${
             isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
@@ -38,7 +38,7 @@ const SectionHeader = ({
         </Badge>
       )}
       <h2 
-        className={`text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 xs:mb-5 sm:mb-6 leading-tight tracking-tight transition-all duration-700 delay-100 ${
+        className={`text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 xs:mb-5 sm:mb-6 leading-tight tracking-tight transition-[transform,opacity] duration-500 delay-100 ${
           isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         } ${gradient ? 'gradient-text-animated' : 'text-foreground'}`}
       >
@@ -48,7 +48,7 @@ const SectionHeader = ({
         <p 
           className={`text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl ${
             align === 'center' ? 'mx-auto' : ''
-          } leading-relaxed px-4 xs:px-0 transition-all duration-700 delay-200 ${
+          } leading-relaxed px-4 xs:px-0 transition-[transform,opacity] duration-500 delay-200 ${
             isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -57,7 +57,7 @@ const SectionHeader = ({
       )}
       {/* Animated underline accent */}
       <div 
-        className={`${align === 'center' ? 'mx-auto' : ''} mt-6 h-1 rounded-full bg-gradient-to-r from-primary via-accent to-primary transition-all duration-1000 delay-300 ${
+        className={`${align === 'center' ? 'mx-auto' : ''} mt-6 h-1 rounded-full bg-gradient-to-r from-primary via-accent to-primary transition-[width,opacity] duration-700 delay-300 ${
           isRevealed ? 'w-24 opacity-100' : 'w-0 opacity-0'
         }`}
       />

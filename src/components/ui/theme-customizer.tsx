@@ -68,7 +68,7 @@ export function ThemeCustomizer() {
         <Button
           variant="ghost"
           size="icon"
-          className="w-9 h-9 rounded-xl transition-colors"
+          className="w-9 h-9 rounded-xl"
         >
           <Palette className="h-[1.2rem] w-[1.2rem]" />
           <span className="sr-only">Customize colors</span>

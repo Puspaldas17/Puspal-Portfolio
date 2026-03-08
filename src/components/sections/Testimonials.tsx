@@ -45,7 +45,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-card transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg glass-card card-hover relative overflow-hidden"
+              className="group hover:shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-2 border-0 shadow-lg glass-card card-hover relative overflow-hidden"
               style={getItemStyle(index)}
             >
               {/* Decorative quote icon */}

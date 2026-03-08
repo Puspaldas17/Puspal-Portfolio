@@ -85,7 +85,7 @@ const Stats = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`text-center transform transition-all duration-700 ${
+              className={`text-center transform transition-[transform,opacity] duration-500 ${
                 hasAnimated
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"

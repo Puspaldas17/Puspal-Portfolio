@@ -90,7 +90,7 @@ const Portfolio = () => {
             {projects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group overflow-hidden border hover:shadow-2xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:-translate-y-3 hover:scale-[1.02] card-hover"
+                className="group overflow-hidden border hover:shadow-2xl transition-[transform,box-shadow] duration-300 bg-card/50 backdrop-blur-sm hover:-translate-y-3 hover:scale-[1.02] card-hover"
                 style={getItemStyle(index)}
               >
                 <CardContent className="p-0">
@@ -108,10 +108,10 @@ const Portfolio = () => {
                         className="w-full h-40 xs:h-44 sm:h-48 md:h-52 lg:h-56 xl:h-60 object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
                     {/* Floating action buttons on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-[transform,opacity] duration-300 translate-y-4 group-hover:translate-y-0">
                       <a 
                         href={project.liveUrl} 
                         target="_blank" 
@@ -144,7 +144,7 @@ const Portfolio = () => {
                         <Badge 
                           key={tech} 
                           variant="secondary" 
-                          className="text-[10px] xs:text-xs font-medium font-mono hover:bg-primary/10 hover:scale-105 transition-all duration-300"
+                          className="text-[10px] xs:text-xs font-medium font-mono hover:bg-primary/10 transition-colors duration-200"
                           style={{ transitionDelay: `${techIndex * 30}ms` }}
                         >
                           {tech}
@@ -153,13 +153,13 @@ const Portfolio = () => {
                     </div>
                     
                     <div className="flex gap-2 xs:gap-3 pt-2">
-                      <Button size="sm" className="flex-1 text-xs xs:text-sm font-sans group/btn hover:scale-105 transition-all duration-300" asChild>
+                      <Button size="sm" className="flex-1 text-xs xs:text-sm font-sans group/btn" asChild>
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2 group-hover/btn:rotate-12 transition-transform" />
                           Live Demo
                         </a>
                       </Button>
-                      <Button size="sm" variant="outline" className="flex-1 text-xs xs:text-sm font-sans group/btn hover:scale-105 transition-all duration-300" asChild>
+                      <Button size="sm" variant="outline" className="flex-1 text-xs xs:text-sm font-sans group/btn" asChild>
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <Github className="w-3 h-3 xs:w-4 xs:h-4 mr-1 xs:mr-2 group-hover/btn:rotate-12 transition-transform" />
                           Code

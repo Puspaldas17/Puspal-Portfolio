@@ -18,13 +18,13 @@ const Footer = () => {
                 that power amazing digital experiences and drive innovation forward.
               </p>
               <div className="flex space-x-3 xs:space-x-4">
-                <a href="https://github.com/Puspaldas17" target="_blank" rel="noopener noreferrer" className="w-10 h-10 xs:w-12 xs:h-12 bg-background/10 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:scale-110 transition-all duration-300 group">
+                <a href="https://github.com/Puspaldas17" target="_blank" rel="noopener noreferrer" className="w-10 h-10 xs:w-12 xs:h-12 bg-background/10 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:scale-110 transition-[transform,background-color] duration-200 group">
                   <Github className="w-4 h-4 xs:w-5 xs:h-5 group-hover:text-white" />
                 </a>
-                <a href="https://www.linkedin.com/in/puspal-das-995933253/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 xs:w-12 xs:h-12 bg-background/10 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:scale-110 transition-all duration-300 group">
+                <a href="https://www.linkedin.com/in/puspal-das-995933253/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 xs:w-12 xs:h-12 bg-background/10 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:scale-110 transition-[transform,background-color] duration-200 group">
                   <Linkedin className="w-4 h-4 xs:w-5 xs:h-5 group-hover:text-white" />
                 </a>
-                <a href="https://x.com/PuspalDas17" target="_blank" rel="noopener noreferrer" className="w-10 h-10 xs:w-12 xs:h-12 bg-background/10 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:scale-110 transition-all duration-300 group">
+                <a href="https://x.com/PuspalDas17" target="_blank" rel="noopener noreferrer" className="w-10 h-10 xs:w-12 xs:h-12 bg-background/10 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:scale-110 transition-[transform,background-color] duration-200 group">
                   <Twitter className="w-4 h-4 xs:w-5 xs:h-5 group-hover:text-white" />
                 </a>
               </div>
