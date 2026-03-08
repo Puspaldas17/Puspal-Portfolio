@@ -14,32 +14,36 @@ const Stats = () => {
 
   const stats = [
     {
-      icon: <Code className="w-6 h-6 xs:w-7 xs:h-7 md:w-8 md:h-8" />,
+      icon: <Code className="w-5 h-5 xs:w-6 xs:h-6 md:w-7 md:h-7" />,
       value: 3,
       suffix: "+",
       label: "Years Experience",
-      color: "from-primary/20 to-primary/5"
+      color: "text-primary",
+      bg: "bg-primary/10"
     },
     {
-      icon: <Award className="w-6 h-6 xs:w-7 xs:h-7 md:w-8 md:h-8" />,
+      icon: <Award className="w-5 h-5 xs:w-6 xs:h-6 md:w-7 md:h-7" />,
       value: 15,
       suffix: "+",
       label: "Projects Completed",
-      color: "from-accent/20 to-accent/5"
+      color: "text-accent",
+      bg: "bg-accent/10"
     },
     {
-      icon: <Zap className="w-6 h-6 xs:w-7 xs:h-7 md:w-8 md:h-8" />,
+      icon: <Zap className="w-5 h-5 xs:w-6 xs:h-6 md:w-7 md:h-7" />,
       value: 20,
       suffix: "+",
       label: "Technologies",
-      color: "from-primary/20 to-primary/5"
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10"
     },
     {
-      icon: <Users className="w-6 h-6 xs:w-7 xs:h-7 md:w-8 md:h-8" />,
+      icon: <Users className="w-5 h-5 xs:w-6 xs:h-6 md:w-7 md:h-7" />,
       value: 98,
       suffix: "%",
       label: "Client Satisfaction",
-      color: "from-accent/20 to-accent/5"
+      color: "text-orange-500",
+      bg: "bg-orange-500/10"
     }
   ];
 
@@ -67,9 +71,9 @@ const Stats = () => {
     }, [hasAnimated, end]);
 
     return (
-      <span className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+      <span className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight counter-glow">
         {count}
-        {suffix}
+        <span className="text-primary">{suffix}</span>
       </span>
     );
   };
@@ -77,11 +81,11 @@ const Stats = () => {
   return (
     <section 
       ref={elementRef}
-      className="py-12 xs:py-14 sm:py-16 md:py-20 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden"
+      className="py-14 xs:py-16 sm:py-20 md:py-24 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-mesh opacity-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-bg-subtle/50 to-background" />
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 xs:gap-8 sm:gap-10 md:gap-12 max-w-7xl 2xl:max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 xs:gap-8 sm:gap-10 md:gap-12 max-w-6xl 2xl:max-w-[1400px] mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -92,12 +96,14 @@ const Stats = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="flex flex-col items-center space-y-3 xs:space-y-4 md:space-y-5">
-                <div className={`w-14 h-14 xs:w-16 xs:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center text-primary hover:scale-110 transition-transform duration-300 gradient-border`}>
+              <div className="flex flex-col items-center space-y-3 xs:space-y-4">
+                <div className={`w-12 h-12 xs:w-14 xs:h-14 md:w-16 md:h-16 rounded-2xl ${stat.bg} flex items-center justify-center ${stat.color} transition-[transform,box-shadow] duration-500 ${hasAnimated ? 'scale-100' : 'scale-75'}`}
+                style={{ transitionDelay: `${index * 150 + 200}ms` }}
+              >
                   {stat.icon}
                 </div>
                 <Counter end={stat.value} suffix={stat.suffix} />
-                <p className="text-sm xs:text-base md:text-lg lg:text-xl text-muted-foreground font-medium">
+                <p className="text-xs xs:text-sm md:text-base text-muted-foreground font-medium">
                   {stat.label}
                 </p>
               </div>

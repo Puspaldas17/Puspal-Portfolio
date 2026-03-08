@@ -31,7 +31,7 @@ const Testimonials = () => {
   const { containerRef, getItemStyle } = useStaggerReveal(testimonials.length, { staggerDelay: 150 });
 
   return (
-    <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-background">
+    <section className="py-14 xs:py-18 sm:py-22 md:py-26 lg:py-30 xl:py-34 bg-gradient-to-b from-background via-bg-subtle/20 to-background color-grade relative">
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
         <SectionHeader
           badge="Testimonials"
@@ -41,42 +41,38 @@ const Testimonials = () => {
           gradient
         />
         
-        <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-7 md:gap-8 max-w-7xl 2xl:max-w-[1600px] mx-auto">
+        <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-2 border-0 shadow-lg glass-card card-hover relative overflow-hidden"
+              className="group border border-border/50 bg-card/60 backdrop-blur-sm card-glow relative overflow-hidden"
               style={getItemStyle(index)}
             >
-              {/* Decorative quote icon */}
-              <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Quote className="w-12 h-12 text-primary" />
+              <div className="absolute top-4 right-4 opacity-[0.06]">
+                <Quote className="w-10 h-10 text-foreground" />
               </div>
               
-              <CardContent className="p-5 xs:p-6 sm:p-7 md:p-8 relative z-10">
-                <div className="flex mb-3 xs:mb-4">
+              <CardContent className="p-5 xs:p-6 relative z-10">
+                <div className="flex mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 xs:w-5 xs:h-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 
-                <p className="text-muted-foreground mb-5 xs:mb-6 leading-relaxed italic text-sm xs:text-base md:text-lg">
+                <p className="text-muted-foreground mb-5 leading-relaxed text-sm italic">
                   "{testimonial.content}"
                 </p>
                 
-                <div className="flex items-center gap-3 xs:gap-4 pt-4 border-t border-border/30">
-                  <div className="relative">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name}
-                      loading="lazy"
-                      className="w-10 h-10 xs:w-12 xs:h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-primary/20"
-                    />
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background" />
-                  </div>
+                <div className="flex items-center gap-3 pt-4 border-t border-border/30">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    loading="lazy"
+                    className="w-10 h-10 rounded-full object-cover flex-shrink-0 ring-1 ring-border/50"
+                  />
                   <div className="min-w-0">
-                    <div className="font-semibold text-sm xs:text-base md:text-lg">{testimonial.name}</div>
-                    <div className="text-xs xs:text-sm md:text-base text-muted-foreground">{testimonial.role}</div>
+                    <div className="font-medium text-sm">{testimonial.name}</div>
+                    <div className="text-xs text-muted-foreground">{testimonial.role}</div>
                   </div>
                 </div>
               </CardContent>
