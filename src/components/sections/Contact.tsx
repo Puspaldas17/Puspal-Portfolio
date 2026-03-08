@@ -2,10 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, Send } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useScrollReveal } from "@/hooks";
 
 const Contact = () => {
+  const { ref: leftRef, isRevealed: leftRevealed } = useScrollReveal<HTMLDivElement>();
+  const { ref: rightRef, isRevealed: rightRevealed } = useScrollReveal<HTMLDivElement>({ delay: 200 });
+
   return (
     <section id="contact" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-b from-background to-bg-subtle relative overflow-hidden">
       {/* Animated background */}
@@ -14,20 +18,21 @@ const Contact = () => {
       <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-float-slower pointer-events-none" />
       
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
-        <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-          <Badge variant="outline" className="mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold">
-            Get in Touch
-          </Badge>
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent tracking-tight">
-            Let's Work Together
-          </h2>
-          <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
-            Ready to bring your ideas to life? Get in touch and let's create something amazing together.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Get in Touch"
+          badgeIcon={MessageSquare}
+          title="Let's Work Together"
+          subtitle="Ready to bring your ideas to life? Get in touch and let's create something amazing together."
+          gradient
+        />
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-12">
-          <div className="space-y-6 xs:space-y-8 opacity-0 animate-fade-in-left" style={{ animationDelay: '0.2s' }}>
+          <div 
+            ref={leftRef}
+            className={`space-y-6 xs:space-y-8 transition-all duration-700 ${
+              leftRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`}
+          >
             <div>
               <h3 className="text-xl xs:text-2xl font-semibold mb-4 xs:mb-6">Get In Touch</h3>
               <p className="text-muted-foreground mb-6 xs:mb-8 leading-relaxed text-sm xs:text-base">
@@ -37,7 +42,7 @@ const Contact = () => {
             </div>
             
             <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 opacity-0 animate-slide-in-left" style={{ animationDelay: '0.3s' }}>
+              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 card-hover">
                 <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
@@ -47,7 +52,7 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 opacity-0 animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
+              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 card-hover">
                 <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -57,7 +62,7 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 opacity-0 animate-slide-in-left" style={{ animationDelay: '0.5s' }}>
+              <div className="flex items-center gap-4 p-4 glass-card rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-500 group hover:-translate-x-2 card-hover">
                 <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
@@ -69,7 +74,12 @@ const Contact = () => {
             </div>
           </div>
           
-          <Card className="shadow-xl border-border/50 hover:shadow-2xl transition-all duration-500 opacity-0 animate-fade-in-right group" style={{ animationDelay: '0.3s' }}>
+          <Card 
+            ref={rightRef}
+            className={`shadow-xl border-border/50 hover:shadow-2xl transition-all duration-700 group gradient-border ${
+              rightRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}
+          >
             <CardContent className="p-8">
               <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const subject = formData.get('subject') || 'Portfolio Contact'; const body = formData.get('message') || ''; window.location.href = `mailto:puspal1703@gmail.com?subject=${encodeURIComponent(String(subject))}&body=${encodeURIComponent(String(body))}`; }}>
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4">
@@ -98,8 +108,9 @@ const Contact = () => {
                   <Textarea name="message" placeholder="Tell me about your project..." rows={4} className="text-sm xs:text-base resize-none transition-all duration-300 focus:scale-[1.01] focus:shadow-md" />
                 </div>
                 
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent text-sm xs:text-base py-2.5 xs:py-3 group/btn hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
-                  <span className="group-hover/btn:animate-bounce-gentle">Send Message</span>
+                <Button className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 shadow-lg text-sm xs:text-base py-2.5 xs:py-3 group/btn hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
+                  <Send className="w-4 h-4 mr-2 group-hover/btn:translate-x-1 transition-transform" />
+                  Send Message
                 </Button>
               </form>
             </CardContent>

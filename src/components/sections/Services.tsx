@@ -1,10 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Zap, Target, Lightbulb, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useStaggerReveal } from "@/hooks";
 
 const Services = () => {
   const { t } = useTranslation();
+  const { containerRef, getItemStyle } = useStaggerReveal(3, { staggerDelay: 150 });
   const services = [
     {
       icon: <Zap className="w-8 h-8" />,
@@ -44,25 +46,20 @@ const Services = () => {
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-          <Badge variant="outline" className="mb-4 text-primary border-primary/30 px-4 py-1.5">
-            <Sparkles className="w-3.5 h-3.5 mr-2" />
-            What I Offer
-          </Badge>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-            {t('services.title')}
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t('services.subtitle')}
-          </p>
-        </div>
+        <SectionHeader
+          badge={t('services.badge', 'What I Offer')}
+          badgeIcon={Sparkles}
+          title={t('services.title')}
+          subtitle={t('services.subtitle')}
+          gradient
+        />
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div ref={containerRef} className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-card/50 backdrop-blur-sm opacity-0 animate-fade-in-up"
-              style={{ animationDelay: service.delay }}
+              className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-card/50 backdrop-blur-sm card-hover"
+              style={getItemStyle(index)}
             >
               {/* Hover gradient overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

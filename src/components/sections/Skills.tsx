@@ -1,10 +1,13 @@
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Server, Database, GitBranch, Layers, Zap, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useScrollReveal, useStaggerReveal } from "@/hooks";
 
 const Skills = () => {
   const { t } = useTranslation();
+  const { containerRef, getItemStyle, isContainerVisible } = useStaggerReveal(4, { staggerDelay: 150 });
+  const { ref: expRef, isRevealed: expRevealed } = useScrollReveal<HTMLDivElement>();
   
   const skillCategories = [
     {
@@ -137,28 +140,23 @@ const Skills = () => {
         <div className="max-w-7xl mx-auto">
           
           {/* Header Section */}
-          <div className="text-center mb-12 xs:mb-16 sm:mb-18 md:mb-20 lg:mb-24 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <Badge variant="outline" className="mb-3 xs:mb-4 text-primary border-primary/30 text-xs xs:text-sm backdrop-blur-sm">
-              <Sparkles className="w-3 h-3 mr-1 animate-pulse" />
-              {t('skills.badge')}
-            </Badge>
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight font-sans">
-              {t('skills.title')}
-            </h2>
-            <p className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0 font-sans">
-              {t('skills.subtitle')}
-            </p>
-          </div>
+          <SectionHeader
+            badge={t('skills.badge')}
+            badgeIcon={Sparkles}
+            title={t('skills.title')}
+            subtitle={t('skills.subtitle')}
+            gradient
+          />
           
           {/* Skills Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 mb-16 xs:mb-20 sm:mb-24">
+          <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 mb-16 xs:mb-20 sm:mb-24">
             {skillCategories.map((category, index) => {
               const IconComponent = category.icon;
               return (
                 <Card 
                   key={index} 
-                  className={`group border ${category.borderColor} shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm overflow-hidden opacity-0 animate-fade-in-up`}
-                  style={{ animationDelay: `${0.1 + index * 0.15}s` }}
+                  className={`group border ${category.borderColor} shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm overflow-hidden card-hover`}
+                  style={getItemStyle(index)}
                 >
                   {/* Gradient overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -217,18 +215,13 @@ const Skills = () => {
           </div>
           
           {/* Professional Experience Section */}
-          <div className="mb-12 xs:mb-16 sm:mb-20">
-            <div className="text-center mb-12 xs:mb-14 sm:mb-16">
-              <Badge variant="outline" className="mb-3 xs:mb-4 text-accent border-accent/30 text-xs xs:text-sm backdrop-blur-sm">
-                {t('skills.experienceBadge')}
-              </Badge>
-              <h3 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
-                {t('skills.experienceTitle')}
-              </h3>
-              <p className="text-base xs:text-lg sm:text-lg text-muted-foreground max-w-xl xs:max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4 xs:px-0">
-                {t('skills.experienceSubtitle')}
-              </p>
-            </div>
+          <div ref={expRef} className={`mb-12 xs:mb-16 sm:mb-20 transition-all duration-700 ${expRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+            <SectionHeader
+              badge={t('skills.experienceBadge')}
+              title={t('skills.experienceTitle')}
+              subtitle={t('skills.experienceSubtitle')}
+              gradient
+            />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 max-w-6xl mx-auto">
               {experiences.map((exp, index) => {
@@ -236,7 +229,8 @@ const Skills = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="group border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card/50 backdrop-blur-sm hover:border-primary/30"
+                    className="group border border-border/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-card/50 backdrop-blur-sm hover:border-primary/30 card-hover"
+                    style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     <CardContent className="p-5 xs:p-6 sm:p-8">
                       <div className="flex items-start gap-4">

@@ -1,8 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Lightbulb, FileText, Code, TestTube, Rocket, RefreshCw, Users, Clock } from "lucide-react";
+import { Lightbulb, FileText, Code, TestTube, Rocket, RefreshCw, Users, Clock, Workflow } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useStaggerReveal, useScrollReveal } from "@/hooks";
 
 const WorkProcess = () => {
+  const { containerRef, getItemStyle } = useStaggerReveal(6, { staggerDelay: 100 });
+  const { ref: methodRef, isRevealed: methodRevealed } = useScrollReveal<HTMLDivElement>();
   const processSteps = [
     {
       icon: Lightbulb,
@@ -87,27 +91,23 @@ const WorkProcess = () => {
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           
           {/* Section Header */}
-          <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 animate-fade-in">
-            <Badge variant="outline" className="mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold">
-              Work Process
-            </Badge>
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight tracking-tight">
-              My Approach
-            </h2>
-            <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
-              A systematic workflow that ensures quality, efficiency, and timely delivery
-            </p>
-          </div>
+          <SectionHeader
+            badge="Work Process"
+            badgeIcon={Workflow}
+            title="My Approach"
+            subtitle="A systematic workflow that ensures quality, efficiency, and timely delivery"
+            gradient
+          />
 
           {/* Process Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-7 sm:gap-8 md:gap-10 mb-16 xs:mb-20 sm:mb-24">
+          <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-7 sm:gap-8 md:gap-10 mb-16 xs:mb-20 sm:mb-24">
             {processSteps.map((step, index) => {
               const IconComponent = step.icon;
               return (
                 <Card 
                   key={index} 
-                  className="group relative border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="group relative border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 card-hover"
+                  style={getItemStyle(index)}
                 >
                   <CardContent className="p-6 xs:p-7 sm:p-8">
                     <div className="flex items-start justify-between mb-4">
@@ -136,7 +136,12 @@ const WorkProcess = () => {
           </div>
 
           {/* Methodology Section */}
-          <div className="bg-gradient-to-br from-bg-subtle to-background rounded-2xl xs:rounded-3xl p-8 xs:p-10 sm:p-12 md:p-14 lg:p-16 border border-border/50 animate-fade-in">
+          <div 
+            ref={methodRef}
+            className={`bg-gradient-to-br from-bg-subtle to-background rounded-2xl xs:rounded-3xl p-8 xs:p-10 sm:p-12 md:p-14 lg:p-16 border border-border/50 glass transition-all duration-700 ${
+              methodRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}
+          >
             <div className="text-center mb-10 xs:mb-12 sm:mb-14">
               <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 xs:mb-4 text-foreground">
                 Development Methodology

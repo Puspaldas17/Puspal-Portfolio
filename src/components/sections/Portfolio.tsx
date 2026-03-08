@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ExternalLink, Github, AlertCircle } from "lucide-react";
+import { ExternalLink, Github, AlertCircle, FolderGit2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCardSkeleton } from "@/components/ui/loading-skeleton";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useStaggerReveal } from "@/hooks";
 
 import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
@@ -49,6 +51,7 @@ const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
   const { elementRef } = useStaggeredAnimation(projects.length, 200);
+  const { containerRef, getItemStyle } = useStaggerReveal(projects.length, { staggerDelay: 150 });
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 300);
@@ -68,14 +71,13 @@ const Portfolio = () => {
       </div>
       
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto relative z-10" ref={elementRef}>
-        <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 xs:mb-5 sm:mb-6 font-sans bg-gradient-primary bg-clip-text text-transparent">
-            Impactful Builds
-          </h2>
-          <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto font-sans px-4 xs:px-0">
-            Turning complex ideas into scalable, real-world applications.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Featured Projects"
+          badgeIcon={FolderGit2}
+          title="Impactful Builds"
+          subtitle="Turning complex ideas into scalable, real-world applications."
+          gradient
+        />
 
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
@@ -84,12 +86,12 @@ const Portfolio = () => {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
+          <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 lg:gap-7 xl:gap-8">
             {projects.map((project, index) => (
               <Card 
                 key={project.id}
-                className={`group overflow-hidden border hover:shadow-2xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:-translate-y-3 hover:scale-[1.02] opacity-0 animate-fade-in-up`}
-                style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+                className="group overflow-hidden border hover:shadow-2xl transition-all duration-500 bg-card/50 backdrop-blur-sm hover:-translate-y-3 hover:scale-[1.02] card-hover"
+                style={getItemStyle(index)}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden bg-muted">
