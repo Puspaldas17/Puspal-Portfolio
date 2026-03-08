@@ -55,12 +55,14 @@ const Stats = () => {
 
       let startTime: number;
       const duration = 2000;
+      // easeOutExpo for polished deceleration
+      const easeOutExpo = (t: number) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
         const progress = Math.min((currentTime - startTime) / duration, 1);
 
-        setCount(Math.floor(progress * end));
+        setCount(Math.floor(easeOutExpo(progress) * end));
 
         if (progress < 1) {
           requestAnimationFrame(animate);
@@ -97,7 +99,7 @@ const Stats = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex flex-col items-center space-y-3 xs:space-y-4">
-                <div className={`w-12 h-12 xs:w-14 xs:h-14 md:w-16 md:h-16 rounded-2xl ${stat.bg} flex items-center justify-center ${stat.color} transition-[transform,box-shadow] duration-500 ${hasAnimated ? 'scale-100' : 'scale-75'}`}
+                <div className={`w-12 h-12 xs:w-14 xs:h-14 md:w-16 md:h-16 rounded-2xl ${stat.bg} flex items-center justify-center ${stat.color} transition-transform duration-500 ${hasAnimated ? 'scale-100' : 'scale-75'}`}
                 style={{ transitionDelay: `${index * 150 + 200}ms` }}
               >
                   {stat.icon}

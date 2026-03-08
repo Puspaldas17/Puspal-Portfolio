@@ -36,11 +36,11 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold mb-5 text-sm xs:text-base tracking-wide uppercase text-background/80">Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="#home" className="text-background/50 hover:text-background transition-colors text-sm">Home</a></li>
-                <li><a href="#about" className="text-background/50 hover:text-background transition-colors text-sm">About</a></li>
-                <li><a href="#skills" className="text-background/50 hover:text-background transition-colors text-sm">Skills</a></li>
-                <li><a href="#portfolio" className="text-background/50 hover:text-background transition-colors text-sm">Portfolio</a></li>
-                <li><a href="#contact" className="text-background/50 hover:text-background transition-colors text-sm">Contact</a></li>
+                <li><a href="#home" className="text-background/50 hover:text-background transition-colors text-sm footer-link">Home</a></li>
+                <li><a href="#about" className="text-background/50 hover:text-background transition-colors text-sm footer-link">About</a></li>
+                <li><a href="#skills" className="text-background/50 hover:text-background transition-colors text-sm footer-link">Skills</a></li>
+                <li><a href="#portfolio" className="text-background/50 hover:text-background transition-colors text-sm footer-link">Portfolio</a></li>
+                <li><a href="#contact" className="text-background/50 hover:text-background transition-colors text-sm footer-link">Contact</a></li>
               </ul>
             </div>
             
