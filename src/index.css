@@ -247,12 +247,26 @@
   
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                 color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Branded text selection */
+  ::selection {
+    background: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
+  }
+
+  /* Accessible focus-visible for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -669,6 +683,24 @@
       transform: translateY(0);
     }
   }
+
+  /* ===== Footer Link Animated Underline ===== */
+  .footer-link {
+    position: relative;
+  }
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .footer-link:hover::after {
+    width: 100%;
+  }
 }
 
 @layer base {
@@ -737,5 +769,15 @@
       background-color: #1e3a8a !important;
       color: white !important;
     }
+  }
+}
+
+/* ===== Reduced Motion Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
