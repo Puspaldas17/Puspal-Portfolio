@@ -32,11 +32,15 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
     >
       <div className="absolute inset-0 bg-gradient-mesh opacity-10"></div>
       
+      {/* Morphing blob backgrounds */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 morphing-bg opacity-20 animate-morph-blob" />
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 morphing-bg opacity-15 animate-morph-blob" style={{ animationDelay: '-3s' }} />
+      
       <div className="relative flex flex-col items-center space-y-8">
         {/* Logo/Name Animation */}
         <div className="text-center space-y-4">
           <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in">
-            <span className="bg-gradient-primary bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+            <span className="gradient-text-animated drop-shadow-[0_0_30px_rgba(139,92,246,0.5)]">
               Puspal Das
             </span>
           </h1>

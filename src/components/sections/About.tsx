@@ -1,16 +1,19 @@
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Award, Target } from "lucide-react";
+import { MapPin, Calendar, Award, Target, User } from "lucide-react";
 import aboutImage from "@/assets/about-workspace.jpg";
 import { useParallaxTransform } from "@/hooks/use-parallax";
 import { useTranslation } from "react-i18next";
+import { SectionHeader } from "@/components/SectionHeader";
+import { useScrollReveal } from "@/hooks";
 
 const About = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
   const imageTransform = useParallaxTransform(sectionRef, { speed: 0.2 });
   const bgTransform = useParallaxTransform(sectionRef, { speed: 0.4 });
+  const { ref: contentRef, isRevealed: contentRevealed } = useScrollReveal<HTMLDivElement>();
+  const { ref: imageRef, isRevealed: imageRevealed } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section ref={sectionRef} id="about" className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-b from-bg-subtle to-background relative overflow-hidden">
@@ -22,23 +25,23 @@ const About = () => {
       <div className="container mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           
-          {/* Section Header */}
-          <div className="text-center mb-12 xs:mb-14 sm:mb-16 md:mb-18 lg:mb-20 animate-fade-in-up">
-            <Badge variant="outline" className="mb-4 xs:mb-5 text-primary border-primary/30 text-xs xs:text-sm md:text-base px-3 xs:px-4 py-1 xs:py-1.5 font-semibold">
-              {t('about.badge')}
-            </Badge>
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 xs:mb-5 sm:mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight tracking-tight">
-              {t('about.title')}
-            </h2>
-            <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl xl:max-w-4xl mx-auto leading-relaxed px-4 xs:px-0">
-              {t('about.subtitle')}
-            </p>
-          </div>
+          <SectionHeader
+            badge={t('about.badge')}
+            badgeIcon={User}
+            title={t('about.title')}
+            subtitle={t('about.subtitle')}
+            gradient
+          />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20 items-center">
             
             {/* Content Side */}
-            <div className="space-y-5 xs:space-y-6 sm:space-y-7 md:space-y-8 animate-fade-in-left order-2 lg:order-1">
+            <div 
+              ref={contentRef}
+              className={`space-y-5 xs:space-y-6 sm:space-y-7 md:space-y-8 order-2 lg:order-1 transition-all duration-700 ${
+                contentRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+              }`}
+            >
               
               {/* Main Description */}
               <div className="prose prose-sm xs:prose-base sm:prose-lg">
@@ -59,7 +62,7 @@ const About = () => {
               <div className="space-y-3 xs:space-y-4">
                 <h3 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 xs:mb-4">{t('about.corePrinciples')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-5 md:gap-6">
-                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 bg-card rounded-xl xs:rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300 group">
+                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 glass-card rounded-xl xs:rounded-2xl hover:border-primary/30 hover:shadow-card transition-all duration-300 group card-hover">
                     <div className="p-2 xs:p-2.5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg xs:rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                       <Target className="w-4 h-4 xs:w-5 xs:h-5 text-primary" />
                     </div>
@@ -69,7 +72,7 @@ const About = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 bg-card rounded-xl xs:rounded-2xl border border-border/50 hover:border-accent/30 hover:shadow-accent transition-all duration-300 group">
+                  <div className="flex items-start gap-3 xs:gap-4 p-4 xs:p-5 glass-card rounded-xl xs:rounded-2xl hover:border-accent/30 hover:shadow-accent transition-all duration-300 group card-hover">
                     <div className="p-2 xs:p-2.5 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg xs:rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
                       <Award className="w-4 h-4 xs:w-5 xs:h-5 text-accent" />
                     </div>
@@ -83,9 +86,14 @@ const About = () => {
             </div>
             
             {/* Image Side */}
-            <div className="relative animate-fade-in-right order-1 lg:order-2">
+            <div 
+              ref={imageRef}
+              className={`relative order-1 lg:order-2 transition-all duration-700 delay-200 ${
+                imageRevealed ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+              }`}
+            >
               <div className="relative will-change-transform" style={{ transform: imageTransform }}>
-                <div className="aspect-[4/5] xs:aspect-[3/4] sm:aspect-[4/5] rounded-xl xs:rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl bg-gradient-surface">
+                <div className="aspect-[4/5] xs:aspect-[3/4] sm:aspect-[4/5] rounded-xl xs:rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl bg-gradient-surface gradient-border">
                   <img 
                     src={aboutImage} 
                     alt="Developer workspace showcasing modern development environment" 
@@ -96,7 +104,7 @@ const About = () => {
                 </div>
                 
                 {/* Info Cards */}
-                <Card className="absolute -top-3 -left-3 xs:-top-4 xs:-left-4 sm:-top-6 sm:-left-6 bg-card/95 backdrop-blur-sm border-0 shadow-lg animate-float">
+                <Card className="absolute -top-3 -left-3 xs:-top-4 xs:-left-4 sm:-top-6 sm:-left-6 glass border-0 shadow-lg animate-float hover-glow">
                   <CardContent className="p-2.5 xs:p-3 sm:p-4">
                     <div className="flex items-center gap-2 xs:gap-3">
                       <MapPin className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
@@ -108,7 +116,7 @@ const About = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="absolute -bottom-3 -right-3 xs:-bottom-4 xs:-right-4 sm:-bottom-6 sm:-right-6 bg-card/95 backdrop-blur-sm border-0 shadow-lg animate-float" style={{ animationDelay: '1s' }}>
+                <Card className="absolute -bottom-3 -right-3 xs:-bottom-4 xs:-right-4 sm:-bottom-6 sm:-right-6 glass border-0 shadow-lg animate-float hover-glow" style={{ animationDelay: '1s' }}>
                   <CardContent className="p-2.5 xs:p-3 sm:p-4">
                     <div className="flex items-center gap-2 xs:gap-3">
                       <Calendar className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />

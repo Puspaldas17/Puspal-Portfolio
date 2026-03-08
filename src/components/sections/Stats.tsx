@@ -93,7 +93,7 @@ const Stats = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex flex-col items-center space-y-3 xs:space-y-4 md:space-y-5">
-                <div className={`w-14 h-14 xs:w-16 xs:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center text-primary hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-14 h-14 xs:w-16 xs:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center text-primary hover:scale-110 transition-transform duration-300 gradient-border`}>
                   {stat.icon}
                 </div>
                 <Counter end={stat.value} suffix={stat.suffix} />

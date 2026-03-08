@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/layout";
-import { Hero, Stats, About, Skills, Services, WorkProcess, Process, Portfolio, GitHubActivity, Testimonials, Contact } from "@/components/sections";
+import { Hero, Stats, About, Skills, Services, WorkProcess, Portfolio, GitHubActivity, Testimonials, Contact } from "@/components/sections";
 import { Footer } from "@/components/layout";
 import LoadingScreen from "@/components/LoadingScreen";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
@@ -39,14 +39,21 @@ const Index = () => {
             <Header />
             <Hero />
             <Stats />
+            <div className="section-divider" />
             <About />
+            <div className="section-divider" />
             <Skills />
+            <div className="section-divider" />
             <Services />
+            <div className="section-divider" />
             <WorkProcess />
-            <Process />
+            <div className="section-divider" />
             <Portfolio />
+            <div className="section-divider" />
             <GitHubActivity />
+            <div className="section-divider" />
             <Testimonials />
+            <div className="section-divider" />
             <Contact />
             <Footer />
           </div>

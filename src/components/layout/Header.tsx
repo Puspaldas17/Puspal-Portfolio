@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ThemeCustomizer } from "@/components/ui/theme-customizer";
@@ -7,22 +7,58 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = ["home", "about", "skills", "portfolio", "contact"];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: "Home", id: "home" },
+    { href: "#about", label: "About", id: "about" },
+    { href: "#skills", label: "Skills", id: "skills" },
+    { href: "#portfolio", label: "Portfolio", id: "portfolio" },
+    { href: "#contact", label: "Contact", id: "contact" },
   ];
+
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setIsOpen(false);
+  }, []);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -34,7 +70,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 xs:h-18 sm:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="group">
+            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="group">
               <div className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-tight">
                 <span className={`bg-gradient-primary bg-clip-text text-transparent transition-all ${
                   isScrolled ? '' : 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
@@ -52,19 +88,26 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-5">
-            <nav className="flex items-center space-x-5 lg:space-x-6 xl:space-x-8">
+            <nav className="flex items-center space-x-1 lg:space-x-2 bg-white/5 backdrop-blur-sm rounded-full px-2 py-1.5 border border-white/10">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 group ${
-                    isScrolled 
-                      ? 'text-foreground/70 hover:text-foreground' 
-                      : 'text-white/90 hover:text-white'
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`relative text-xs sm:text-sm lg:text-base font-semibold transition-all duration-300 px-3 py-1.5 rounded-full ${
+                    activeSection === item.id
+                      ? isScrolled
+                        ? 'bg-primary/10 text-primary'
+                        : 'bg-white/20 text-white'
+                      : isScrolled 
+                        ? 'text-foreground/70 hover:text-foreground hover:bg-muted/50' 
+                        : 'text-white/70 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300 rounded-full"></span>
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-primary" />
+                  )}
                 </a>
               ))}
             </nav>
@@ -87,32 +130,34 @@ const Header = () => {
               }`}
               aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <X className={`w-5 h-5 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-              ) : (
-                <Menu className={`w-5 h-5 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-              )}
+              <div className="relative w-5 h-5">
+                <Menu className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${isOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'} ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+                <X className={`absolute inset-0 w-5 h-5 transition-all duration-300 ${isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'} ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+              </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-6">
-            <nav className="flex flex-col space-y-4 pt-4 border-t border-border/20">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-foreground/80 hover:text-foreground font-medium transition-colors duration-200 py-2"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )}
+        <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <nav className="flex flex-col space-y-1 py-4 border-t border-border/20">
+            {navItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={`font-medium transition-all duration-300 py-2.5 px-4 rounded-xl ${
+                  activeSection === item.id
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-foreground/80 hover:text-foreground hover:bg-muted/50'
+                }`}
+                style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
   );
